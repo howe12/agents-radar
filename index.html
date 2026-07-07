@@ -140,23 +140,29 @@ body{display:flex;min-height:100vh;background:var(--main-bg)}
 .content ul,.content ol{margin:10px 0;padding-left:24px}
 .content li{margin:4px 0;line-height:1.7}
 
-/* Project cards for numbered lists */
-.content ol{list-style:none;padding-left:0;counter-reset:project}
+/* Project cards for numbered lists — table-row style */
+.content ol{list-style:none;padding-left:0;counter-reset:project;
+  border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .content ol li{
-  counter-increment:project;margin:12px 0;padding:16px 18px;
-  background:var(--card-bg);border-radius:var(--radius);
-  box-shadow:var(--card-shadow);border:1px solid var(--border);
-  position:relative;padding-left:52px;transition:transform .15s,box-shadow .15s
+  counter-increment:project;margin:0;padding:10px 14px;
+  display:flex;align-items:flex-start;gap:12px;
+  border-top:1px solid var(--border);background:var(--card-bg);
+  transition:background .12s;font-size:.9rem;line-height:1.55
 }
-.content ol li:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.content ol li:first-child{border-top:none}
+.content ol li:hover{background:var(--code-bg)}
 .content ol li::before{
-  content:counter(project);position:absolute;left:14px;top:14px;
-  width:26px;height:26px;border-radius:50%;
+  content:counter(project);flex-shrink:0;
+  width:24px;height:24px;border-radius:50%;
   background:var(--badge-bg);color:var(--badge-fg);
-  font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center
+  font-size:.65rem;font-weight:700;display:flex;
+  align-items:center;justify-content:center;margin-top:2px
 }
+.content ol li .item-body{flex:1;min-width:0}
 .content ol li p{margin:0}
-.content ol li strong{color:var(--sidebar-accent);font-size:.95rem}
+.content ol li strong{color:var(--sidebar-accent);font-size:.9rem}
+.content ol li a{font-size:.8rem;opacity:.6}
+.content ol li a:hover{opacity:1}
 
 /* Star badge */
 .star-badge{
@@ -238,7 +244,8 @@ body{display:flex;min-height:100vh;background:var(--main-bg)}
   .stats-bar{gap:8px}
   .stat-card{padding:10px 14px}
   .stat-card .stat-num{font-size:1.2rem}
-  .content ol li{padding:14px 12px 14px 42px}
+  .content ol li{padding:8px 10px;gap:8px;font-size:.82rem}
+  .content ol li::before{width:20px;height:20px;font-size:.6rem}
 }
 </style>
 </head>
@@ -325,8 +332,8 @@ function enhanceContent(html) {
   // Add star badges: ⭐13,588 → <span class="star-badge">⭐13,588</span>
   html = html.replace(/⭐([\d,]+)/g, '<span class="star-badge">⭐$1</span>');
 
-  // Wrap h5 sections (category headers) content in styled containers
-  // Already handled by CSS border-left
+  // Wrap ordered list item content in .item-body for table-row layout
+  html = html.replace(/<li>(<strong>.*?<\/strong>)(.*?)<\/li>/gs, '<li>$1<div class="item-body">$2</div></li>');
 
   return html;
 }
