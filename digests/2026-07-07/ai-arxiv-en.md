@@ -1,121 +1,103 @@
 # ArXiv AI Research Digest 2026-07-07
 
-> Source: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 50 papers | Generated: 2026-07-07 06:00 UTC
+> Source: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 50 papers | Generated: 2026-07-07 10:14 UTC
 
 ---
 
-Here is the structured ArXiv AI Research Digest for July 6, 2026.
+# ArXiv AI Research Digest — 2026-07-07
+
+## Today's Highlights
+
+This week's submissions reveal a strong convergence around **verification and self-improvement in LLMs**, with multiple papers tackling how models can check their own outputs (LLM-as-a-Verifier, Weak-to-Strong Generalization) and recursively evolve skills (MetaSkill-Evolve, TREK). **Agentic systems** continue to mature, with new frameworks for long-horizon manipulation (Cortex), variational automation (GaP), and optimization modeling (OptiAgent). A notable emerging theme is **privacy-preserving and secure deployment**, with papers addressing watermarking with selective disclosure, prompt injection defenses with formal guarantees, and privacy-preserving robustness verification. **World models and generative approaches** also see advances in multiplayer settings, discrete diffusion understanding, and steering optimization trajectories.
 
 ---
 
-## ArXiv AI Research Digest: 2026-07-07
+## Key Papers
 
-### 1. Today's Highlights
+### 🧠 Large Language Models
 
-Today’s papers reveal a strong shift toward **operational robustness** in AI systems, moving beyond raw capability to address deployment fragility. Key themes include overcoming distribution shifts in robotic vision and video generation, and tackling the "post-training bottleneck" where scaling strong models becomes prohibitively expensive. Significant progress is also seen in **verification**—both as a new axis for scaling LLM capabilities and as a method for watermarking and safety auditing. Finally, a wave of work on **agentic self-improvement** suggests a growing consensus that autonomous skill evolution and context management are the next critical frontiers for long-horizon tasks.
+**Weak-to-Strong Generalization via Direct On-Policy Distillation**
+http://arxiv.org/abs/2607.05394v1 — Shiyuan Feng et al.
+*Proposes a distillation method that transfers reasoning capabilities from weak to strong models without expensive on-policy rollouts, addressing a key bottleneck in RLVR post-training.*
 
----
+**LLM-as-a-Verifier: A General-Purpose Verification Framework**
+http://arxiv.org/abs/2607.05391v1 — Jacky Kwok et al.
+*Identifies verification as a new scaling axis for LLMs and demonstrates a framework where models assess the correctness of their own solutions, orthogonal to pre-training and test-time compute.*
 
-### 2. Key Papers
+**Faithfulness to Refusal: A Causal Audit of Neuron Selectors**
+http://arxiv.org/abs/2607.05355v1 — Ananth Eswar et al.
+*Introduces paired causal audits to test whether attribution scores for neuron importance actually identify causally relevant neurons for safety-relevant refusal behaviors in LLMs.*
 
-#### 🧠 Large Language Models
+**How Much is Left? LLMs Linearly Encode Their Remaining Output Length**
+http://arxiv.org/abs/2607.05316v1 — Mohamed Amine Merzouk et al.
+*Discovers that LLMs maintain linear representations of their remaining output length, providing insights into model internals and potential for better generation control.*
 
-1. **Weak-to-Strong Generalization via Direct On-Policy Distillation**
-   Link: [http://arxiv.org/abs/2607.05394](http://arxiv.org/abs/2607.05394)
-   Authors: Shiyuan Feng et al.
-   - Proposes distilling reasoning traces from a weaker model to a stronger one on-policy, significantly reducing the computational cost of RLVR post-training for large models.
+### 🤖 Agents & Reasoning
 
-2. **LLM-as-a-Verifier: A General-Purpose Verification Framework**
-   Link: [http://arxiv.org/abs/2607.05391](http://arxiv.org/abs/2607.05391)
-   Authors: Jacky Kwok et al.
-   - Identifies verification as a new, scalable axis for improving LLMs, demonstrating a general-purpose framework that checks the correctness of model outputs to boost reliability.
+**Cortex: A Bidirectionally Aligned Embodied Agent Framework for Long-horizon Manipulation**
+http://arxiv.org/abs/2607.05377v1 — Jiaqi Peng et al.
+*Bridges the gap between high-level planning and low-level control in VLA models through bidirectional alignment, enabling more reliable long-horizon robot manipulation.*
 
-3. **How Much is Left? LLMs Linearly Encode Their Remaining Output Length**
-   Link: [http://arxiv.org/abs/2607.05316](http://arxiv.org/abs/2607.05316)
-   Authors: Mohamed Amine Merzouk et al.
-   - Provides mechanistic evidence that LLMs maintain a linear representation of their remaining output length, offering new insight into how models plan their generation structure.
+**CompactionRL: Reinforcement Learning with Context Compaction for Long-Horizon Agents**
+http://arxiv.org/abs/2607.05378v1 — Yujiang Li et al.
+*Addresses context window limitations in long-horizon LLM agents by learning to compact interaction histories into compressed representations during RL training.*
 
-4. **Selective Disclosure Watermarking for Large Language Models**
-   Link: [http://arxiv.org/abs/2607.05353](http://arxiv.org/abs/2607.05353)
-   Authors: Xuyang Chen et al.
-   - Introduces a multi-bit watermarking scheme where a verifier can only decode parts of the payload for which they have the key, enabling granular, privacy-preserving provenance tracking.
+**MetaSkill-Evolve: Recursive Self-Improvement of LLM Agents via Two-Timescale Meta-Skill Evolution**
+http://arxiv.org/abs/2607.05297v1 — Zefeng Wang et al.
+*Enables LLM agents to recursively evolve their own skills through a two-timescale mechanism, adapting to task diversity without hand-authored skill libraries.*
 
-5. **Faithfulness to Refusal: A Causal Audit of Neuron Selectors**
-   Link: [http://arxiv.org/abs/2607.05355](http://arxiv.org/abs/2607.05355)
-   Authors: Ananth Eswar et al.
-   - Presents a pair of causal audits showing that attribution scores for identifying neuron rows related to model refusal are often unreliable, challenging a common tool for safety editing.
+**GaP: A Graph-as-Policy Multi-Agent Self-Learning Harness for Variational Automation Tasks**
+http://arxiv.org/abs/2607.05369v1 — Kaiyuan Chen et al.
+*Combines interpretable graph-based robot programming with model-free reinforcement learning for industrial automation tasks with high variability.*
 
-#### 🤖 Agents & Reasoning
+### 🔧 Methods & Frameworks
 
-6. **MetaSkill-Evolve: Recursive Self-Improvement of LLM Agents via Two-Timescale Meta-Skill Evolution**
-   Link: [http://arxiv.org/abs/2607.05297](http://arxiv.org/abs/2607.05297)
-   Authors: Zefeng Wang et al.
-   - Proposes a framework where agents recursively evolve their own set of reusable "skills" on both short and long timescales, enabling continuous adaptation to novel tasks without hand-authored tools.
+**Search Beyond What Can Be Taught: Evolving the Knowledge Boundary in Agentic Visual Generation**
+http://arxiv.org/abs/2607.05382v1 — Haozhe Wang et al.
+*Addresses the structural knowledge bottleneck in visual generators by enabling agentic search for out-of-distribution entities, characters, and post-cutoff events.*
 
-7. **Search Beyond What Can Be Taught: Evolving the Knowledge Boundary in Agentic Visual Generation**
-   Link: [http://arxiv.org/abs/2607.05382](http://arxiv.org/abs/2607.05382)
-   Authors: Haozhe Wang et al.
-   - Addresses the "world-knowledge bottleneck" in visual generators by introducing an agentic search mechanism that retrieves and renders novel, post-cutoff concepts (e.g., new characters).
+**What Does a Discrete Diffusion Model Learn?**
+http://arxiv.org/abs/2607.05381v1 — Rodrigo Casado Noguerales et al.
+*Provides a rigorous theoretical framework demystifying discrete diffusion models, showing that denoising, score matching, and bridge predictors are the same object in different coordinates.*
 
-8. **CompactionRL: Reinforcement Learning with Context Compaction for Long-Horizon Agents**
-   Link: [http://arxiv.org/abs/2607.05378](http://arxiv.org/abs/2607.05378)
-   Authors: Yujiang Li et al.
-   - Solves the finite-context-window problem for agentic LLMs by using learned "compaction" to summarize long interaction histories, enabling stable RL training for extended trajectories.
+**MoP-JEPA: Hard-Assigned Predictor Mixtures for Stochastic JEPA World Models**
+http://arxiv.org/abs/2607.05238v1 — Zhi Song et al.
+*Fixes a fundamental limitation of JEPA world models in stochastic environments by replacing single deterministic predictors with hard-assigned mixture predictors.*
 
-9. **GaP: A Graph-as-Policy Multi-Agent Self-Learning Harness For Variational Automation Tasks**
-   Link: [http://arxiv.org/abs/2607.05369](http://arxiv.org/abs/2607.05369)
-   Authors: Kaiyuan Chen et al.
-   - Bridges agentic coding and robot control by representing a policy as a graph, allowing for interpretable, compositional, and adaptable behavior in high-variation industrial tasks.
+**Steering Optimisation Trajectories in Diffusion Representation Learning**
+http://arxiv.org/abs/2607.05319v1 — Rajat Rasal et al.
+*Analyzes how diffusion autoencoders learn different latent structures depending on optimization dynamics, revealing trajectories that organize around Pareto fronts of reconstruction vs. representation quality.*
 
-#### 🔧 Methods & Frameworks
+### 📊 Applications
 
-10. **TREK: Distill to Explore, Reinforce to Refine**
-    Link: [http://arxiv.org/abs/2607.05339](http://arxiv.org/abs/2607.05339)
-    Authors: Yuanda Xu et al.
-    - Introduces a two-stage method that uses a teacher model to explore hard reasoning problems and distills these trajectories to bootstrap GRPO training, overcoming the "cold-start" problem for difficult prompts.
+**Multiplayer Interactive World Models with Representation Autoencoders**
+http://arxiv.org/abs/2607.05352v1 — Anthony Hu et al.
+*Introduces the first multiplayer world model that conditions on multiple action streams, learning to attribute environmental changes to specific agents in highly dynamic settings.*
 
-11. **Graph Sparse Sampling: Breaking the Curse of the Horizon in Continuous MDP Planning**
-    Link: [http://arxiv.org/abs/2607.05359](http://arxiv.org/abs/2607.05359)
-    Authors: Idan Lev-Yehudi et al.
-    - Proposes a graph-based sparse sampling approach for planning in continuous domains that avoids the exponential growth of tree-based methods with lookahead depth.
+**OptiAgent: End-to-End Optimization Modeling via Multi-Agent Iterative Refinement**
+http://arxiv.org/abs/2607.05346v1 — Adriana Laurindo Monteiro et al.
+*Creates a multi-agent system that converts natural language descriptions of operations research problems into solver-ready mathematical formulations and executable code.*
 
-12. **Multiplayer Interactive World Models with Representation Autoencoders**
-    Link: [http://arxiv.org/abs/2607.05352](http://arxiv.org/abs/2607.05352)
-    Authors: Anthony Hu et al.
-    - Presents the first world model that conditions on the action streams of multiple agents, enabling the model to predict state changes in highly dynamic, interactive environments like multiplayer games.
-
-13. **MoP-JEPA: Hard-Assigned Predictor Mixtures for Stochastic JEPA World Models**
-    Link: [http://arxiv.org/abs/2607.05238](http://arxiv.org/abs/2607.05238)
-    Authors: Zhi Song et al.
-    - Replaces the single deterministic predictor in JEPA world models with a mixture of experts, allowing the model to correctly represent stochastic branching transitions in the environment.
-
-#### 📊 Applications
-
-14. **From Fixed to Free Cameras: Calibration-Free View-Robust Vision-Language-Action Model**
-    Link: [http://arxiv.org/abs/2607.05396](http://arxiv.org/abs/2607.05396)
-    Authors: Wenhao Li et al.
-    - Develops a VLA policy for robots that is robust to arbitrary camera repositioning without requiring calibration, a critical step for real-world deployment outside the lab.
-
-15. **OptiAgent: End-to-End Optimization Modeling via Multi-Agent Iterative Refinement**
-    Link: [http://arxiv.org/abs/2607.05346](http://arxiv.org/abs/2607.05346)
-    Authors: Adriana Laurindo Monteiro et al.
-    - Introduces a multi-agent system that takes a natural language operations research problem and iteratively refines it into a solver-ready mathematical formulation and working code.
+**Evaluating and Understanding Model Editing for Medical Vision Language Models**
+http://arxiv.org/abs/2607.05310v1 — Guli Zhu et al.
+*Provides the first benchmark tailored for model editing in clinical VLMs, revealing that general-purpose editing techniques fail under realistic medical requirements.*
 
 ---
 
-### 3. Research Trend Signal
+## Research Trend Signal
 
-A clear trend in today's papers is the shift from **scaling laws** to **attenuation and efficiency** in the post-training regime. Research is no longer just about "how to train a bigger model" but "how to get the most out of a fixed, large model." This manifests in three ways: **Distillation of reasoning** (TREK, Weak-to-Strong) to bootstrap stronger models without costly rollouts; **Agentic self-improvement** (MetaSkill-Evolve, Search Beyond) to extend capability without retraining the base model; and **Robustness to distribution shift** (From Fixed to Free Cameras, Cortex) to make current systems usable in messy, real-world conditions. The focus on verification as a scaling axis (LLM-as-a-Verifier) further underscores a maturation of the field, where the bottleneck is moving from generation power to guaranteed correctness and safety.
+A clear trend emerging from today's submissions is the **shift from passive generation to active verification and self-improvement**. Multiple papers (LLM-as-a-Verifier, Weak-to-Strong Generalization, TREK, Faithfulness to Refusal) converge on the idea that LLMs must not only generate outputs but also assess their correctness—creating a new "verification scaling axis." This is complemented by work on **recursive self-evolution** (MetaSkill-Evolve) and **model editing evaluation** in high-stakes domains like medicine.
+
+Another strong signal is the **practical deployment focus**: watermarking with selective disclosure, privacy-preserving verification, prompt injection defenses with formal guarantees, and adaptive batching for inference serving. These papers suggest the community is moving beyond capability demonstrations toward production-ready safety and efficiency mechanisms.
+
+Finally, **world and environment models** are becoming more sophisticated, handling stochasticity (MoP-JEPA), multiplayer dynamics, and continuous state spaces (Graph Sparse Sampling), reflecting growing ambition in robotics and simulation.
 
 ---
 
-### 4. Worth Deep Reading
+## Worth Deep Reading
 
-1. **From Fixed to Free Cameras: Calibration-Free View-Robust Vision-Language-Action Model**
-   - **Reasoning:** This paper tackles a fundamental, practical problem in robotic deployment that is often ignored in academic benchmarks. Its approach to achieving calibration-free robustness could be a key enabler for generalist robotics, making it highly relevant for both researchers and practitioners.
+1. **What Does a Discrete Diffusion Model Learn?** (http://arxiv.org/abs/2607.05381v1) — Foundational theoretical clarity that unifies disparate interpretations of discrete diffusion models; essential for anyone working with discrete generative models in NLP or molecular generation.
 
-2. **Weak-to-Strong Generalization via Direct On-Policy Distillation**
-   - **Reasoning:** This work directly addresses the critical bottleneck of post-training cost for ever-larger models. The concept of distilling reasoning pathways from a weaker to a stronger model on-policy is a novel and potentially paradigm-shifting method for efficient alignment, making it essential reading for those working on LLM alignment and training.
+2. **LLM-as-a-Verifier: A General-Purpose Verification Framework** (http://arxiv.org/abs/2607.05391v1) — Proposes a genuinely new scaling axis for LLMs, with potentially broad implications for how we think about model capability improvement beyond pre-training and inference compute.
 
-3. **Multiplayer Interactive World Models with Representation Autoencoders**
-   - **Reasoning:** This paper moves world models beyond single-agent, simple-physics environments into complex, multi-agent dynamics. The architecture and findings are likely to be foundational for future work in multi-agent RL, simulation, and autonomous driving, representing a clear step forward in a crucial research area.
+3. **Faithfulness to Refusal: A Causal Audit of Neuron Selectors** (http://arxiv.org/abs/2607.05355v1) — Methodologically rigorous causal auditing that challenges common assumptions in mechanistic interpretability; directly relevant to safety alignment work.

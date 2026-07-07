@@ -1,6 +1,6 @@
 # AI Open Source Trends 2026-07-07
 
-> Sources: GitHub Trending + GitHub Search API | Generated: 2026-07-07 06:00 UTC
+> Sources: GitHub Trending + GitHub Search API | Generated: 2026-07-07 10:14 UTC
 
 ---
 
@@ -8,57 +8,113 @@
 
 ## 1. Today's Highlights
 
-The AI open-source ecosystem today is dominated by a massive wave of **agent skill/plugin development**, with multiple projects exceeding 1,000 stars in a single day. The trending list reveals an explosive community interest in extending coding agents like Claude Code and OpenAI Codex with specialized skills — from video processing and meeting transcription to system prompt extraction and content quality control. Notably, **system prompt leakage** has become a hot topic, with one repo collecting prompts from dozens of major AI products. Meanwhile, the topic search data shows sustained high activity in **multi-agent frameworks**, **RAG pipelines**, and **embodied AI research**, suggesting the field is maturing across both application and research dimensions.
+Today marks an extraordinary explosion in the **AI agent skills ecosystem**, with multiple "skill" repositories for Claude Code, Codex, and Gemini CLI going viral simultaneously — a clear sign that the community is standardizing around agent skill frameworks. The **system prompt leak** of virtually every major AI model (Claude Fable 5, GPT 5.5, Gemini 3.5) from `asgeirtj/system_prompts_leaks` has become one of the most impactful open-source intelligence events of the year. Meanwhile, **local-first AI** continues its rapid ascent, with Rust-based projects like `Zackriya-Solutions/meetily` (privacy-first meeting assistant) gaining 2,494 stars in a single day, and `alibaba/zvec` entering the vector database space with an in-process, lightweight alternative to Milvus and Qdrant. The agent skills theme is so dominant that **6 of the top 16 trending repos** today are agent skill packs, indicating the community is moving from building individual agents to assembling reusable skill libraries.
 
 ## 2. Top Projects by Category
 
-### 🔧 AI Infrastructure
-- [**alibaba/zvec**](https://github.com/alibaba/zvec) ⭐13,632 (+382 today) — A lightweight, lightning-fast in-process vector database written in C++, designed for embedding-heavy applications where latency is critical.
-- [**firecrawl/firecrawl**](https://github.com/firecrawl/firecrawl) ⭐146,564 (+867 today) — The leading API for web scraping and search at scale, increasingly used by AI agents to fetch live data.
-- [**steipete/CodexBar**](https://github.com/steipete/CodexBar) ⭐598 (+598 today) — A macOS menu bar app showing real-time usage stats for OpenAI Codex and Claude Code, addressing the growing need for cost monitoring.
-
 ### 🤖 AI Agents / Workflows
-- [**Zackriya-Solutions/meetily**](https://github.com/Zackriya-Solutions/meetily) ⭐2,494 (+2,494 today) — Privacy-first AI meeting assistant with local-only processing (Whisper transcription, speaker diarization, Ollama summarization) built in Rust.
-- [**addyosmani/agent-skills**](https://github.com/addyosmani/agent-skills) ⭐1,112 (+1,112 today) — A production-grade collection of engineering skills for AI coding agents, authored by a well-known Chrome developer.
-- [**alirezarezvani/claude-skills**](https://github.com/alirezarezvani/claude-skills) ⭐610 (+610 today) — 345 curated skills and plugins for Claude Code and 8 other coding agents, covering engineering, marketing, product, and compliance.
-- [**ogulcancelik/herdr**](https://github.com/ogulcancelik/herdr) ⭐779 (+779 today) — An agent multiplexer living in your terminal, enabling simultaneous interaction with multiple AI agents.
-- [**gastownhall/gastown**](https://github.com/gastownhall/gastown) ⭐291 (+291 today) — A multi-agent workspace manager for organizing and orchestrating agent teams.
 
-### 📦 AI Applications
-- [**ruvnet/RuView**](https://github.com/ruvnet/RuView) ⭐470 (+470 today) — Turns commodity WiFi signals into spatial intelligence and vital sign monitoring without any cameras — a novel application of AI in edge computing.
-- [**bradautomates/claude-video**](https://github.com/bradautomates/claude-video) ⭐427 (+427 today) — Gives Claude the ability to watch any video by downloading frames and transcriptions, then feeding them to the LLM.
-- [**karakeep-app/karakeep**](https://github.com/karakeep-app/karakeep) ⭐199 (+199 today) — Self-hostable bookmark-everything app with AI-based automatic tagging and full-text search.
-- [**mvanhorn/last30days-skill**](https://github.com/mvanhorn/last30days-skill) ⭐458 (+458 today) — An AI agent skill that researches topics across Reddit, X, YouTube, HN, and Polymarket, synthesizing grounded summaries.
+- **[asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks)** — ⭐1,378 today (Total: ~1,378)
+  Extracted system prompts from Anthropic (Claude Fable 5, Opus 4.8), OpenAI (ChatGPT 5.5 Thinking, GPT 5.5 Instant, Codex), Google Gemini, xAI Grok, Cursor, Copilot, and more — essential intel for anyone building on top of these APIs.
+
+- **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** — ⭐1,112 today (Total: ~1,112)
+  Production-grade engineering skills for AI coding agents, created by a Chrome team veteran — a curated set of capabilities that turns agents into competent engineers.
+
+- **[alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills)** — ⭐610 today (Total: ~610)
+  Massive collection of 345 skills for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents — spanning engineering, marketing, product, compliance, research, finance, and productivity.
+
+- **[openai/codex-plugin-cc](https://github.com/openai/codex-plugin-cc)** — ⭐906 today (Total: ~906)
+  OpenAI's official integration allowing Claude Code to use OpenAI Codex for code review and task delegation — a rare cross-platform collaboration between AI vendors.
+
+- **[gastownhall/gastown](https://github.com/gastownhall/gastown)** — ⭐291 today (Total: ~291)
+  Multi-agent workspace manager written in Go — orchestrates multiple AI agents in a shared environment, addressing the coordination problem in agent swarms.
+
+---
+
+### 🔧 AI Infrastructure (Frameworks, SDKs, Inference Engines, Dev Tools)
+
+- **[firecrawl/firecrawl](https://github.com/firecrawl/firecrawl)** — ⭐867 today (Total: ~146,840 total)
+  The API to search, scrape, and interact with the web at scale — the essential data ingestion layer for AI agents, now with massive community adoption.
+
+- **[alibaba/zvec](https://github.com/alibaba/zvec)** — ⭐382 today (Total: ~13,768 total)
+  Alibaba's lightweight, lightning-fast in-process vector database — a C++ embedded vector store that competes with LanceDB and txtai for on-device AI use cases.
+
+- **[ogulcancelik/herdr](https://github.com/ogulcancelik/herdr)** — ⭐779 today (Total: ~779)
+  Agent multiplexer living in your terminal — routes requests across multiple AI models and agents, bringing traffic management to the agent ecosystem.
+
+- **[steipete/CodexBar](https://github.com/steipete/CodexBar)** — ⭐598 today (Total: ~598)
+  macOS menu bar utility showing usage stats for OpenAI Codex and Claude Code — simple but essential dev tool for tracking AI consumption.
+
+---
+
+### 📦 AI Applications (Specific Apps, Vertical Solutions)
+
+- **[Zackriya-Solutions/meetily](https://github.com/Zackriya-Solutions/meetily)** — ⭐2,494 today (Total: ~2,494) 🏆 **Top Trending Today**
+  Privacy-first AI meeting assistant with 4× faster Parakeet/Whisper live transcription, speaker diarization, and Ollama summarization — all 100% local, no cloud required.
+
+- **[ruvnet/RuView](https://github.com/ruvnet/RuView)** — ⭐470 today (Total: ~470)
+  Converts commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection without any camera — novel embodied AI application.
+
+- **[karakeep-app/karakeep](https://github.com/karakeep-app/karakeep)** — ⭐199 today (Total: ~199)
+  Self-hostable bookmark-everything app (links, notes, images) with AI-based automatic tagging and full-text search — a local-first answer to AI-powered knowledge management.
+
+- **[bradautomates/claude-video](https://github.com/bradautomates/claude-video)** — ⭐427 today (Total: ~427)
+  Gives Claude the ability to "watch" any video — downloads, extracts frames, transcribes, and hands it all to Claude for analysis.
+
+---
 
 ### 🧠 LLMs / Training
-- [**unslothai/unsloth**](https://github.com/unslothai/unsloth) ⭐67,867 — A web UI and library for training and running open models locally (Gemma 4, Qwen3.6, DeepSeek), now with reinforcement learning support.
-- [**OpenRLHF/OpenRLHF**](https://github.com/OpenRLHF/OpenRLHF) ⭐9,753 — An easy-to-use, scalable agentic RL framework supporting PPO, DAPO, REINFORCE++, and integration with vLLM and Ray.
-- [**OpenPipe/ART**](https://github.com/OpenPipe/ART) ⭐10,337 — Agent Reinforcement Trainer using GRPO for training multi-step agents on real-world tasks.
-- [**vllm-project/vllm**](https://github.com/vllm-project/vllm) ⭐85,553 — High-throughput LLM inference engine, increasingly used as the backbone for agent systems.
+
+- *(No new trending repos today specifically focused on model training or weights — a notable shift toward applications and agents)*
+
+---
 
 ### 🔍 RAG / Knowledge
-- [**mem0ai/mem0**](https://github.com/mem0ai/mem0) ⭐60,262 — Universal memory layer for AI agents, enabling persistent context across sessions.
-- [**thedotmack/claude-mem**](https://github.com/thedotmack/claude-mem) ⭐86,204 (+86,204 overall) — Captures everything an agent does during sessions, compresses it, and injects relevant context into future sessions.
-- [**infiniflow/ragflow**](https://github.com/infiniflow/ragflow) ⭐84,457 — Leading open-source RAG engine combining retrieval with agent capabilities for a superior context layer.
-- [**headroomlabs-ai/headroom**](https://github.com/headroomlabs-ai/headroom) ⭐57,229 — Compresses tool outputs, logs, and RAG chunks before they reach the LLM, achieving 60-95% token reduction.
-- [**Graphify-Labs/graphify**](https://github.com/Graphify-Labs/graphify) ⭐78,897 — Turns any folder of code, docs, or schemas into a queryable knowledge graph for AI coding assistants.
+
+- **[mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)** — ⭐458 today (Total: ~458)
+  AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web, then synthesizes a grounded summary — RAG applied to temporal research.
+
+- **[Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)** — ⭐1,458 today (Total: ~1,458)
+  Gives AI "good taste" — stops agents from generating boring, generic slop. A quality-of-life RAG enhancement for output quality.
+
+---
 
 ## 3. Trend Signal Analysis
 
-**Explosive growth in agent skill ecosystems**: The most striking signal today is the viral spread of "skill" and "plugin" repositories for coding agents. Projects like `agent-skills` (+1,112), `claude-skills` (+610), and `taste-skill` (+1,458) indicate that the community is rapidly building a **marketplace-like ecosystem** for extending Claude Code, Codex, and Gemini CLI. The `system_prompts_leaks` repo (+1,378) taps into this by revealing the underlying instructions for major AI products, suggesting developers are reverse-engineering agent behaviors to build better skills.
+### Explosive Community Attention: The Agent Skills Gold Rush
 
-**Rust emerging as the agent infrastructure language**: Three Rust-based projects — `meetily` (meeting assistant), `herdr` (agent multiplexer), and `RuView` (WiFi sensing) — all gained significant traction. Rust's performance and safety advantages are making it the go-to language for agent-adjacent infrastructure tools that need low latency and local-first processing.
+The single strongest signal today is the **commoditization of AI agent capabilities through skill packs**. With 6 trending repos dedicated to agent skills (claude-skills, agent-skills, taste-skill, last30days-skill, system_prompts_leaks, codex-plugin-cc), the community has recognized that the moat is no longer the agent framework itself but the **library of reusable, composable skills** that agents can execute. The 1,100+ star count in one day for `addyosmani/agent-skills` — from a well-known Chrome performance engineer — signals that even established tech leaders are pivoting to this skill-pack paradigm.
 
-**Memory and context management as critical infrastructure**: The massive star counts for `claude-mem` (86K), `mem0` (60K), and `headroom` (57K) reflect a maturing understanding that **agent quality depends on good memory systems**. The community is moving beyond simple RAG toward sophisticated context compression, persistent memory layers, and knowledge graphs.
+### New Tech Stacks Emerging
 
-**First appearance of agent multiplexing**: `herdr` introduces the concept of an "agent multiplexer" — a terminal tool that lets users interact with multiple agents simultaneously. This is a new architectural pattern that could lead to agent orchestration standards.
+1. **Rust for local-first AI**: Four Rust projects in the top trending list (meetily, RuView, herdr) — Rust is becoming the default for privacy-preserving, local-processing AI tools. The highest-starred repo today (meetily at 2,494) is built entirely in Rust with no cloud dependency.
 
-**Connection to LLM releases**: The ollama repo now references Kimi-K2.6, GLM-5.1, and Qwen — indicating continued rapid iteration of foundation models. The agent skill rush correlates with the increasing capability and availability of these models via open-source frameworks.
+2. **Cross-platform agent interoperability**: OpenAI's `codex-plugin-cc` enabling Claude Code to call OpenAI Codex represents a breakthrough in cross-vendor agent cooperation. This signals a shift from walled-garden agents to an **interoperable agent ecosystem** where different models collaborate.
+
+3. **System prompt reverse engineering as a service**: The `system_prompts_leaks` repo with 1,378 stars today suggests that understanding how frontier models are prompted is now a critical developer need — expect this to become a standard practice for agent builders.
+
+### Connection to Recent Industry Events
+
+The timing of these system prompt leaks coincides with the recent releases of Claude Fable 5, GPT 5.5, and Gemini 3.5 models. The community is aggressively dissecting these new models' instruction-following boundaries. The explosion of skill packs for Claude Code and Codex (both recently released/updated) indicates that **coding agents have achieved mainstream developer adoption**, and the bottleneck has shifted from "will it work?" to "how do I customize it?"
+
+---
 
 ## 4. Community Hot Spots
 
-- **📡 `system_prompts_leaks`** — A controversial but highly followed project revealing the system prompts behind Claude, ChatGPT, Gemini, and Grok. Developers should monitor this for understanding how major AI products are engineered under the hood.
-- **🎯 `meetily`** — The #1 trending repo today (2,494 stars). Demonstrates that privacy-first, local-only AI meeting assistants are a massive unmet need, especially with Rust-based performance.
-- **🧩 Agent skill ecosystems (addyosmani/agent-skills, alirezarezvani/claude-skills)** — These are becoming de facto skill registries. Developers building for Claude Code or Codex should contribute skills here for community visibility.
-- **🧠 Memory infrastructure (mem0, claude-mem, headroom)** — Persistent, compressed, and structured memory for agents is a foundational technology. These projects are likely to become essential components of the agent tech stack.
-- **🔌 Agent multiplexing (herdr)** — A new architectural approach for managing multiple agents simultaneously in the terminal. Worth watching as the "agent operating system" concept evolves.
+### 🔥 Projects & Directions Worth Developer Focus
+
+- **[asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks)** — Essential for anyone building AI products. Understanding the secret system prompts of Anthropic, OpenAI, and Google models gives you the ability to align your applications with how these models are actually instructed internally. A single source of truth for prompt engineering intelligence.
+
+- **[Zackriya-Solutions/meetily](https://github.com/Zackriya-Solutions/meetily)** — The 2,494-star surge confirms that **local-first AI meeting tools** are a massive unmet need. With Otter.ai and similar services requiring cloud uploads, Meetily's 100% local Rust-based approach (Whisper + speaker diarization + Ollama summarization) addresses enterprise privacy concerns directly.
+
+- **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** — From a Chrome team member, this is the canonical "skill pack" for engineering-focused AI agents. If you use Claude Code, Codex, or Gemini CLI, this repo provides production-grade skills that are immediately usable.
+
+- **[alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills)** — With 345 skills across 30+ agents, this is the most comprehensive skill library available. If you're building an enterprise agent workflow, this repo alone covers everything from legal compliance to finance analysis — the largest skill collection in the open-source ecosystem.
+
+- **[openai/codex-plugin-cc](https://github.com/openai/codex-plugin-cc)** — The fact that OpenAI **officially** built an integration for Claude Code to use Codex signals that cross-platform agent interoperability is now an official priority. Developers should watch this pattern — we may see similar plugins for Gemini, Grok, and others.
+
+- **[Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)** — A deceptively important project. The 1,458-star spike shows the community is tired of generic AI output. This skill addresses output quality at the agent skill layer rather than at the model layer — a pattern likely to become standard in all agent toolchains.
+
+---
+
+*Report generated from 2026-07-07 GitHub trending and topic search data. Total AI-related projects analyzed: ~163. Data reflects today's new stars and 7-day topic search results.*
