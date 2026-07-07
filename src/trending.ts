@@ -43,6 +43,11 @@ const SEARCH_QUERIES = [
   { q: "topic:vector-database", label: "vector-db" },
   { q: "topic:large-language-model", label: "llm-model" },
   { q: "topic:machine-learning", label: "ml" },
+  { q: "topic:robotics", label: "robotics" },
+  { q: "topic:ros", label: "ros" },
+  { q: "topic:reinforcement-learning", label: "rl" },
+  { q: "topic:robot-learning", label: "robot-learning" },
+  { q: "topic:embodied-ai", label: "embodied-ai" },
 ];
 
 // ---------------------------------------------------------------------------
