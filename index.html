@@ -376,10 +376,14 @@ function dateLabel(d) {
 // ── Parse project list item ──────────────────────────────────────
 function parseProjectItem(liHtml) {
   // Strip <li> wrapper
-  var inner = liHtml.replace(/^<\/?li>/i, '').replace(/<\/?li>$/i, '');
+  var inner = liHtml.replace(/^\s*<\/?li[^>]*>\s*/, '').replace(/\s*<\/?li>\s*$/, '');
 
-  // Split on <br> — marked.js inserts <br> between lines
-  var parts = inner.split(/<br\s*\/?>/i);
+  // Strip <p> wrapper if present (marked.js wraps multi-line content in <p>)
+  var pMatch = inner.match(/^\s*<p>([\s\S]*)<\/p>\s*$/);
+  if (pMatch) inner = pMatch[1];
+
+  // Split on newlines or <br> — marked.js may use either
+  var parts = inner.split(/\n|<br\s*\/?>/i).map(function(s) { return s.trim(); }).filter(Boolean);
 
   // Part 0: <strong>Name/Repo</strong> ⭐X,XXX
   var namePart = (parts[0] || '').trim();
