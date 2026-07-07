@@ -102,7 +102,7 @@ body{display:flex;min-height:100vh;background:var(--main-bg)}
 /* ── Main content ──────────────────────────────────────────────── */
 .main{
   margin-left:var(--sidebar-width);flex:1;min-width:0;
-  padding:48px 56px 80px;max-width:940px;
+  padding:48px 56px 80px;max-width:1060px;
 }
 .main-header{margin-bottom:36px;padding-bottom:20px;border-bottom:2px solid var(--border)}
 .main-header h1{font-size:1.9rem;color:var(--h1-color);font-weight:800;letter-spacing:-0.5px}
@@ -129,47 +129,16 @@ body{display:flex;min-height:100vh;background:var(--main-bg)}
 .content h2{font-size:1.3rem;margin:30px 0 16px;color:var(--h2-color);font-weight:700}
 .content h3{font-size:1.1rem;margin:26px 0 14px;color:var(--h3-color);font-weight:700}
 .content h4{font-size:1rem;margin:22px 0 12px;color:var(--h3-color);font-weight:600}
-.content h5{font-size:.92rem;margin:18px 0 10px;color:var(--h3-color);font-weight:600;
-  padding:6px 12px;background:var(--callout-bg);border-radius:var(--radius-sm);
+.content h5{font-size:.92rem;margin:28px 0 12px;color:var(--h3-color);font-weight:600;
+  padding:8px 14px;background:var(--callout-bg);border-radius:var(--radius-sm);
   border-left:3px solid var(--sidebar-accent)}
 .content h6{font-size:.85rem;margin:14px 0 8px}
 
 .content p{margin:10px 0}
 .content a{color:var(--link);text-decoration:none;font-weight:500;border-bottom:1px solid transparent;transition:border-color .15s}
 .content a:hover{border-bottom-color:var(--link)}
-.content ul,.content ol{margin:10px 0;padding-left:24px}
+.content ul,.content ol:not(.keep-native){margin:10px 0;padding-left:24px}
 .content li{margin:4px 0;line-height:1.7}
-
-/* Project cards for numbered lists — table-row style */
-.content ol{list-style:none;padding-left:0;counter-reset:project;
-  border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.content ol li{
-  counter-increment:project;margin:0;padding:10px 14px;
-  display:flex;align-items:flex-start;gap:12px;
-  border-top:1px solid var(--border);background:var(--card-bg);
-  transition:background .12s;font-size:.9rem;line-height:1.55
-}
-.content ol li:first-child{border-top:none}
-.content ol li:hover{background:var(--code-bg)}
-.content ol li::before{
-  content:counter(project);flex-shrink:0;
-  width:24px;height:24px;border-radius:50%;
-  background:var(--badge-bg);color:var(--badge-fg);
-  font-size:.65rem;font-weight:700;display:flex;
-  align-items:center;justify-content:center;margin-top:2px
-}
-.content ol li .item-body{flex:1;min-width:0}
-.content ol li p{margin:0}
-.content ol li strong{color:var(--sidebar-accent);font-size:.9rem}
-.content ol li a{font-size:.8rem;opacity:.6}
-.content ol li a:hover{opacity:1}
-
-/* Star badge */
-.star-badge{
-  display:inline-block;padding:2px 8px;border-radius:10px;
-  background:var(--tag-bg);color:var(--tag-fg);font-size:.7rem;
-  margin-left:6px;font-weight:600
-}
 
 .content blockquote{
   margin:16px 0;padding:14px 18px;
@@ -191,13 +160,84 @@ body{display:flex;min-height:100vh;background:var(--main-bg)}
 }
 .content pre code{background:none;padding:0;color:var(--main-fg)}
 
-.content table{width:100%;border-collapse:separate;border-spacing:0;margin:16px 0;
+/* ── Native markdown tables (non-project) ──────────────────────── */
+.content table:not(.project-table){width:100%;border-collapse:separate;border-spacing:0;margin:16px 0;
   font-size:.88rem;border-radius:var(--radius);overflow:hidden;
   border:1px solid var(--table-border)}
-.content th,.content td{padding:10px 14px;text-align:left}
-.content th{background:var(--table-head);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px}
-.content td{border-top:1px solid var(--table-border)}
-.content tr:hover td{background:var(--code-bg)}
+.content table:not(.project-table) th,.content table:not(.project-table) td{padding:10px 14px;text-align:left}
+.content table:not(.project-table) th{background:var(--table-head);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px}
+.content table:not(.project-table) td{border-top:1px solid var(--table-border)}
+.content table:not(.project-table) tr:hover td{background:var(--code-bg)}
+
+/* ── Project table ─────────────────────────────────────────────── */
+.project-table{
+  width:100%;border-collapse:separate;border-spacing:0;margin:14px 0 24px;
+  font-size:.87rem;border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--table-border);
+  table-layout:fixed;
+}
+.project-table thead th{
+  background:var(--sidebar-bg);color:var(--sidebar-fg);
+  padding:10px 12px;text-align:left;font-weight:700;font-size:.75rem;
+  text-transform:uppercase;letter-spacing:.5px;
+  border-bottom:2px solid var(--sidebar-accent);
+  position:sticky;top:0;z-index:1;
+}
+.project-table tbody td{
+  padding:10px 12px;border-top:1px solid var(--table-border);
+  background:var(--card-bg);vertical-align:middle;
+  transition:background .1s;
+}
+.project-table tbody tr:hover td{background:var(--code-bg)}
+.project-table tbody tr:first-child td{border-top:none}
+
+/* Columns width */
+.project-table .col-num{width:48px;text-align:center}
+.project-table .col-star{width:98px;text-align:right}
+.project-table .col-link{width:52px;text-align:center}
+
+.project-table .col-num td{text-align:center;font-weight:700;color:var(--sidebar-accent);font-size:.82rem}
+.project-table .col-star td{text-align:right}
+.project-table .col-link td{text-align:center}
+
+/* Number badge */
+.num-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;
+  background:var(--badge-bg);color:var(--badge-fg);
+  font-size:.68rem;font-weight:800;line-height:1;
+}
+
+/* Star badge */
+.star-badge{
+  display:inline-block;padding:3px 10px;border-radius:12px;
+  background:var(--tag-bg);color:var(--tag-fg);font-size:.76rem;
+  font-weight:700;white-space:nowrap;
+}
+
+/* Project name cell */
+.project-name{
+  font-weight:700;color:var(--h1-color);font-size:.88rem;
+}
+.project-name a{color:var(--h1-color);text-decoration:none;border:none}
+.project-name a:hover{color:var(--link);text-decoration:underline}
+
+/* Description cell */
+.project-desc{
+  font-size:.82rem;line-height:1.5;opacity:.85;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.project-desc strong{color:var(--h2-color);font-weight:600}
+
+/* View link icon */
+.view-link{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:var(--radius-sm);
+  color:var(--link);font-size:1rem;text-decoration:none;
+  transition:all .15s;border:none;
+}
+.view-link:hover{background:var(--sidebar-accent);color:#fff;border:none}
 
 .content hr{border:none;border-top:1px solid var(--border);margin:28px 0}
 .content strong{color:var(--h1-color);font-weight:700}
@@ -244,8 +284,14 @@ body{display:flex;min-height:100vh;background:var(--main-bg)}
   .stats-bar{gap:8px}
   .stat-card{padding:10px 14px}
   .stat-card .stat-num{font-size:1.2rem}
-  .content ol li{padding:8px 10px;gap:8px;font-size:.82rem}
-  .content ol li::before{width:20px;height:20px;font-size:.6rem}
+
+  /* Responsive table — scroll on mobile */
+  .project-table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px -16px;padding:0 16px}
+  .project-table{min-width:640px;font-size:.8rem}
+  .project-table .col-num{width:36px}
+  .project-table .col-star{width:78px}
+  .project-table .col-link{width:40px}
+  .project-desc{-webkit-line-clamp:1}
 }
 </style>
 </head>
@@ -327,88 +373,189 @@ function dateLabel(d) {
   return `${parseInt(m[2])}月${parseInt(m[3])}日`;
 }
 
+// ── Parse project list item ──────────────────────────────────────
+function parseProjectItem(liHtml) {
+  // Strip <li> wrapper
+  var inner = liHtml.replace(/^<\/?li>/i, '').replace(/<\/?li>$/i, '');
+
+  // Split on <br> — marked.js inserts <br> between lines
+  var parts = inner.split(/<br\s*\/?>/i);
+
+  // Part 0: <strong>Name/Repo</strong> ⭐X,XXX
+  var namePart = (parts[0] || '').trim();
+  var nameMatch = namePart.match(/<strong>(.*?)<\/strong>/);
+  var name = nameMatch ? nameMatch[1] : '';
+  var starMatch = namePart.match(/(⭐[\d,]+)/);
+  var stars = starMatch ? starMatch[1] : '—';
+
+  // Part 1: <a href="URL">URL</a>
+  var linkPart = (parts[1] || '').trim();
+  var linkMatch = linkPart.match(/<a href="([^"]+)"/);
+  var link = linkMatch ? linkMatch[1] : '';
+
+  // Parts 2+: description — join, keep <strong> tags, strip other HTML
+  var descParts = parts.slice(2).map(function(p) {
+    // Keep <strong> tags, strip everything else
+    return p.replace(/<(?!\/?strong\b)[^>]+>/g, '').trim();
+  }).filter(Boolean);
+  var description = descParts.join(' ');
+
+  // Clean up markdown bold markers that marked might not have converted
+  description = description.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+
+  return {
+    name: name,
+    stars: stars,
+    link: link,
+    description: description
+  };
+}
+
+// ── Convert ordered lists to project tables ──────────────────────
+function convertProjectListsToTables(html) {
+  return html.replace(/<ol>([\s\S]*?)<\/ol>/g, function(match, inner) {
+    // Extract all <li> items
+    var items = inner.match(/<li>[\s\S]*?<\/li>/g);
+    if (!items || items.length === 0) return match;
+
+    // Check if this is a project list (contains GitHub links)
+    var githubCount = 0;
+    items.forEach(function(item) {
+      if (/github\.com/.test(item)) githubCount++;
+    });
+    // At least half should have GitHub links to be considered a project list
+    if (githubCount < items.length * 0.5) return match;
+
+    // Build table rows
+    var rows = '';
+    items.forEach(function(item, i) {
+      var p = parseProjectItem(item);
+      var nameHtml = p.name
+        ? '<span class="project-name"><a href="' + escAttr(p.link) + '" target="_blank" rel="noopener">' + escHtml(p.name) + '</a></span>'
+        : '—';
+      var starHtml = p.stars !== '—'
+        ? '<span class="star-badge">' + p.stars + '</span>'
+        : '—';
+      var descHtml = p.description
+        ? '<div class="project-desc" title="' + escAttr(p.description.replace(/<[^>]+>/g, '')) + '">' + p.description + '</div>'
+        : '<span style="opacity:.3">—</span>';
+      var linkHtml = p.link
+        ? '<a class="view-link" href="' + escAttr(p.link) + '" target="_blank" rel="noopener" title="在 GitHub 查看">🔗</a>'
+        : '—';
+
+      rows += '<tr>' +
+        '<td><span class="num-badge">' + (i + 1) + '</span></td>' +
+        '<td>' + nameHtml + '</td>' +
+        '<td>' + starHtml + '</td>' +
+        '<td>' + descHtml + '</td>' +
+        '<td>' + linkHtml + '</td>' +
+      '</tr>';
+    });
+
+    return '<div class="project-table-wrapper">' +
+      '<table class="project-table">' +
+        '<colgroup>' +
+          '<col class="col-num">' +
+          '<col class="col-name">' +
+          '<col class="col-star">' +
+          '<col class="col-desc">' +
+          '<col class="col-link">' +
+        '</colgroup>' +
+        '<thead><tr>' +
+          '<th>#</th><th>项目</th><th>⭐</th><th>简介</th><th>链接</th>' +
+        '</tr></thead>' +
+        '<tbody>' + rows + '</tbody>' +
+      '</table>' +
+    '</div>';
+  });
+}
+
+// ── Escape helpers ───────────────────────────────────────────────
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escAttr(s) {
+  return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
 // ── Enhanced markdown rendering ──────────────────────────────────
 function enhanceContent(html) {
-  // Add star badges: ⭐13,588 → <span class="star-badge">⭐13,588</span>
-  html = html.replace(/⭐([\d,]+)/g, '<span class="star-badge">⭐$1</span>');
-
-  // Wrap ordered list item content in .item-body for table-row layout
-  html = html.replace(/<li>(<strong>.*?<\/strong>)(.*?)<\/li>/gs, '<li>$1<div class="item-body">$2</div></li>');
-
+  // Convert project ordered lists → tables
+  html = convertProjectListsToTables(html);
   return html;
 }
 
 // ── Stats extraction ─────────────────────────────────────────────
-function extractStats(html) {
-  const stats = {};
-  // Count repos/stars from badges
-  const badges = html.match(/⭐([\d,]+)/g);
-  if (badges) stats.starCount = badges.length;
+function extractStats(rawHtml) {
+  var stats = {};
+  // Count star badges
+  var starMatches = rawHtml.match(/⭐([\d,]+)/g);
+  stats.starCount = starMatches ? starMatches.length : 0;
 
-  // Count project cards (ol li)
-  const items = (html.match(/<li>/g) || []).length;
-  stats.itemCount = items;
+  // Count project table rows
+  var rowMatches = rawHtml.match(/<tr>/g);
+  stats.rowCount = rowMatches ? rowMatches.length : 0;
 
   // Count category sections (h5)
-  const cats = (html.match(/<h5/g) || []).length;
-  stats.catCount = cats;
+  var catMatches = rawHtml.match(/<h5/g);
+  stats.catCount = catMatches ? catMatches.length : 0;
 
   return stats;
 }
 
 function renderStats(stats) {
-  const bar = document.getElementById("statsBar");
-  if (!stats.itemCount && !stats.catCount) { bar.style.display = "none"; return; }
+  var bar = document.getElementById("statsBar");
+  if (!stats.rowCount && !stats.catCount) { bar.style.display = "none"; return; }
   bar.style.display = "flex";
-  let html = "";
-  if (stats.catCount) html += `<div class="stat-card"><div class="stat-num">${stats.catCount}</div><div class="stat-label">分类</div></div>`;
-  if (stats.itemCount) html += `<div class="stat-card"><div class="stat-num">${stats.itemCount}</div><div class="stat-label">项目</div></div>`;
-  if (stats.starCount) html += `<div class="stat-card"><div class="stat-num">${stats.starCount}</div><div class="stat-label">⭐ 仓库</div></div>`;
+  var html = "";
+  if (stats.catCount) html += '<div class="stat-card"><div class="stat-num">' + stats.catCount + '</div><div class="stat-label">分类</div></div>';
+  if (stats.rowCount) html += '<div class="stat-card"><div class="stat-num">' + stats.rowCount + '</div><div class="stat-label">项目</div></div>';
+  if (stats.starCount) html += '<div class="stat-card"><div class="stat-num">' + stats.starCount + '</div><div class="stat-label">⭐ 仓库</div></div>';
   bar.innerHTML = html;
 }
 
 // ── Theme ────────────────────────────────────────────────────────
 function setTheme(dark) {
   document.documentElement.classList.toggle("dark", dark);
-  const btn = document.getElementById("themeToggle");
+  var btn = document.getElementById("themeToggle");
   btn.innerHTML = dark ? '<span class="icon">☀️</span> 浅色模式' : '<span class="icon">🌙</span> 深色模式';
   localStorage.setItem("agents-radar-theme", dark ? "dark" : "light");
 }
-document.getElementById("themeToggle").addEventListener("click", () => {
+document.getElementById("themeToggle").addEventListener("click", function() {
   setTheme(!document.documentElement.classList.contains("dark"));
 });
-const savedTheme = localStorage.getItem("agents-radar-theme");
+var savedTheme = localStorage.getItem("agents-radar-theme");
 if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
   setTheme(true);
 }
 
 // ── Reading progress ─────────────────────────────────────────────
-window.addEventListener("scroll", () => {
-  const winH = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = window.scrollY;
-  const pct = winH > 0 ? Math.min(100, (scrolled / winH) * 100) : 0;
+window.addEventListener("scroll", function() {
+  var winH = document.documentElement.scrollHeight - window.innerHeight;
+  var scrolled = window.scrollY;
+  var pct = winH > 0 ? Math.min(100, (scrolled / winH) * 100) : 0;
   document.getElementById("progress-bar").style.width = pct + "%";
 });
 
 // ── Back to top ──────────────────────────────────────────────────
-const backBtn = document.getElementById("back-to-top");
-window.addEventListener("scroll", () => {
+var backBtn = document.getElementById("back-to-top");
+window.addEventListener("scroll", function() {
   backBtn.classList.toggle("visible", window.scrollY > 500);
 });
-backBtn.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+backBtn.addEventListener("click", function() { window.scrollTo({top:0, behavior:"smooth"}); });
 
 // ── Mobile nav ───────────────────────────────────────────────────
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("sidebarOverlay");
-const navToggle = document.getElementById("navToggle");
+var sidebar = document.getElementById("sidebar");
+var overlay = document.getElementById("sidebarOverlay");
+var navToggle = document.getElementById("navToggle");
 function closeSidebar() { sidebar.classList.remove("open"); overlay.classList.remove("open"); }
-navToggle.addEventListener("click", () => { sidebar.classList.toggle("open"); overlay.classList.toggle("open"); });
+navToggle.addEventListener("click", function() { sidebar.classList.toggle("open"); overlay.classList.toggle("open"); });
 overlay.addEventListener("click", closeSidebar);
 
 // ── Load manifest ────────────────────────────────────────────────
 async function loadManifest() {
   try {
-    const res = await fetch("manifest.json");
+    var res = await fetch("manifest.json");
     manifest = await res.json();
     buildSidebar();
     handleHash();
@@ -419,83 +566,84 @@ async function loadManifest() {
 
 // ── Build sidebar ────────────────────────────────────────────────
 function buildSidebar() {
-  const nav = document.getElementById("sidebarNav");
+  var nav = document.getElementById("sidebarNav");
   if (!manifest || !manifest.dates) { nav.innerHTML = '<div class="loading">暂无数据</div>'; return; }
 
-  let html = "";
-  for (const entry of manifest.dates) {
-    const d = entry.date;
-    const reports = (entry.reports || []).filter(r => !r.endsWith("-en"));
+  var html = "";
+  for (var i = 0; i < manifest.dates.length; i++) {
+    var entry = manifest.dates[i];
+    var d = entry.date;
+    var reports = (entry.reports || []).filter(function(r) { return !r.endsWith("-en"); });
     if (!reports.length) continue;
-    html += `<div class="date-group">`;
-    html += `<button class="date-toggle" data-date="${d}" onclick="toggleDate('${d}')">`;
-    html += `<span class="arrow" id="arrow-${d}">▶</span>`;
-    html += `<span class="date-icon">📅</span> ${dateLabel(d)}`;
-    html += `<span style="margin-left:auto;font-size:.65rem;opacity:.3">${reports.length}</span>`;
-    html += `</button>`;
-    html += `<div class="report-list" id="list-${d}">`;
-    for (const r of reports) {
-      html += `<a class="report-link" href="#${d}/${r}" data-date="${d}" data-report="${r}" onclick="loadReport('${d}','${r}');closeSidebar();return false">`;
+    html += '<div class="date-group">';
+    html += '<button class="date-toggle" data-date="' + d + '" onclick="toggleDate(\'' + d + '\')">';
+    html += '<span class="arrow" id="arrow-' + d + '">▶</span>';
+    html += '<span class="date-icon">📅</span> ' + dateLabel(d);
+    html += '<span style="margin-left:auto;font-size:.65rem;opacity:.3">' + reports.length + '</span>';
+    html += '</button>';
+    html += '<div class="report-list" id="list-' + d + '">';
+    for (var j = 0; j < reports.length; j++) {
+      var r = reports[j];
+      html += '<a class="report-link" href="#' + d + '/' + r + '" data-date="' + d + '" data-report="' + r + '" onclick="loadReport(\'' + d + '\',\'' + r + '\');closeSidebar();return false">';
       html += label(r);
-      html += `</a>`;
+      html += '</a>';
     }
-    html += `</div></div>`;
+    html += '</div></div>';
   }
   nav.innerHTML = html;
 }
 
 function toggleDate(date) {
-  const list = document.getElementById("list-" + date);
-  const arrow = document.getElementById("arrow-" + date);
+  var list = document.getElementById("list-" + date);
+  var arrow = document.getElementById("arrow-" + date);
   list.classList.toggle("open");
   arrow.classList.toggle("open");
 }
 
 // ── Load report ──────────────────────────────────────────────────
 async function loadReport(date, report) {
-  const content = document.getElementById("content");
-  const h1 = document.querySelector(".main-header h1");
-  const meta = document.querySelector(".main-header .meta");
+  var content = document.getElementById("content");
+  var h1 = document.querySelector(".main-header h1");
+  var meta = document.querySelector(".main-header .meta");
 
   h1.textContent = label(report);
-  meta.textContent = `${date} · ${report}`;
+  meta.textContent = date + ' · ' + report;
   content.innerHTML = '<div class="loading"><div class="spinner"></div><p>加载中...</p></div>';
   document.getElementById("statsBar").style.display = "none";
 
   // Update sidebar
-  document.querySelectorAll(".report-link").forEach(el => el.classList.remove("active"));
-  const link = document.querySelector(`.report-link[data-date="${date}"][data-report="${report}"]`);
+  document.querySelectorAll(".report-link").forEach(function(el) { el.classList.remove("active"); });
+  var link = document.querySelector('.report-link[data-date="' + date + '"][data-report="' + report + '"]');
   if (link) link.classList.add("active");
-  const list = document.getElementById("list-" + date);
-  const arrow = document.getElementById("arrow-" + date);
+  var list = document.getElementById("list-" + date);
+  var arrow = document.getElementById("arrow-" + date);
   if (list && !list.classList.contains("open")) { list.classList.add("open"); if(arrow) arrow.classList.add("open"); }
 
   try {
-    const res = await fetch(`digests/${date}/${report}.md`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const md = await res.text();
-    let body = md;
-    if (md.startsWith("---")) { const end = md.indexOf("---", 3); if (end !== -1) body = md.slice(end + 3); }
+    var res = await fetch('digests/' + date + '/' + report + '.md');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    var md = await res.text();
+    var body = md;
+    if (md.startsWith("---")) { var end = md.indexOf("---", 3); if (end !== -1) body = md.slice(end + 3); }
 
-    let rawHtml = marked.parse(body);
+    var rawHtml = marked.parse(body);
     rawHtml = enhanceContent(rawHtml);
     content.innerHTML = rawHtml;
 
-    // Render stats
-    const stats = extractStats(rawHtml);
+    var stats = extractStats(rawHtml);
     renderStats(stats);
 
     window.scrollTo({top:0, behavior:"smooth"});
   } catch(e) {
-    content.innerHTML = `<div class="empty"><div class="icon">⚠️</div><p>无法加载报告</p><p style="font-size:.8rem">${e.message}</p></div>`;
+    content.innerHTML = '<div class="empty"><div class="icon">⚠️</div><p>无法加载报告</p><p style="font-size:.8rem">' + e.message + '</p></div>';
   }
 }
 
 // ── Hash handling ────────────────────────────────────────────────
 function handleHash() {
-  const hash = window.location.hash.slice(1);
+  var hash = window.location.hash.slice(1);
   if (!hash) return;
-  const parts = hash.split("/");
+  var parts = hash.split("/");
   if (parts.length >= 2) loadReport(parts[0], parts.slice(1).join("/"));
 }
 window.addEventListener("hashchange", handleHash);
