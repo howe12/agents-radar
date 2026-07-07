@@ -14,6 +14,7 @@ import type { HfData } from "./hf.ts";
 import type { DevtoData } from "./devto.ts";
 import type { LobstersData } from "./lobsters.ts";
 import type { RoboticsData } from "./robotics.ts";
+import type { CadData } from "./cad.ts";
 import type { Lang } from "./i18n.ts";
 export function buildTrendingPrompt(data: TrendingData, dateStr: string, lang: Lang = "zh"): string {
   const trendingSection =
@@ -985,6 +986,88 @@ ${reposText}
    - 一句话说明：核心贡献和对机器人社区的意义
 
 3. **生态趋势信号** — 100~200 字，分析机器人开源领域的新兴趋势
+
+4. **值得关注** — 2~3 个最值得跟进的项目，简述理由
+
+语言要求：中文，简洁专业，保留所有 GitHub 链接。
+`;
+}
+
+export function buildCadPrompt(data: CadData, dateStr: string, lang: Lang = "zh"): string {
+  const reposText = data.repos
+    .map((r, i) =>
+      lang === "en"
+        ? `${i + 1}. **${r.fullName}** ⭐${r.stars.toLocaleString()}\n` +
+          `   ${r.url}\n` +
+          `   Language: ${r.language || "N/A"} | Topic: ${r.searchQuery}\n` +
+          `   ${r.description || ""}`
+        : `${i + 1}. **${r.fullName}** ⭐${r.stars.toLocaleString()}\n` +
+          `   ${r.url}\n` +
+          `   语言: ${r.language || "未知"} | 标签: ${r.searchQuery}\n` +
+          `   ${r.description || ""}`,
+    )
+    .join("\n\n");
+
+  if (lang === "en") {
+    return `You are a CAD & mechanical design analyst. The following are recently active CAD-related GitHub repositories (pushed in the last 7 days, sorted by stars, ${data.repos.length} total):
+
+---
+
+${reposText}
+
+---
+
+Generate a structured CAD & Mechanical Design Open Source Digest in English:
+
+1. **Today's Highlights** — 3-5 sentences on the most notable CAD/mechanical open-source activity
+
+2. **Key Projects** — Select 8-15 most important repos, organized by category:
+   - 🖥️ CAD Platforms & Editors (FreeCAD, OpenSCAD, Solvespace, web CAD)
+   - 📐 Computational Geometry & Kernels (OCCT, CGAL, geometry processing)
+   - 🧬 Generative & Parametric Design (topology optimization, generative engineering)
+   - 🖨️ 3D Printing & Manufacturing (slicers, firmware, G-code, toolpath)
+   - 🔗 File Formats & Interop (STEP, IGES, IFC, mesh conversion)
+   - 🐍 Code-CAD & Scripting (CadQuery, build123d, Python CAD pipelines)
+
+   For each repo:
+   - Name (with GitHub link)
+   - Star count
+   - One sentence: core contribution and why it matters for mechanical design
+
+3. **Ecosystem Signal** — 100-200 words on emerging trends in CAD open-source
+
+4. **Worth Watching** — 2-3 projects most worth following, with reasoning
+
+Style: English, concise and professional, preserve all GitHub links.
+`;
+  }
+
+  return `你是 CAD 与机械设计领域分析师。以下是最近 7 天内有推送活动的 CAD 相关 GitHub 仓库（按 star 数降序，共 ${data.repos.length} 个）：
+
+---
+
+${reposText}
+
+---
+
+请生成一份结构清晰的《CAD/机械结构开源动态日报》，要求：
+
+1. **今日速览** — 3~5 句话，概括今日最值得关注的 CAD/机械领域开源动态
+
+2. **重点项目** — 选出 8~15 个最重要的仓库，按分类整理：
+   - 🖥️ CAD 平台与编辑器（FreeCAD、OpenSCAD、Solvespace、Web CAD）
+   - 📐 计算几何与内核（Open CASCADE、CGAL、几何处理）
+   - 🧬 创成式与参数化设计（拓扑优化、生成式工程）
+   - 🖨️ 3D 打印与制造（切片软件、固件、G-code、刀路规划）
+   - 🔗 文件格式与互操作（STEP、IGES、IFC、网格转换）
+   - 🐍 Code-CAD 与脚本化（CadQuery、build123d、Python CAD 流水线）
+
+   每个仓库包含：
+   - 名称（附 GitHub 链接）
+   - Star 数
+   - 一句话说明：核心贡献和对机械设计领域的意义
+
+3. **生态趋势信号** — 100~200 字，分析 CAD 开源领域的新兴趋势
 
 4. **值得关注** — 2~3 个最值得跟进的项目，简述理由
 

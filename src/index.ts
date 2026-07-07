@@ -39,6 +39,7 @@ import {
   saveHfReport,
   saveCommunityReport,
   saveRoboticsReport,
+  saveCadReport,
 } from "./report-savers.ts";
 import { loadWebState, fetchSiteContent, type WebFetchResult, type WebState } from "./web.ts";
 import { fetchTrendingData, type TrendingData } from "./trending.ts";
@@ -49,6 +50,7 @@ import { fetchHfData, type HfData } from "./hf.ts";
 import { fetchDevtoData, type DevtoData } from "./devto.ts";
 import { fetchLobstersData, type LobstersData } from "./lobsters.ts";
 import { fetchRoboticsData, type RoboticsData } from "./robotics.ts";
+import { fetchCadData, type CadData } from "./cad.ts";
 import { loadConfig } from "./config.ts";
 import { toCstDateStr, toUtcStr } from "./date.ts";
 import { type Lang, MSG, ISSUE_LABELS, CLI_ISSUE_TITLE, OPENCLAW_ISSUE_TITLE } from "./i18n.ts";
@@ -93,10 +95,11 @@ async function fetchAllData(
   devtoData: DevtoData;
   lobstersData: LobstersData;
   roboticsData: RoboticsData;
+  cadData: CadData;
 }> {
   const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
   console.log(
-    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, hf, devto, lobsters, robotics`,
+    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, hf, devto, lobsters, robotics, cad`,
   );
 
   const [
@@ -111,6 +114,7 @@ async function fetchAllData(
     devtoData,
     lobstersData,
     roboticsData,
+    cadData,
   ] = await Promise.all([
     Promise.all(
       allConfigs.map(async (cfg) => {
@@ -170,6 +174,7 @@ async function fetchAllData(
     fetchDevtoData().catch((): DevtoData => ({ articles: [], fetchSuccess: false })),
     fetchLobstersData().catch((): LobstersData => ({ stories: [], fetchSuccess: false })),
     fetchRoboticsData().catch((): RoboticsData => ({ repos: [], fetchSuccess: false })),
+    fetchCadData().catch((): CadData => ({ repos: [], fetchSuccess: false })),
   ]);
 
   return {
@@ -184,6 +189,7 @@ async function fetchAllData(
     devtoData,
     lobstersData,
     roboticsData,
+    cadData,
   };
 }
 
@@ -318,6 +324,7 @@ async function main(): Promise<void> {
     devtoData,
     lobstersData,
     roboticsData,
+    cadData,
   } = await fetchAllData(since, webState);
 
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
@@ -426,6 +433,8 @@ async function main(): Promise<void> {
     saveCommunityReport(devtoData, lobstersData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
     saveRoboticsReport(roboticsData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
     saveRoboticsReport(roboticsData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
+    saveCadReport(cadData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
+    saveCadReport(cadData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
   ]);
 
   // 5. Generate highlights for Telegram notification
@@ -444,6 +453,8 @@ async function main(): Promise<void> {
     ["ai-arxiv", "ai-arxiv.md", "ai-arxiv-en.md"],
     ["ai-hf", "ai-hf.md", "ai-hf-en.md"],
     ["ai-community", "ai-community.md", "ai-community-en.md"],
+    ["ai-embodied", "ai-embodied.md", "ai-embodied-en.md"],
+    ["ai-cad", "ai-cad.md", "ai-cad-en.md"],
   ] as const) {
     const zh = readReport(zhFile);
     const en = readReport(enFile);

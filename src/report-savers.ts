@@ -13,6 +13,7 @@ import {
   HF_REPORT,
   COMMUNITY_REPORT,
   EMBODIED_REPORT,
+  CAD_REPORT,
   ISSUE_LABELS,
 } from "./i18n.ts";
 import {
@@ -24,6 +25,7 @@ import {
   buildCommunityPrompt,
 } from "./prompts-data";
 import { buildRoboticsPrompt } from "./prompts-data";
+import { buildCadPrompt } from "./prompts-data";
 import { callLlm, saveFile, LLM_TOKENS_WEB } from "./report.ts";
 import { createGitHubIssue } from "./github.ts";
 import { saveWebState, type WebFetchResult, type WebState } from "./web.ts";
@@ -35,6 +37,7 @@ import type { HfData } from "./hf.ts";
 import type { DevtoData } from "./devto.ts";
 import type { LobstersData } from "./lobsters.ts";
 import type { RoboticsData } from "./robotics.ts";
+import type { CadData } from "./cad.ts";
 
 // ---------------------------------------------------------------------------
 // Web report
@@ -410,5 +413,45 @@ export async function saveCommunityReport(
     }
   } catch (err) {
     console.error(`  [community/${lang}] Report generation failed: ${err}`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// CAD & Mechanical Design report
+// ---------------------------------------------------------------------------
+
+export async function saveCadReport(
+  cadData: CadData,
+  utcStr: string,
+  dateStr: string,
+  digestRepo: string,
+  footer: string,
+  lang: Lang = "zh",
+): Promise<void> {
+  if (!cadData.fetchSuccess) {
+    console.log(`  [cad/${lang}] No data available, skipping report.`);
+    return;
+  }
+
+  console.log(`  [cad/${lang}] Calling LLM for CAD report...`);
+  try {
+    const summary = await callLlm(buildCadPrompt(cadData, dateStr, lang));
+    const fileName = lang === "en" ? "ai-cad-en.md" : "ai-cad.md";
+    const header =
+      lang === "en"
+        ? `# ${CAD_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> ${CAD_REPORT.sources[lang]} | ` +
+          `${cadData.repos.length} repos | Generated: ${utcStr} UTC\n\n` +
+          `---\n\n`
+        : `# ${CAD_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> ${CAD_REPORT.sources[lang]} | ` +
+          `共 ${cadData.repos.length} 个仓库 | 生成时间: ${utcStr} UTC\n\n` +
+          `---\n\n`;
+
+    const content = header + summary + footer;
+
+    console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
+  } catch (err) {
+    console.error(`  [cad/${lang}] Report generation failed: ${err}`);
   }
 }
