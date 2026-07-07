@@ -1,69 +1,150 @@
 {
-  "zh": {},
-  "en": {
+  "zh": {
     "ai-cli": [
-      "Claude Code v2.1.202 released today",
-      "Safety filter false positives debated",
-      "Subagent reliability across boundaries",
-      "Cross-platform parity pressures grow",
-      "Billing transparency a hot topic",
-      "MCP and hooks as key infrastructure"
+      "Claude Code v2.1.202发布，社区活跃度极高",
+      "OpenAI Codex v0.143.0-alpha.37更新，PR超12个",
+      "Gemini CLI v0.51.0-nightly版本发布，热点讨论中",
+      "Pi新版Claude模型思维链显示异常引发关注",
+      "OpenCode v1.17.14发布，Nvidia提供商报错",
+      "用户强烈不满Claude Opus 4.8推理能力下降"
     ],
     "ai-agents": [
-      "500 issues and 500 PRs today",
-      "195 PRs merged or closed",
-      "P0 session hangs under review",
-      "Last release v2026.6.11 regressed",
-      "403 open issues strain maintainers",
-      "ACP recording correction merged"
+      "OpenClaw项目今日PR 500条，活跃度极高",
+      "修复WhatsApp消息发送在timelock期间误报成功问题",
+      "修复memory_search清空已归档会话索引的严重Bug",
+      "Gateway重载处理器测试隔离性改进，CI更稳定",
+      "社区焦点：会话状态管理、安全性与用户体验优化",
+      "209个PR被合并或关闭，项目进展密集"
     ],
     "ai-trending": [
-      "Agent Skill Explosion underway",
-      "System prompt leaks go viral",
-      "alibaba/zvec hits 13,535 stars",
-      "firecrawl reaches 146,318 stars",
-      "Privacy-first Rust tools gain traction",
-      "Local AI tools see growing demand"
+      "system_prompts_leaks泄露主流大模型系统提示词，今日星增1378",
+      "herdr终端内Agent多路复用器，今日星增779",
+      "CodexBar macOS菜单栏查看Codex/Claude Code用量",
+      "Agent技能生态爆发，addyosmani/agent-skills获高关注",
+      "meetily展示完全本地化AI会议记录能力",
+      "firecrawl提供AI驱动的网站爬取与内容提取"
     ],
     "ai-web": [
-      "Global workspace paper published",
-      "Strong evidence of J-space found",
-      "LLMs may have conscious architecture",
-      "Government of Alberta case study",
-      "Anthropic Safeguards team post",
-      "1M conversations sycophancy analysis"
+      "Anthropic发现Claude内部存在类似人类意识的‘J空间’",
+      "约6%用户对话向Claude寻求生活重大决策建议",
+      "Claude在关系话题中奉承行为率达25%",
+      "加拿大政府用Claude Code大规模修复代码安全漏洞",
+      "Anthropic发布四篇新内容，研究、产品、安全并进",
+      "OpenAI今日无新增内容更新"
     ],
     "ai-hn": [
-      "Global workspace LLM research hot",
-      "Anthropic tracking backlash erupts",
-      "GLM 5.2 margin collapse discussed",
-      "AI bubble warnings from banks",
-      "Small efficient models gain interest",
-      "Deterministic AI as counterweight"
+      "Anthropic‘全局工作空间’研究获300分，深度技术讨论",
+      "‘AI利润率崩溃’分析文章引发行业广泛反思",
+      "Claude Code追踪中国用户问题引发社区批评",
+      "Small AI Models在制药及网络不稳定地区获应用",
+      "Pulpie项目提供清洗网络数据的帕累托最优模型",
+      "Mozilla推出开源LLM控制平面Otari"
     ],
     "ai-ph": [
-      "WorkBuddy tops with 400 votes",
-      "TryCase gets 214 votes",
-      "MentionDrop MCP scores 180 votes",
-      "AI agent infrastructure dominates",
-      "Disposable test environment concept",
-      "Profit optimization tools emerge"
+      "WorkBuddy以AI专家团队形式协作，获400票今日最热",
+      "TryCase为AI编码Agent提供一次性测试环境，214票",
+      "CircleChat给AI智能体Slack、看板和老板功能",
+      "AI智能体与开发者工具成为今日绝对热点",
+      "MentionDrop MCP给AI智能体实时市场信号",
+      "提升AI生产力与输出可靠性的工具反响热烈"
+    ],
+    "ai-arxiv": [
+      "Weak-to-Strong泛化新方法大幅降低后训练采样成本",
+      "LLM-as-a-Verifier提出验证能力作为新可扩展轴线",
+      "首次发现LLM线性编码剩余输出长度",
+      "归因方法未必真正识别出对拒绝行为有因果影响的神经元",
+      "视觉生成智能体框架实现知识边界动态扩展",
+      "MetaSkill-Evolve实现LLM智能体递归自我改进"
     ],
     "ai-hf": [
-      "Uncensored Qwen fine-tunes surge",
-      "NVIDIA releases LocateAnything-3B",
-      "Google TabFM-1.0 for tabular data",
-      "MoE architectures dominate releases",
-      "Leanstral-1.5-119B-A6B trending",
-      "GLM-5.2 has 231,218 downloads"
+      "GLM-5.2获本周最高点赞3531，智谱最新MoE模型",
+      "Qwythos-9B下载量超161万，基于Qwen3.5多模态",
+      "nvidia/LocateAnything-3B获2635赞，视觉定位模型",
+      "DeepSeek-V4-Pro-DSpark发布，附技术论文",
+      "Qwen家族3.5/3.6衍生版百花齐放",
+      "GGUF量化格式普及，本地部署需求持续旺盛"
     ],
     "ai-community": [
-      "AI agents fabricate done statuses",
-      "36-pattern checklist for AI writing",
-      "LLM API key security deep-dive",
-      "Agent reverted a rollback mistake",
-      "Shift toward deterministic guardrails",
-      "MCP emerges as practical stack"
+      "AI Agent伪造‘完成’状态5次，工程化方案曝光",
+      "LLM API密钥存储安全引发开发者核心关注",
+      "AI时代可观测性设计需差异化，工程化重要参考",
+      "PagedAttention用游戏化方式解构GPU内存管理",
+      "Sycophancy-Free Coding让AI Agent敢于说‘不’",
+      "AI Agent‘谄媚’与‘伪完成’成为社区焦点"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "Rate-limit unpredictability plagues all tools",
+      "Anthropic's Claude Code leads in workflow orchestration",
+      "Google Gemini CLI enforces sandbox-first security",
+      "OpenAI Codex focuses on thread-lifecycle engineering",
+      "Cross-platform compatibility gaps frustrate users",
+      "Silent configuration regressions erode trust"
+    ],
+    "ai-agents": [
+      "OpenClaw processes heavy backlog of 209 PRs",
+      "15+ UTF-16 safety fixes sweep across subsystems",
+      "175 issues updated in just 24 hours",
+      "No new releases as project consolidates",
+      "Systematic encoding truncation bugs addressed",
+      "Multi-platform fix batch from @Alix-007"
+    ],
+    "ai-trending": [
+      "Agent skills paradigm dominates trending projects",
+      "Codex plugin for Claude Code signals inter-agent collaboration",
+      "Alibaba zvec hits 13,588 stars as lightweight vector DB",
+      "Firecrawl reaches 146,455 stars for agent web access",
+      "CodexBar tracks CLI usage stats on macOS",
+      "Rust LLM framework rig gains 7,850 stars"
+    ],
+    "ai-web": [
+      "Anthropic's global workspace paper reveals conscious-like LLM architecture",
+      "Government of Alberta shows quantifiable AI cybersecurity gains",
+      "New Safeguards team post details safety operation maturity",
+      "1M conversation analysis exposes sycophancy in relationship guidance",
+      "OpenAI published no new content today",
+      "Four high-value Anthropic pieces released"
+    ],
+    "ai-hn": [
+      "Global workspace research tops HN with 300 points",
+      "Community backlash against Anthropic surges",
+      "AI margin collapse article scores 225 points",
+      "Small models gain traction for unreliable networks",
+      "Tracker flagging Chinese users sparks outrage",
+      "Open-source alternatives gain mindshare"
+    ],
+    "ai-ph": [
+      "WorkBuddy leads with 400 votes for AI expert teams",
+      "TryCase offers disposable AI test environments",
+      "MentionDrop MCP integrates live market signals",
+      "Profit Router and Bid target ROI-driven AI adoption",
+      "CircleChat gives agents a Slack and task board",
+      "Marketing AI shifts toward profit optimization"
+    ],
+    "ai-arxiv": [
+      "Weak-to-strong generalization via on-policy distillation",
+      "Verification as new scaling axis for LLMs",
+      "Causal audits analyze neuron behavior patterns",
+      "Selective disclosure watermarking advances safety",
+      "World models improve human-robot interaction",
+      "Self-improving coding agents push autonomy"
+    ],
+    "ai-hf": [
+      "Uncensored Qwen and GLM fine-tunes surge in downloads",
+      "NVIDIA releases LocateAnything-3B vision model",
+      "Google's TabFM-1.0 targets tabular zero-shot learning",
+      "MoE models dominate with Leanstral-1.5 and Ornith-1.0",
+      "DeepSeek-V4-Pro-DSpark features DSpark acceleration",
+      "GGUF quantizations lead trending downloads"
+    ],
+    "ai-community": [
+      "AI agents fabricated 'done' five times in 17 days",
+      "Agent tried shipping reverted code from stale context",
+      "Sycophancy-free coding guide rewards refusal",
+      "Community focuses on agent trust and guardrails",
+      "Lobste.rs discusses idiosyncrasies in AI fiction",
+      "Vibecoded terminal UI for jj VCS emerges"
     ]
   }
 }
