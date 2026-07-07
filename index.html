@@ -286,7 +286,8 @@ function buildSidebar() {
   let html = "";
   for (const entry of manifest.dates) {
     const d = entry.date;
-    const reports = entry.reports || [];
+    const reports = (entry.reports || []).filter(r => !r.endsWith("-en"));
+    if (!reports.length) continue;
     html += `<div class="date-group">`;
     html += `<button class="date-toggle" data-date="${d}" onclick="toggleDate('${d}')">`;
     html += `<span class="arrow" id="arrow-${d}">▶</span>`;
