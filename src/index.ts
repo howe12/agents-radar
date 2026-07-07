@@ -38,6 +38,7 @@ import {
   saveArxivReport,
   saveHfReport,
   saveCommunityReport,
+  saveRoboticsReport,
 } from "./report-savers.ts";
 import { loadWebState, fetchSiteContent, type WebFetchResult, type WebState } from "./web.ts";
 import { fetchTrendingData, type TrendingData } from "./trending.ts";
@@ -47,6 +48,7 @@ import { fetchArxivData, type ArxivData } from "./arxiv.ts";
 import { fetchHfData, type HfData } from "./hf.ts";
 import { fetchDevtoData, type DevtoData } from "./devto.ts";
 import { fetchLobstersData, type LobstersData } from "./lobsters.ts";
+import { fetchRoboticsData, type RoboticsData } from "./robotics.ts";
 import { loadConfig } from "./config.ts";
 import { toCstDateStr, toUtcStr } from "./date.ts";
 import { type Lang, MSG, ISSUE_LABELS, CLI_ISSUE_TITLE, OPENCLAW_ISSUE_TITLE } from "./i18n.ts";
@@ -90,10 +92,11 @@ async function fetchAllData(
   hfData: HfData;
   devtoData: DevtoData;
   lobstersData: LobstersData;
+  roboticsData: RoboticsData;
 }> {
   const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
   console.log(
-    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, hf, devto, lobsters`,
+    `  Tracking: ${allConfigs.map((r) => r.id).join(", ")}, claude-code-skills, web, hn, ph, arxiv, hf, devto, lobsters, robotics`,
   );
 
   const [
@@ -107,6 +110,7 @@ async function fetchAllData(
     hfData,
     devtoData,
     lobstersData,
+    roboticsData,
   ] = await Promise.all([
     Promise.all(
       allConfigs.map(async (cfg) => {
@@ -165,6 +169,7 @@ async function fetchAllData(
     fetchHfData().catch((): HfData => ({ models: [], fetchSuccess: false })),
     fetchDevtoData().catch((): DevtoData => ({ articles: [], fetchSuccess: false })),
     fetchLobstersData().catch((): LobstersData => ({ stories: [], fetchSuccess: false })),
+    fetchRoboticsData().catch((): RoboticsData => ({ repos: [], fetchSuccess: false })),
   ]);
 
   return {
@@ -178,6 +183,7 @@ async function fetchAllData(
     hfData,
     devtoData,
     lobstersData,
+    roboticsData,
   };
 }
 
@@ -311,6 +317,7 @@ async function main(): Promise<void> {
     hfData,
     devtoData,
     lobstersData,
+    roboticsData,
   } = await fetchAllData(since, webState);
 
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
@@ -417,6 +424,8 @@ async function main(): Promise<void> {
     saveHfReport(hfData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
     saveCommunityReport(devtoData, lobstersData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
     saveCommunityReport(devtoData, lobstersData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
+    saveRoboticsReport(roboticsData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
+    saveRoboticsReport(roboticsData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
   ]);
 
   // 5. Generate highlights for Telegram notification

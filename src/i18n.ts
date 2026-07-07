@@ -93,6 +93,11 @@ export const HF_REPORT = {
     lang === "en" ? `🤗 Hugging Face Trending Models ${dateStr}` : `🤗 Hugging Face 热门模型日报 ${dateStr}`,
 } as const;
 
+export const EMBODIED_REPORT = {
+  title: t("具身智能开源动态日报", "Embodied AI Open Source Digest"),
+  issueTitle: (dateStr: string, lang: Lang) =>
+    lang === "en" ? `🤖 Embodied AI Digest ${dateStr}` : `🤖 具身智能开源动态日报 ${dateStr}`,
+} as const;
 export const COMMUNITY_REPORT = {
   title: t("技术社区 AI 动态日报", "Tech Community AI Digest"),
   issueTitle: (dateStr: string, lang: Lang) =>
@@ -163,6 +168,8 @@ export const REPORT_LABELS: Record<string, string> = {
   "ai-hf-en": "Hugging Face Trending Models Digest",
   "ai-community": "技术社区 AI 动态日报",
   "ai-community-en": "Tech Community AI Digest",
+  "ai-embodied": "具身智能开源动态日报",
+  "ai-embodied-en": "Embodied AI Open Source Digest",
   "ai-weekly": "AI 工具生态周报",
   "ai-weekly-en": "AI Tools Weekly Digest",
   "ai-monthly": "AI 工具生态月报",
@@ -179,6 +186,7 @@ export const NOTIFY_LABELS: Record<string, Record<Lang, string>> = {
   "ai-arxiv": t("ArXiv 研究", "ArXiv Research"),
   "ai-hf": t("HF 模型", "HF Models"),
   "ai-community": t("技术社区", "Tech Community"),
+  "ai-embodied": t("具身智能", "Embodied AI"),
   "ai-weekly": t("AI 工具生态周报", "AI Tools Weekly"),
   "ai-monthly": t("AI 工具生态月报", "AI Tools Monthly"),
 };

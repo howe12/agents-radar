@@ -12,6 +12,7 @@ import {
   ARXIV_REPORT,
   HF_REPORT,
   COMMUNITY_REPORT,
+  EMBODIED_REPORT,
   ISSUE_LABELS,
 } from "./i18n.ts";
 import {
@@ -21,7 +22,8 @@ import {
   buildArxivPrompt,
   buildHfPrompt,
   buildCommunityPrompt,
-} from "./prompts-data.ts";
+} from "./prompts-data";
+import { buildRoboticsPrompt } from "./prompts-data";
 import { callLlm, saveFile, LLM_TOKENS_WEB } from "./report.ts";
 import { createGitHubIssue } from "./github.ts";
 import { saveWebState, type WebFetchResult, type WebState } from "./web.ts";
@@ -32,6 +34,7 @@ import type { ArxivData } from "./arxiv.ts";
 import type { HfData } from "./hf.ts";
 import type { DevtoData } from "./devto.ts";
 import type { LobstersData } from "./lobsters.ts";
+import type { RoboticsData } from "./robotics.ts";
 
 // ---------------------------------------------------------------------------
 // Web report
@@ -318,6 +321,46 @@ export async function saveHfReport(
     }
   } catch (err) {
     console.error(`  [hf/${lang}] Report generation failed: ${err}`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Robotics & Embodied AI report
+// ---------------------------------------------------------------------------
+
+export async function saveRoboticsReport(
+  roboticsData: RoboticsData,
+  utcStr: string,
+  dateStr: string,
+  digestRepo: string,
+  footer: string,
+  lang: Lang = "zh",
+): Promise<void> {
+  if (!roboticsData.fetchSuccess) {
+    console.log(`  [robotics/${lang}] No data available, skipping report.`);
+    return;
+  }
+
+  console.log(`  [robotics/${lang}] Calling LLM for robotics report...`);
+  try {
+    const summary = await callLlm(buildRoboticsPrompt(roboticsData, dateStr, lang));
+    const fileName = lang === "en" ? "ai-embodied-en.md" : "ai-embodied.md";
+    const header =
+      lang === "en"
+        ? `# ${EMBODIED_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> Source: GitHub Search API (robotics, ROS, embodied-AI topics) | ` +
+          `${roboticsData.repos.length} repos | Generated: ${utcStr} UTC\n\n` +
+          `---\n\n`
+        : `# ${EMBODIED_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> 数据来源: GitHub Search API (robotics, ROS, embodied-AI 等话题) | ` +
+          `共 ${roboticsData.repos.length} 个仓库 | 生成时间: ${utcStr} UTC\n\n` +
+          `---\n\n`;
+
+    const content = header + summary + footer;
+
+    console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
+  } catch (err) {
+    console.error(`  [robotics/${lang}] Report generation failed: ${err}`);
   }
 }
 

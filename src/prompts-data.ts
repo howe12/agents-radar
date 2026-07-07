@@ -13,6 +13,7 @@ import type { ArxivData } from "./arxiv.ts";
 import type { HfData } from "./hf.ts";
 import type { DevtoData } from "./devto.ts";
 import type { LobstersData } from "./lobsters.ts";
+import type { RoboticsData } from "./robotics.ts";
 import type { Lang } from "./i18n.ts";
 export function buildTrendingPrompt(data: TrendingData, dateStr: string, lang: Lang = "zh"): string {
   const trendingSection =
@@ -904,5 +905,89 @@ ${lobstersText}
 5. **值得精读** — 2~3 篇最值得深入阅读的内容
 
 语言要求：中文，简洁专业，保留所有原文链接。
+`;
+}
+
+// ---------------------------------------------------------------------------
+// Robotics & Embodied AI prompt
+// ---------------------------------------------------------------------------
+
+export function buildRoboticsPrompt(data: RoboticsData, dateStr: string, lang: Lang = "zh"): string {
+  const reposText = data.repos
+    .map((r, i) =>
+      lang === "en"
+        ? `${i + 1}. **${r.fullName}** ⭐${r.stars.toLocaleString()}\n` +
+          `   ${r.url}\n` +
+          `   Language: ${r.language || "N/A"} | Topic: ${r.searchQuery}\n` +
+          `   ${r.description || ""}`
+        : `${i + 1}. **${r.fullName}** ⭐${r.stars.toLocaleString()}\n` +
+          `   ${r.url}\n` +
+          `   语言: ${r.language || "未知"} | 标签: ${r.searchQuery}\n` +
+          `   ${r.description || ""}`,
+    )
+    .join("\n\n");
+
+  if (lang === "en") {
+    return `You are a robotics & embodied AI analyst. The following are recently active robotics-related GitHub repositories (pushed in the last 7 days, sorted by stars, ${data.repos.length} total):
+
+---
+
+${reposText}
+
+---
+
+Generate a structured Embodied AI Open Source Digest in English:
+
+1. **Today's Highlights** — 3-5 sentences on the most notable robotics open-source activity
+
+2. **Key Projects** — Select 8-15 most important repos, organized by category:
+   - 🦾 Robot Learning & Control (imitation learning, RL, policy learning)
+   - 🤖 Simulation & Frameworks (MuJoCo, Isaac, Gazebo, ROS)
+   - 🧠 VLA & Foundation Models (vision-language-action, embodied foundation models)
+   - 🔧 Hardware & Drivers (robot drivers, hardware interfaces, embedded systems)
+   - 📊 Datasets & Benchmarks (manipulation, navigation, embodied benchmarks)
+
+   For each repo:
+   - Name (with GitHub link)
+   - Star count
+   - One sentence: core contribution and why it matters for the robotics community
+
+3. **Ecosystem Signal** — 100-200 words on emerging trends in robotics open-source
+
+4. **Worth Watching** — 2-3 projects most worth following, with reasoning
+
+Style: English, concise and professional, preserve all GitHub links.
+`;
+  }
+
+  return `你是机器人 & 具身智能领域分析师。以下是最近 7 天内有推送活动的机器人相关 GitHub 仓库（按 star 数降序，共 ${data.repos.length} 个）：
+
+---
+
+${reposText}
+
+---
+
+请生成一份结构清晰的《具身智能开源动态日报》，要求：
+
+1. **今日速览** — 3~5 句话，概括今日最值得关注的机器人开源动态
+
+2. **重点项目** — 选出 8~15 个最重要的仓库，按分类整理：
+   - 🦾 机器人学习与控制（模仿学习、强化学习、策略学习）
+   - 🤖 仿真与框架（MuJoCo、Isaac、Gazebo、ROS）
+   - 🧠 VLA 与基础模型（视觉-语言-动作、具身基础模型）
+   - 🔧 硬件与驱动（机器人驱动、硬件接口、嵌入式系统）
+   - 📊 数据集与基准（操作、导航、具身智能评测）
+
+   每个仓库包含：
+   - 名称（附 GitHub 链接）
+   - Star 数
+   - 一句话说明：核心贡献和对机器人社区的意义
+
+3. **生态趋势信号** — 100~200 字，分析机器人开源领域的新兴趋势
+
+4. **值得关注** — 2~3 个最值得跟进的项目，简述理由
+
+语言要求：中文，简洁专业，保留所有 GitHub 链接。
 `;
 }
