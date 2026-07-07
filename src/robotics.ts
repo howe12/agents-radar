@@ -58,7 +58,7 @@ async function searchRoboticsRepos(sevenDaysAgo: string): Promise<RoboticsRepo[]
     SEARCH_QUERIES.map(async ({ q, label }) => {
       try {
         const query = `${q}+pushed:>${sevenDaysAgo}&sort=stars&order=desc`;
-        const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&per_page=15`;
+        const url = `https://api.github.com/search/repositories?q=${query}&per_page=15`;
         const resp = await fetch(url, { headers });
         if (!resp.ok) {
           console.error(`  [robotics/search] "${label}": HTTP ${resp.status}`);
