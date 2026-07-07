@@ -8,30 +8,39 @@
 /* ── Reset & Base ─────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --sidebar-bg:#1e1e2e; --sidebar-fg:#cdd6f4; --sidebar-hover:#313244;
-  --sidebar-active:#45475a; --sidebar-accent:#89b4fa;
-  --main-bg:#fafafa; --main-fg:#1e1e2e;
-  --border:#e0e0e0; --code-bg:#f0f0f0; --link:#6c63ff;
-  --card-bg:#fff; --card-shadow:0 1px 3px rgba(0,0,0,.08);
-  --h1-color:#1e1e2e; --h2-color:#333; --h3-color:#444;
+  --sidebar-bg:#1a1a2e; --sidebar-fg:#cdd6f4; --sidebar-hover:#16213e;
+  --sidebar-active:#0f3460; --sidebar-accent:#e94560;
+  --main-bg:#f8f9fa; --main-fg:#2d3436;
+  --border:#e0e0e0; --code-bg:#f0f0f0; --link:#e94560;
+  --card-bg:#fff; --card-shadow:0 2px 8px rgba(0,0,0,.06);
+  --h1-color:#1a1a2e; --h2-color:#16213e; --h3-color:#0f3460;
   --tag-bg:#eee; --tag-fg:#555;
-  --table-border:#ddd; --table-head:#f5f5f5;
+  --table-border:#e8e8e8; --table-head:#f5f5f5;
+  --callout-bg:#f0f7ff; --callout-border:#89b4fa;
+  --stat-bg:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --badge-bg:#e94560; --badge-fg:#fff;
   --sidebar-width:280px; --topbar-height:48px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
-  font-size:15px; line-height:1.7; color:var(--main-fg);
+  --radius:8px; --radius-sm:4px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size:16px; line-height:1.75; color:var(--main-fg);
   scroll-behavior:smooth;
 }
 html.dark{
-  --sidebar-bg:#11111b; --sidebar-fg:#cdd6f4; --sidebar-hover:#1e1e2e;
-  --sidebar-active:#313244; --sidebar-accent:#89b4fa;
-  --main-bg:#1e1e2e; --main-fg:#cdd6f4;
-  --border:#45475a; --code-bg:#313244; --link:#89b4fa;
-  --card-bg:#313244; --card-shadow:0 1px 3px rgba(0,0,0,.3);
-  --h1-color:#f5f5f5; --h2-color:#ddd; --h3-color:#ccc;
-  --tag-bg:#45475a; --tag-fg:#bac2de;
-  --table-border:#45475a; --table-head:#313244;
+  --sidebar-bg:#0d1117; --sidebar-fg:#c9d1d9; --sidebar-hover:#161b22;
+  --sidebar-active:#1f2937; --sidebar-accent:#f78166;
+  --main-bg:#0d1117; --main-fg:#c9d1d9;
+  --border:#30363d; --code-bg:#161b22; --link:#f78166;
+  --card-bg:#161b22; --card-shadow:0 2px 8px rgba(0,0,0,.3);
+  --h1-color:#f0f6fc; --h2-color:#e6edf3; --h3-color:#c9d1d9;
+  --tag-bg:#21262d; --tag-fg:#8b949e;
+  --table-border:#30363d; --table-head:#161b22;
+  --callout-bg:#161b22; --callout-border:#f78166;
+  --badge-bg:#f78166;
 }
 body{display:flex;min-height:100vh;background:var(--main-bg)}
+
+/* ── Reading progress bar ──────────────────────────────────────── */
+#progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--sidebar-accent);z-index:300;transition:width .1s}
 
 /* ── Sidebar ──────────────────────────────────────────────────── */
 .sidebar{
@@ -43,103 +52,180 @@ body{display:flex;min-height:100vh;background:var(--main-bg)}
   border-right:1px solid var(--border);
 }
 .sidebar-header{
-  padding:20px 20px 12px;border-bottom:1px solid var(--border);
+  padding:24px 20px 16px;border-bottom:1px solid var(--border);
+  background:linear-gradient(135deg, rgba(233,68,96,.1), rgba(118,75,162,.1));
 }
-.sidebar-header h1{font-size:1.2rem;font-weight:700;color:var(--sidebar-accent)}
-.sidebar-header .sub{font-size:.75rem;opacity:.6;margin-top:2px}
+.sidebar-header h1{font-size:1.15rem;font-weight:800;color:var(--sidebar-accent);letter-spacing:-0.5px}
+.sidebar-header .sub{font-size:.7rem;opacity:.5;margin-top:4px}
 .sidebar-nav{flex:1;overflow-y:auto;padding:8px 0}
-.sidebar-footer{padding:12px 20px;border-top:1px solid var(--border);font-size:.75rem;opacity:.5}
+.sidebar-footer{padding:12px 20px;border-top:1px solid var(--border);font-size:.7rem;opacity:.45}
 .sidebar-footer a{color:var(--sidebar-fg);text-decoration:none}
+.sidebar-footer a:hover{color:var(--sidebar-accent)}
 
-.date-group{margin-bottom:2px}
+.date-group{margin-bottom:1px}
 .date-toggle{
   display:flex;align-items:center;gap:6px;width:100%;
-  padding:8px 20px;border:none;background:none;color:var(--sidebar-fg);
-  font-size:.85rem;font-weight:600;cursor:pointer;text-align:left;
-  transition:background .15s;
+  padding:9px 20px;border:none;background:none;color:var(--sidebar-fg);
+  font-size:.82rem;font-weight:600;cursor:pointer;text-align:left;
+  transition:background .15s;border-radius:0 var(--radius-sm) var(--radius-sm) 0;
 }
 .date-toggle:hover{background:var(--sidebar-hover)}
-.date-toggle .arrow{font-size:.65rem;transition:transform .2s;opacity:.5;min-width:12px}
+.date-toggle .arrow{font-size:.55rem;transition:transform .2s;opacity:.35;min-width:10px}
 .date-toggle .arrow.open{transform:rotate(90deg)}
-.date-toggle .date-icon{margin-right:2px}
-.report-list{display:none;padding:0 0 4px}
+.report-list{display:none;padding:0 0 6px}
 .report-list.open{display:block}
 .report-link{
-  display:block;padding:5px 20px 5px 42px;font-size:.8rem;
-  color:var(--sidebar-fg);text-decoration:none;opacity:.75;
+  display:block;padding:5px 20px 5px 42px;font-size:.78rem;
+  color:var(--sidebar-fg);text-decoration:none;opacity:.65;
   transition:all .15s;border-left:2px solid transparent;
 }
-.report-link:hover{opacity:1;background:var(--sidebar-hover)}
-.report-link.active{opacity:1;background:var(--sidebar-active);border-left-color:var(--sidebar-accent)}
-.report-link .lang-badge{font-size:.65rem;margin-left:4px;opacity:.5}
+.report-link:hover{opacity:1;background:var(--sidebar-hover);border-left-color:var(--sidebar-accent)}
+.report-link.active{opacity:1;background:var(--sidebar-active);border-left-color:var(--sidebar-accent);font-weight:600}
 
 .theme-toggle{
   display:flex;align-items:center;gap:8px;width:100%;
   padding:10px 20px;border:none;background:none;color:var(--sidebar-fg);
-  font-size:.8rem;cursor:pointer;transition:background .15s;
+  font-size:.78rem;cursor:pointer;transition:background .15s;
+  border-radius:var(--radius-sm);
 }
 .theme-toggle:hover{background:var(--sidebar-hover)}
-.theme-toggle .icon{font-size:1rem}
 
 /* ── Mobile nav ────────────────────────────────────────────────── */
 .nav-toggle{
   display:none;position:fixed;top:12px;left:12px;z-index:200;
-  width:36px;height:36px;border:none;background:var(--card-bg);
-  color:var(--main-fg);font-size:1.2rem;border-radius:6px;
+  width:38px;height:38px;border:none;background:var(--card-bg);
+  color:var(--main-fg);font-size:1.2rem;border-radius:var(--radius);
   cursor:pointer;box-shadow:var(--card-shadow);
 }
-.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99;backdrop-filter:blur(2px)}
 
 /* ── Main content ──────────────────────────────────────────────── */
 .main{
   margin-left:var(--sidebar-width);flex:1;min-width:0;
-  padding:40px 48px;max-width:900px;
+  padding:48px 56px 80px;max-width:940px;
 }
-.main-header{margin-bottom:32px}
-.main-header h1{font-size:1.8rem;color:var(--h1-color);margin-bottom:4px}
-.main-header .meta{font-size:.8rem;opacity:.5}
+.main-header{margin-bottom:36px;padding-bottom:20px;border-bottom:2px solid var(--border)}
+.main-header h1{font-size:1.9rem;color:var(--h1-color);font-weight:800;letter-spacing:-0.5px}
+.main-header .meta{font-size:.78rem;opacity:.45;margin-top:4px}
+
+/* ── Stats bar ─────────────────────────────────────────────────── */
+.stats-bar{
+  display:flex;gap:16px;margin-bottom:32px;flex-wrap:wrap;
+}
+.stat-card{
+  flex:1;min-width:120px;padding:14px 18px;
+  background:var(--card-bg);border-radius:var(--radius);
+  box-shadow:var(--card-shadow);border:1px solid var(--border);
+}
+.stat-card .stat-num{font-size:1.5rem;font-weight:800;color:var(--sidebar-accent);line-height:1.2}
+.stat-card .stat-label{font-size:.72rem;opacity:.5;margin-top:2px}
+
+/* ── Content typography ────────────────────────────────────────── */
 .content{}
-.content h1{font-size:1.6rem;margin:28px 0 16px;color:var(--h1-color);border-bottom:2px solid var(--border);padding-bottom:8px}
-.content h2{font-size:1.25rem;margin:24px 0 12px;color:var(--h2-color)}
-.content h3{font-size:1.05rem;margin:18px 0 8px;color:var(--h3-color)}
-.content h4{font-size:.95rem;margin:14px 0 6px;color:var(--h3-color)}
-.content p{margin:8px 0}
-.content a{color:var(--link);text-decoration:none}
-.content a:hover{text-decoration:underline}
-.content ul,.content ol{margin:8px 0;padding-left:24px}
-.content li{margin:2px 0}
-.content blockquote{
-  margin:12px 0;padding:8px 16px;border-left:3px solid var(--sidebar-accent);
-  background:var(--code-bg);border-radius:0 6px 6px 0;color:var(--main-fg)
+.content > *:first-child{margin-top:0}
+
+.content h1{font-size:1.6rem;margin:36px 0 20px;color:var(--h1-color);font-weight:700;
+  padding-bottom:10px;border-bottom:2px solid var(--border)}
+.content h2{font-size:1.3rem;margin:30px 0 16px;color:var(--h2-color);font-weight:700}
+.content h3{font-size:1.1rem;margin:26px 0 14px;color:var(--h3-color);font-weight:700}
+.content h4{font-size:1rem;margin:22px 0 12px;color:var(--h3-color);font-weight:600}
+.content h5{font-size:.92rem;margin:18px 0 10px;color:var(--h3-color);font-weight:600;
+  padding:6px 12px;background:var(--callout-bg);border-radius:var(--radius-sm);
+  border-left:3px solid var(--sidebar-accent)}
+.content h6{font-size:.85rem;margin:14px 0 8px}
+
+.content p{margin:10px 0}
+.content a{color:var(--link);text-decoration:none;font-weight:500;border-bottom:1px solid transparent;transition:border-color .15s}
+.content a:hover{border-bottom-color:var(--link)}
+.content ul,.content ol{margin:10px 0;padding-left:24px}
+.content li{margin:4px 0;line-height:1.7}
+
+/* Project cards for numbered lists */
+.content ol{list-style:none;padding-left:0;counter-reset:project}
+.content ol li{
+  counter-increment:project;margin:12px 0;padding:16px 18px;
+  background:var(--card-bg);border-radius:var(--radius);
+  box-shadow:var(--card-shadow);border:1px solid var(--border);
+  position:relative;padding-left:52px;transition:transform .15s,box-shadow .15s
 }
+.content ol li:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.content ol li::before{
+  content:counter(project);position:absolute;left:14px;top:14px;
+  width:26px;height:26px;border-radius:50%;
+  background:var(--badge-bg);color:var(--badge-fg);
+  font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center
+}
+.content ol li p{margin:0}
+.content ol li strong{color:var(--sidebar-accent);font-size:.95rem}
+
+/* Star badge */
+.star-badge{
+  display:inline-block;padding:2px 8px;border-radius:10px;
+  background:var(--tag-bg);color:var(--tag-fg);font-size:.7rem;
+  margin-left:6px;font-weight:600
+}
+
+.content blockquote{
+  margin:16px 0;padding:14px 18px;
+  border-left:4px solid var(--callout-border);
+  background:var(--callout-bg);border-radius:0 var(--radius) var(--radius) 0;
+  font-size:.92rem
+}
+.content blockquote p{margin:4px 0}
+
 .content code{
-  background:var(--code-bg);padding:1px 5px;border-radius:4px;
-  font-family:"JetBrains Mono","Fira Code",monospace;font-size:.85em
+  background:var(--code-bg);padding:2px 6px;border-radius:var(--radius-sm);
+  font-family:"JetBrains Mono","Fira Code","Cascadia Code",monospace;
+  font-size:.85em;color:var(--sidebar-accent)
 }
 .content pre{
-  background:var(--code-bg);padding:16px;border-radius:8px;
-  overflow-x:auto;margin:12px 0;font-size:.82rem;line-height:1.5
+  background:var(--code-bg);padding:18px;border-radius:var(--radius);
+  overflow-x:auto;margin:14px 0;font-size:.82rem;line-height:1.55;
+  border:1px solid var(--border)
 }
-.content pre code{background:none;padding:0}
-.content table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem}
-.content th,.content td{padding:8px 12px;border:1px solid var(--table-border);text-align:left}
-.content th{background:var(--table-head);font-weight:600}
-.content hr{border:none;border-top:1px solid var(--border);margin:24px 0}
-.content strong{color:var(--h1-color)}
+.content pre code{background:none;padding:0;color:var(--main-fg)}
+
+.content table{width:100%;border-collapse:separate;border-spacing:0;margin:16px 0;
+  font-size:.88rem;border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--table-border)}
+.content th,.content td{padding:10px 14px;text-align:left}
+.content th{background:var(--table-head);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px}
+.content td{border-top:1px solid var(--table-border)}
+.content tr:hover td{background:var(--code-bg)}
+
+.content hr{border:none;border-top:1px solid var(--border);margin:28px 0}
+.content strong{color:var(--h1-color);font-weight:700}
 .content em{opacity:.8}
-.content img{max-width:100%;border-radius:8px}
 
-/* Quick nav tags */
-.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.content img{max-width:100%;border-radius:var(--radius)}
+
+/* Tag cloud / pills */
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
 .tag{
-  display:inline-block;padding:2px 10px;background:var(--tag-bg);
-  color:var(--tag-fg);border-radius:12px;font-size:.75rem
+  display:inline-block;padding:3px 12px;background:var(--tag-bg);
+  color:var(--tag-fg);border-radius:20px;font-size:.72rem;
+  font-weight:500;transition:background .15s
 }
+.tag:hover{background:var(--sidebar-accent);color:#fff}
 
-/* Loading / Empty */
-.loading{padding:40px 0;text-align:center;opacity:.5;font-size:1.1rem}
-.empty{padding:60px 0;text-align:center;opacity:.4}
-.empty .icon{font-size:3rem;margin-bottom:16px}
+/* ── Back to top ───────────────────────────────────────────────── */
+#back-to-top{
+  position:fixed;bottom:32px;right:32px;z-index:200;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--sidebar-accent);color:#fff;border:none;
+  font-size:1.1rem;cursor:pointer;opacity:0;transform:translateY(20px);
+  transition:all .25s;box-shadow:0 4px 12px rgba(0,0,0,.2);
+  display:flex;align-items:center;justify-content:center
+}
+#back-to-top.visible{opacity:1;transform:translateY(0)}
+
+/* ── Loading / Empty ───────────────────────────────────────────── */
+.loading{padding:60px 0;text-align:center;opacity:.4;font-size:1.1rem}
+.loading .spinner{display:inline-block;width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--sidebar-accent);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty{padding:80px 0;text-align:center;opacity:.3}
+.empty .icon{font-size:3.5rem;margin-bottom:16px}
+.empty p{font-size:1rem}
 
 /* ── Responsive ────────────────────────────────────────────────── */
 @media(max-width:768px){
@@ -147,13 +233,19 @@ body{display:flex;min-height:100vh;background:var(--main-bg)}
   .sidebar.open{transform:translateX(0)}
   .sidebar-overlay.open{display:block}
   .nav-toggle{display:flex;align-items:center;justify-content:center}
-  .main{margin-left:0;padding:20px 16px}
+  .main{margin-left:0;padding:24px 16px 60px}
+  .main-header h1{font-size:1.4rem}
+  .stats-bar{gap:8px}
+  .stat-card{padding:10px 14px}
+  .stat-card .stat-num{font-size:1.2rem}
+  .content ol li{padding:14px 12px 14px 42px}
 }
 </style>
 </head>
 <body>
 
-<!-- Mobile nav toggle -->
+<div id="progress-bar"></div>
+
 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
@@ -164,7 +256,7 @@ body{display:flex;min-height:100vh;background:var(--main-bg)}
     <div class="sub">AI 生态日报 · DeepSeek 驱动</div>
   </div>
   <nav class="sidebar-nav" id="sidebarNav">
-    <div class="loading" style="font-size:.85rem;padding:20px">加载中...</div>
+    <div class="loading"><div class="spinner"></div><p>加载中...</p></div>
   </nav>
   <div class="sidebar-footer">
     <button class="theme-toggle" id="themeToggle">
@@ -183,6 +275,7 @@ body{display:flex;min-height:100vh;background:var(--main-bg)}
     <h1>📡 agents-radar</h1>
     <div class="meta">AI 工具生态日报 · 每日自动生成</div>
   </div>
+  <div class="stats-bar" id="statsBar" style="display:none"></div>
   <div class="content" id="content">
     <div class="empty">
       <div class="icon">📡</div>
@@ -191,13 +284,12 @@ body{display:flex;min-height:100vh;background:var(--main-bg)}
   </div>
 </main>
 
-<!-- ── Marked.js (CDN) ──────────────────────────────────────────── -->
+<button id="back-to-top" title="回到顶部">↑</button>
+
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
 // ── State ────────────────────────────────────────────────────────
 let manifest = null;
-let currentDate = null;
-let currentReport = null;
 
 // ── Labels ───────────────────────────────────────────────────────
 const LABELS = {
@@ -210,7 +302,7 @@ const LABELS = {
   "ai-arxiv":      {zh:"ArXiv 研究",    en:"ArXiv Research"},
   "ai-hf":         {zh:"HF 模型",       en:"HF Models"},
   "ai-community":  {zh:"技术社区",       en:"Tech Community"},
-  "ai-embodied":  {zh:"具身智能",       en:"Embodied AI"},
+  "ai-embodied":   {zh:"具身智能",       en:"Embodied AI"},
   "ai-weekly":     {zh:"AI 周刊",       en:"AI Weekly"},
   "ai-monthly":    {zh:"AI 月报",       en:"AI Monthly"},
 };
@@ -223,10 +315,49 @@ function label(r) {
 }
 
 function dateLabel(d) {
-  // 2026-07-07 → 7月7日
   const m = d.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!m) return d;
   return `${parseInt(m[2])}月${parseInt(m[3])}日`;
+}
+
+// ── Enhanced markdown rendering ──────────────────────────────────
+function enhanceContent(html) {
+  // Add star badges: ⭐13,588 → <span class="star-badge">⭐13,588</span>
+  html = html.replace(/⭐([\d,]+)/g, '<span class="star-badge">⭐$1</span>');
+
+  // Wrap h5 sections (category headers) content in styled containers
+  // Already handled by CSS border-left
+
+  return html;
+}
+
+// ── Stats extraction ─────────────────────────────────────────────
+function extractStats(html) {
+  const stats = {};
+  // Count repos/stars from badges
+  const badges = html.match(/⭐([\d,]+)/g);
+  if (badges) stats.starCount = badges.length;
+
+  // Count project cards (ol li)
+  const items = (html.match(/<li>/g) || []).length;
+  stats.itemCount = items;
+
+  // Count category sections (h5)
+  const cats = (html.match(/<h5/g) || []).length;
+  stats.catCount = cats;
+
+  return stats;
+}
+
+function renderStats(stats) {
+  const bar = document.getElementById("statsBar");
+  if (!stats.itemCount && !stats.catCount) { bar.style.display = "none"; return; }
+  bar.style.display = "flex";
+  let html = "";
+  if (stats.catCount) html += `<div class="stat-card"><div class="stat-num">${stats.catCount}</div><div class="stat-label">分类</div></div>`;
+  if (stats.itemCount) html += `<div class="stat-card"><div class="stat-num">${stats.itemCount}</div><div class="stat-label">项目</div></div>`;
+  if (stats.starCount) html += `<div class="stat-card"><div class="stat-num">${stats.starCount}</div><div class="stat-label">⭐ 仓库</div></div>`;
+  bar.innerHTML = html;
 }
 
 // ── Theme ────────────────────────────────────────────────────────
@@ -236,30 +367,35 @@ function setTheme(dark) {
   btn.innerHTML = dark ? '<span class="icon">☀️</span> 浅色模式' : '<span class="icon">🌙</span> 深色模式';
   localStorage.setItem("agents-radar-theme", dark ? "dark" : "light");
 }
-
 document.getElementById("themeToggle").addEventListener("click", () => {
   setTheme(!document.documentElement.classList.contains("dark"));
 });
-
-// Init theme
 const savedTheme = localStorage.getItem("agents-radar-theme");
 if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
   setTheme(true);
 }
 
+// ── Reading progress ─────────────────────────────────────────────
+window.addEventListener("scroll", () => {
+  const winH = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = window.scrollY;
+  const pct = winH > 0 ? Math.min(100, (scrolled / winH) * 100) : 0;
+  document.getElementById("progress-bar").style.width = pct + "%";
+});
+
+// ── Back to top ──────────────────────────────────────────────────
+const backBtn = document.getElementById("back-to-top");
+window.addEventListener("scroll", () => {
+  backBtn.classList.toggle("visible", window.scrollY > 500);
+});
+backBtn.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+
 // ── Mobile nav ───────────────────────────────────────────────────
 const sidebar = document.getElementById("sidebar");
 const overlay = document.getElementById("sidebarOverlay");
 const navToggle = document.getElementById("navToggle");
-
-function closeSidebar() {
-  sidebar.classList.remove("open");
-  overlay.classList.remove("open");
-}
-navToggle.addEventListener("click", () => {
-  sidebar.classList.toggle("open");
-  overlay.classList.toggle("open");
-});
+function closeSidebar() { sidebar.classList.remove("open"); overlay.classList.remove("open"); }
+navToggle.addEventListener("click", () => { sidebar.classList.toggle("open"); overlay.classList.toggle("open"); });
 overlay.addEventListener("click", closeSidebar);
 
 // ── Load manifest ────────────────────────────────────────────────
@@ -268,21 +404,16 @@ async function loadManifest() {
     const res = await fetch("manifest.json");
     manifest = await res.json();
     buildSidebar();
-    // Handle hash on load
     handleHash();
   } catch(e) {
-    document.getElementById("sidebarNav").innerHTML =
-      '<div class="loading">加载 manifest 失败</div>';
+    document.getElementById("sidebarNav").innerHTML = '<div class="loading">加载失败</div>';
   }
 }
 
 // ── Build sidebar ────────────────────────────────────────────────
 function buildSidebar() {
   const nav = document.getElementById("sidebarNav");
-  if (!manifest || !manifest.dates) {
-    nav.innerHTML = '<div class="loading">暂无数据</div>';
-    return;
-  }
+  if (!manifest || !manifest.dates) { nav.innerHTML = '<div class="loading">暂无数据</div>'; return; }
 
   let html = "";
   for (const entry of manifest.dates) {
@@ -293,7 +424,7 @@ function buildSidebar() {
     html += `<button class="date-toggle" data-date="${d}" onclick="toggleDate('${d}')">`;
     html += `<span class="arrow" id="arrow-${d}">▶</span>`;
     html += `<span class="date-icon">📅</span> ${dateLabel(d)}`;
-    html += `<span style="margin-left:auto;font-size:.7rem;opacity:.4">${reports.length}</span>`;
+    html += `<span style="margin-left:auto;font-size:.65rem;opacity:.3">${reports.length}</span>`;
     html += `</button>`;
     html += `<div class="report-list" id="list-${d}">`;
     for (const r of reports) {
@@ -306,50 +437,48 @@ function buildSidebar() {
   nav.innerHTML = html;
 }
 
-// ── Toggle date group ────────────────────────────────────────────
 function toggleDate(date) {
   const list = document.getElementById("list-" + date);
   const arrow = document.getElementById("arrow-" + date);
-  const isOpen = list.classList.toggle("open");
-  arrow.classList.toggle("open", isOpen);
+  list.classList.toggle("open");
+  arrow.classList.toggle("open");
 }
 
 // ── Load report ──────────────────────────────────────────────────
 async function loadReport(date, report) {
-  currentDate = date;
-  currentReport = report;
   const content = document.getElementById("content");
   const h1 = document.querySelector(".main-header h1");
   const meta = document.querySelector(".main-header .meta");
 
   h1.textContent = label(report);
   meta.textContent = `${date} · ${report}`;
-  content.innerHTML = '<div class="loading">加载中...</div>';
+  content.innerHTML = '<div class="loading"><div class="spinner"></div><p>加载中...</p></div>';
+  document.getElementById("statsBar").style.display = "none";
 
-  // Update sidebar active state
+  // Update sidebar
   document.querySelectorAll(".report-link").forEach(el => el.classList.remove("active"));
   const link = document.querySelector(`.report-link[data-date="${date}"][data-report="${report}"]`);
   if (link) link.classList.add("active");
-
-  // Auto-open the date group
   const list = document.getElementById("list-" + date);
   const arrow = document.getElementById("arrow-" + date);
-  if (list && !list.classList.contains("open")) {
-    list.classList.add("open");
-    if (arrow) arrow.classList.add("open");
-  }
+  if (list && !list.classList.contains("open")) { list.classList.add("open"); if(arrow) arrow.classList.add("open"); }
 
   try {
     const res = await fetch(`digests/${date}/${report}.md`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const md = await res.text();
-    // Parse frontmatter if present
     let body = md;
-    if (md.startsWith("---")) {
-      const end = md.indexOf("---", 3);
-      if (end !== -1) body = md.slice(end + 3);
-    }
-    content.innerHTML = marked.parse(body);
+    if (md.startsWith("---")) { const end = md.indexOf("---", 3); if (end !== -1) body = md.slice(end + 3); }
+
+    let rawHtml = marked.parse(body);
+    rawHtml = enhanceContent(rawHtml);
+    content.innerHTML = rawHtml;
+
+    // Render stats
+    const stats = extractStats(rawHtml);
+    renderStats(stats);
+
+    window.scrollTo({top:0, behavior:"smooth"});
   } catch(e) {
     content.innerHTML = `<div class="empty"><div class="icon">⚠️</div><p>无法加载报告</p><p style="font-size:.8rem">${e.message}</p></div>`;
   }
@@ -357,19 +486,13 @@ async function loadReport(date, report) {
 
 // ── Hash handling ────────────────────────────────────────────────
 function handleHash() {
-  const hash = window.location.hash.slice(1); // remove #
+  const hash = window.location.hash.slice(1);
   if (!hash) return;
   const parts = hash.split("/");
-  if (parts.length >= 2) {
-    const date = parts[0];
-    const report = parts.slice(1).join("/");
-    loadReport(date, report);
-  }
+  if (parts.length >= 2) loadReport(parts[0], parts.slice(1).join("/"));
 }
-
 window.addEventListener("hashchange", handleHash);
 
-// ── Init ─────────────────────────────────────────────────────────
 loadManifest();
 </script>
 </body>
