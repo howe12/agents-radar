@@ -31,6 +31,8 @@ const REPORT_FILES = [
   "ai-embodied-en",
   "ai-cad",
   "ai-cad-en",
+  "ai-embedded",
+  "ai-embedded-en",
   "ai-weekly",
   "ai-weekly-en",
   "ai-monthly",

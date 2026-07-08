@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08T03:09:09.909Z",
+  "generated": "2026-07-08T06:49:22.670Z",
   "dates": [
     {
       "date": "2026-07-08",
@@ -21,7 +21,9 @@
         "ai-embodied",
         "ai-embodied-en",
         "ai-cad",
-        "ai-cad-en"
+        "ai-cad-en",
+        "ai-embedded",
+        "ai-embedded-en"
       ]
     },
     {
