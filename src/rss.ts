@@ -26,7 +26,7 @@ export interface RssItem {
 interface RssFeedConfig {
   url: string;
   source: string;
-  module: "robotics" | "cad";
+  module: "robotics" | "cad" | "embedded";
 }
 
 const RSS_FEEDS: RssFeedConfig[] = [
@@ -72,6 +72,28 @@ const RSS_FEEDS: RssFeedConfig[] = [
     url: "https://hackaday.com/category/3d-printing/feed/",
     source: "Hackaday 3DP",
     module: "cad",
+  },
+
+  // --- Embedded / DIY ---
+  {
+    url: "https://hackaday.com/blog/feed/",
+    source: "Hackaday",
+    module: "embedded",
+  },
+  {
+    url: "https://blog.arduino.cc/feed/",
+    source: "Arduino Blog",
+    module: "embedded",
+  },
+  {
+    url: "https://www.raspberrypi.com/news/feed/",
+    source: "Raspberry Pi Blog",
+    module: "embedded",
+  },
+  {
+    url: "https://www.cnx-software.com/feed/",
+    source: "CNX Software",
+    module: "embedded",
   },
 ];
 
@@ -150,7 +172,7 @@ async function fetchOneFeed(feed: RssFeedConfig): Promise<RssItem[]> {
  * Fetch RSS news items for a given module ("robotics" or "cad").
  * Filters to items published in the last 7 days.
  */
-export async function fetchRssNews(module: "robotics" | "cad"): Promise<RssItem[]> {
+export async function fetchRssNews(module: "robotics" | "cad" | "embedded"): Promise<RssItem[]> {
   const feeds = RSS_FEEDS.filter((f) => f.module === module);
   const results = await Promise.all(feeds.map(fetchOneFeed));
   const all = results.flat();

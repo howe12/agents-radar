@@ -13,6 +13,7 @@ import {
   HF_REPORT,
   COMMUNITY_REPORT,
   EMBODIED_REPORT,
+  EMBEDDED_REPORT,
   CAD_REPORT,
   ISSUE_LABELS,
 } from "./i18n.ts";
@@ -23,11 +24,14 @@ import {
   buildArxivPrompt,
   buildHfPrompt,
   buildCommunityPrompt,
+  buildRoboticsPrompt,
+  buildCadPrompt,
+  buildEmbeddedPrompt,
 } from "./prompts-data";
-import { buildRoboticsPrompt } from "./prompts-data";
-import { buildCadPrompt } from "./prompts-data";
 import { callLlm, saveFile, LLM_TOKENS_WEB } from "./report.ts";
 import { createGitHubIssue } from "./github.ts";
+
+import type { EmbeddedData } from "./embedded.ts";
 import { saveWebState, type WebFetchResult, type WebState } from "./web.ts";
 import type { HnData } from "./hn.ts";
 import type { PhData } from "./ph.ts";
@@ -461,5 +465,49 @@ export async function saveCadReport(
     console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
   } catch (err) {
     console.error(`  [cad/${lang}] Report generation failed: ${err}`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Embedded & DIY electronics report
+// ---------------------------------------------------------------------------
+
+export async function saveEmbeddedReport(
+  embeddedData: EmbeddedData,
+  utcStr: string,
+  dateStr: string,
+  digestRepo: string,
+  footer: string,
+  lang: Lang = "zh",
+): Promise<void> {
+  if (!embeddedData.fetchSuccess) {
+    console.log(`  [embedded/${lang}] No data available, skipping report.`);
+    return;
+  }
+
+  console.log(`  [embedded/${lang}] Calling LLM for embedded report...`);
+  try {
+    const summary = await callLlm(buildEmbeddedPrompt(embeddedData, dateStr, lang));
+    const fileName = lang === "en" ? "ai-embedded-en.md" : "ai-embedded.md";
+    const header =
+      lang === "en"
+        ? `# ${EMBEDDED_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> Sources: GitHub Search API (${embeddedData.repos.length} repos) | ` +
+          `ArXiv cs.AR (${embeddedData.papers.length} papers) | ` +
+          `RSS News (${embeddedData.news.length} items) | ` +
+          `Generated: ${utcStr} UTC\n\n` +
+          `---\n\n`
+        : `# ${EMBEDDED_REPORT.title[lang]} ${dateStr}\n\n` +
+          `> 数据来源: GitHub Search API (${embeddedData.repos.length} 仓库) | ` +
+          `ArXiv cs.AR (${embeddedData.papers.length} 篇论文) | ` +
+          `RSS 新闻 (${embeddedData.news.length} 条) | ` +
+          `生成时间: ${utcStr} UTC\n\n` +
+          `---\n\n`;
+
+    const content = header + summary + footer;
+
+    console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
+  } catch (err) {
+    console.error(`  [embedded/${lang}] Report generation failed: ${err}`);
   }
 }

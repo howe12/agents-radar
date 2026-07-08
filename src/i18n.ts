@@ -99,6 +99,12 @@ export const EMBODIED_REPORT = {
     lang === "en" ? `🤖 Embodied AI Digest ${dateStr}` : `🤖 具身智能开源动态日报 ${dateStr}`,
 } as const;
 
+export const EMBEDDED_REPORT = {
+  title: t("嵌入式开发/DIY 开源动态日报", "Embedded & DIY Open Source Digest"),
+  issueTitle: (dateStr: string, lang: Lang) =>
+    lang === "en" ? `🔌 Embedded & DIY Digest ${dateStr}` : `🔌 嵌入式开发/DIY 开源动态日报 ${dateStr}`,
+} as const;
+
 export const CAD_REPORT = {
   title: t("CAD/机械结构开源动态日报", "CAD & Mechanical Design Open Source Digest"),
   sources: t(
@@ -180,6 +186,8 @@ export const REPORT_LABELS: Record<string, string> = {
   "ai-community-en": "Tech Community AI Digest",
   "ai-embodied": "具身智能开源动态日报",
   "ai-embodied-en": "Embodied AI Open Source Digest",
+  "ai-embedded": "嵌入式开发/DIY 开源动态日报",
+  "ai-embedded-en": "Embedded & DIY Open Source Digest",
   "ai-cad": "CAD/机械结构开源动态日报",
   "ai-cad-en": "CAD & Mechanical Design Open Source Digest",
   "ai-weekly": "AI 工具生态周报",
@@ -199,6 +207,7 @@ export const NOTIFY_LABELS: Record<string, Record<Lang, string>> = {
   "ai-hf": t("HF 模型", "HF Models"),
   "ai-community": t("技术社区", "Tech Community"),
   "ai-embodied": t("具身智能", "Embodied AI"),
+  "ai-embedded": t("嵌入式/DIY", "Embedded/DIY"),
   "ai-cad": t("CAD/机械结构", "CAD/Mechanical"),
   "ai-weekly": t("AI 工具生态周报", "AI Tools Weekly"),
   "ai-monthly": t("AI 工具生态月报", "AI Tools Monthly"),

@@ -15,6 +15,7 @@ import type { DevtoData } from "./devto.ts";
 import type { LobstersData } from "./lobsters.ts";
 import type { RoboticsData } from "./robotics.ts";
 import type { CadData } from "./cad.ts";
+import type { EmbeddedData } from "./embedded.ts";
 import type { Lang } from "./i18n.ts";
 export function buildTrendingPrompt(data: TrendingData, dateStr: string, lang: Lang = "zh"): string {
   const trendingSection =
@@ -1154,6 +1155,132 @@ ${reposText}
    - 名称（附 GitHub 链接）
    - Star 数
    - 一句话说明：核心贡献和对机械设计领域的意义
+
+5. **生态趋势信号** — 100~200 字，串联新闻、论文和仓库中反映的新兴趋势
+
+6. **值得关注** — 2~3 个最值得跟进的发展（可以是新闻、论文或项目），简述理由
+
+语言要求：中文，简洁专业，保留所有链接。
+`;
+}
+
+export function buildEmbeddedPrompt(data: EmbeddedData, dateStr: string, lang: Lang = "zh"): string {
+  // Format papers from ArXiv cs.AR (top 10, brief)
+  const papersText =
+    data.papers.length > 0
+      ? data.papers
+          .slice(0, 10)
+          .map(
+            (p) =>
+              `- **${p.title}**\n  ${p.authors.slice(0, 2).join(", ")}${p.authors.length > 2 ? ` et al.` : ""}\n  ${p.url}\n  ${p.summary.slice(0, 120)}${p.summary.length > 120 ? "..." : ""}`,
+          )
+          .join("\n\n")
+      : lang === "en"
+        ? "(No cs.AR papers available)"
+        : "（无 cs.AR 论文数据）";
+
+  // Format RSS news (top 8, title+link only)
+  const newsText =
+    data.news.length > 0
+      ? data.news
+          .slice(0, 8)
+          .map((n) => `- [${n.title}](${n.url}) — _${n.source}_`)
+          .join("\n")
+      : lang === "en"
+        ? "(No news available)"
+        : "（无行业新闻数据）";
+
+  // Format repos
+  const reposText = data.repos
+    .map((r, i) =>
+      lang === "en"
+        ? `${i + 1}. **${r.fullName}** ⭐${r.stars.toLocaleString()}\n` +
+          `   ${r.url}\n` +
+          `   Language: ${r.language || "N/A"} | Topic: ${r.searchQuery}\n` +
+          `   ${r.description || ""}`
+        : `${i + 1}. **${r.fullName}** ⭐${r.stars.toLocaleString()}\n` +
+          `   ${r.url}\n` +
+          `   语言: ${r.language || "未知"} | 标签: ${r.searchQuery}\n` +
+          `   ${r.description || ""}`,
+    )
+    .join("\n\n");
+
+  if (lang === "en") {
+    return `You are an embedded systems & DIY electronics analyst. Here is your source material for today's digest:
+
+## Industry News (${data.news.length} items from Hackaday, Arduino Blog, Raspberry Pi Blog, CNX Software)
+${newsText}
+
+## Latest Papers — ArXiv cs.AR (Hardware Architecture, ${data.papers.length} papers)
+${papersText}
+
+## Active GitHub Repos (pushed in last 7 days, ${data.repos.length} total, sorted by stars)
+${reposText}
+
+---
+
+Generate a structured Embedded & DIY Open Source Digest in English that weaves together all three sources:
+
+1. **Today's Highlights** — 3-5 sentences synthesizing the most notable activity across news, papers, and repos
+
+2. **Industry Pulse** — 3-5 key news items from industry news above, with brief commentary on significance
+
+3. **Research Frontier** — 3-5 most notable cs.AR papers, explaining their relevance to embedded/DIY
+
+4. **Key Projects** — Select 8-15 most important repos, organized by category:
+   - 🔌 Microcontrollers & Dev Boards (Arduino, ESP32, STM32, RISC-V boards)
+   - 📟 Firmware & RTOS (FreeRTOS, Zephyr, bare-metal, bootloaders)
+   - 🛠️ Tools & Toolchains (debuggers, programmers, build systems, SDKs)
+   - 🌐 IoT & Connectivity (MQTT, BLE, LoRa, WiFi stacks, edge computing)
+   - 🤖 Robotics & Drones (DIY drones, motor controllers, sensor fusion)
+   - 🎨 PCB Design & Hardware (KiCad, open-source hardware, PCB fabrication)
+
+   For each repo:
+   - Name (with GitHub link)
+   - Star count
+   - One sentence: core contribution and why it matters
+
+5. **Ecosystem Signal** — 100-200 words on emerging trends, connecting patterns across news, papers, and repos
+
+6. **Worth Watching** — 2-3 most significant developments overall (can be a news story, paper, or project), with reasoning
+
+Style: English, concise and professional, preserve all links.
+`;
+  }
+
+  return `你是嵌入式开发 & DIY 电子领域分析师。以下是你今天撰写日报的全部素材：
+
+## 行业新闻（${data.news.length} 条，来自 Hackaday、Arduino Blog、Raspberry Pi Blog、CNX Software）
+${newsText}
+
+## 最新论文 — ArXiv cs.AR（硬件架构，${data.papers.length} 篇）
+${papersText}
+
+## 活跃 GitHub 仓库（最近 7 天有推送，共 ${data.repos.length} 个，按 star 数降序）
+${reposText}
+
+---
+
+请综合以上三种信息源，生成一份结构清晰的《嵌入式开发/DIY 开源动态日报》：
+
+1. **今日速览** — 3~5 句话，综合新闻、论文和仓库三方信息，概括今日最值得关注的动态
+
+2. **行业脉搏** — 从行业新闻中选出 3~5 条最重要的动态，简述其意义
+
+3. **研究前沿** — 从 cs.AR 论文中选出 3~5 篇最有价值的，说明其对嵌入式/硬件领域的贡献
+
+4. **重点项目** — 选出 8~15 个最重要的仓库，按分类整理：
+   - 🔌 微控制器与开发板（Arduino、ESP32、STM32、RISC-V 等）
+   - 📟 固件与 RTOS（FreeRTOS、Zephyr、裸机、Bootloader）
+   - 🛠️ 工具与工具链（调试器、编程器、构建系统、SDK）
+   - 🌐 IoT 与连接（MQTT、BLE、LoRa、WiFi 协议栈、边缘计算）
+   - 🤖 机器人与无人机（DIY 无人机、电机驱动、传感器融合）
+   - 🎨 PCB 设计与硬件（KiCad、开源硬件、PCB 制造）
+
+   每个仓库包含：
+   - 名称（附 GitHub 链接）
+   - Star 数
+   - 一句话说明：核心贡献和对嵌入式/DIY 领域的意义
 
 5. **生态趋势信号** — 100~200 字，串联新闻、论文和仓库中反映的新兴趋势
 

@@ -40,6 +40,7 @@ import {
   saveCommunityReport,
   saveRoboticsReport,
   saveCadReport,
+  saveEmbeddedReport,
 } from "./report-savers.ts";
 import { loadWebState, fetchSiteContent, type WebFetchResult, type WebState } from "./web.ts";
 import { fetchTrendingData, type TrendingData } from "./trending.ts";
@@ -51,6 +52,7 @@ import { fetchDevtoData, type DevtoData } from "./devto.ts";
 import { fetchLobstersData, type LobstersData } from "./lobsters.ts";
 import { fetchRoboticsData, type RoboticsData } from "./robotics.ts";
 import { fetchCadData, type CadData } from "./cad.ts";
+import { fetchEmbeddedData, type EmbeddedData } from "./embedded.ts";
 import { loadConfig } from "./config.ts";
 import { toCstDateStr, toUtcStr } from "./date.ts";
 import { type Lang, MSG, ISSUE_LABELS, CLI_ISSUE_TITLE, OPENCLAW_ISSUE_TITLE } from "./i18n.ts";
@@ -96,6 +98,7 @@ async function fetchAllData(
   lobstersData: LobstersData;
   roboticsData: RoboticsData;
   cadData: CadData;
+  embeddedData: EmbeddedData;
 }> {
   const allConfigs = [...CLI_REPOS, OPENCLAW, ...OPENCLAW_PEERS];
   console.log(
@@ -115,6 +118,7 @@ async function fetchAllData(
     lobstersData,
     roboticsData,
     cadData,
+    embeddedData,
   ] = await Promise.all([
     Promise.all(
       allConfigs.map(async (cfg) => {
@@ -175,6 +179,7 @@ async function fetchAllData(
     fetchLobstersData().catch((): LobstersData => ({ stories: [], fetchSuccess: false })),
     fetchRoboticsData().catch((): RoboticsData => ({ repos: [], papers: [], news: [], fetchSuccess: false })),
     fetchCadData().catch((): CadData => ({ repos: [], papers: [], news: [], fetchSuccess: false })),
+    fetchEmbeddedData().catch((): EmbeddedData => ({ repos: [], papers: [], news: [], fetchSuccess: false })),
   ]);
 
   return {
@@ -190,6 +195,7 @@ async function fetchAllData(
     lobstersData,
     roboticsData,
     cadData,
+    embeddedData,
   };
 }
 
@@ -325,6 +331,7 @@ async function main(): Promise<void> {
     lobstersData,
     roboticsData,
     cadData,
+    embeddedData,
   } = await fetchAllData(since, webState);
 
   const peerIds = new Set(OPENCLAW_PEERS.map((p) => p.id));
@@ -435,6 +442,8 @@ async function main(): Promise<void> {
     saveRoboticsReport(roboticsData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
     saveCadReport(cadData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
     saveCadReport(cadData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
+    saveEmbeddedReport(embeddedData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
+    saveEmbeddedReport(embeddedData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
   ]);
 
   // 5. Generate highlights for Telegram notification
@@ -454,6 +463,7 @@ async function main(): Promise<void> {
     ["ai-hf", "ai-hf.md", "ai-hf-en.md"],
     ["ai-community", "ai-community.md", "ai-community-en.md"],
     ["ai-embodied", "ai-embodied.md", "ai-embodied-en.md"],
+    ["ai-embedded", "ai-embedded.md", "ai-embedded-en.md"],
     ["ai-cad", "ai-cad.md", "ai-cad-en.md"],
   ] as const) {
     const zh = readReport(zhFile);
