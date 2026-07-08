@@ -173,8 +173,8 @@ async function fetchAllData(
     fetchHfData().catch((): HfData => ({ models: [], fetchSuccess: false })),
     fetchDevtoData().catch((): DevtoData => ({ articles: [], fetchSuccess: false })),
     fetchLobstersData().catch((): LobstersData => ({ stories: [], fetchSuccess: false })),
-    fetchRoboticsData().catch((): RoboticsData => ({ repos: [], fetchSuccess: false })),
-    fetchCadData().catch((): CadData => ({ repos: [], fetchSuccess: false })),
+    fetchRoboticsData().catch((): RoboticsData => ({ repos: [], papers: [], news: [], fetchSuccess: false })),
+    fetchCadData().catch((): CadData => ({ repos: [], papers: [], news: [], fetchSuccess: false })),
   ]);
 
   return {

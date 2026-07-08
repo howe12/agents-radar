@@ -351,12 +351,16 @@ export async function saveRoboticsReport(
     const header =
       lang === "en"
         ? `# ${EMBODIED_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> Source: GitHub Search API (robotics, ROS, embodied-AI topics) | ` +
-          `${roboticsData.repos.length} repos | Generated: ${utcStr} UTC\n\n` +
+          `> Sources: GitHub Search API (${roboticsData.repos.length} repos) | ` +
+          `ArXiv cs.RO (${roboticsData.papers.length} papers) | ` +
+          `RSS News (${roboticsData.news.length} items) | ` +
+          `Generated: ${utcStr} UTC\n\n` +
           `---\n\n`
         : `# ${EMBODIED_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> 数据来源: GitHub Search API (robotics, ROS, embodied-AI 等话题) | ` +
-          `共 ${roboticsData.repos.length} 个仓库 | 生成时间: ${utcStr} UTC\n\n` +
+          `> 数据来源: GitHub Search API (${roboticsData.repos.length} 仓库) | ` +
+          `ArXiv cs.RO (${roboticsData.papers.length} 篇论文) | ` +
+          `RSS 新闻 (${roboticsData.news.length} 条) | ` +
+          `生成时间: ${utcStr} UTC\n\n` +
           `---\n\n`;
 
     const content = header + summary + footer;
@@ -440,12 +444,16 @@ export async function saveCadReport(
     const header =
       lang === "en"
         ? `# ${CAD_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> ${CAD_REPORT.sources[lang]} | ` +
-          `${cadData.repos.length} repos | Generated: ${utcStr} UTC\n\n` +
+          `> Sources: GitHub Search API (${cadData.repos.length} repos) | ` +
+          `ArXiv cs.GR+cs.CG (${cadData.papers.length} papers) | ` +
+          `RSS News (${cadData.news.length} items) | ` +
+          `Generated: ${utcStr} UTC\n\n` +
           `---\n\n`
         : `# ${CAD_REPORT.title[lang]} ${dateStr}\n\n` +
-          `> ${CAD_REPORT.sources[lang]} | ` +
-          `共 ${cadData.repos.length} 个仓库 | 生成时间: ${utcStr} UTC\n\n` +
+          `> 数据来源: GitHub Search API (${cadData.repos.length} 仓库) | ` +
+          `ArXiv cs.GR+cs.CG (${cadData.papers.length} 篇论文) | ` +
+          `RSS 新闻 (${cadData.news.length} 条) | ` +
+          `生成时间: ${utcStr} UTC\n\n` +
           `---\n\n`;
 
     const content = header + summary + footer;

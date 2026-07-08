@@ -1,7 +1,10 @@
 /**
  * Robotics & Embodied AI data source — GitHub Search API for
- * robotics-related repositories, plus ArXiv cs.RO papers.
+ * robotics-related repositories, plus ArXiv cs.RO papers and RSS news.
  */
+
+import type { ArxivPaper } from "./arxiv.js";
+import { fetchArxivCategory, fetchRssNews, type RssItem } from "./rss.js";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -19,6 +22,8 @@ export interface RoboticsRepo {
 
 export interface RoboticsData {
   repos: RoboticsRepo[];
+  papers: ArxivPaper[];
+  news: RssItem[];
   fetchSuccess: boolean;
 }
 
@@ -38,6 +43,8 @@ const SEARCH_QUERIES = [
   { q: "topic:imitation-learning", label: "imitation" },
   { q: "vla+robot", label: "vla" },
 ];
+
+const ARXIV_CATEGORIES = ["cs.RO"];
 
 // ---------------------------------------------------------------------------
 // Fetch
@@ -108,11 +115,18 @@ export async function fetchRoboticsData(): Promise<RoboticsData> {
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
   try {
-    const repos = await searchRoboticsRepos(sevenDaysAgo);
-    console.log(`  [robotics] ${repos.length} unique repos from ${SEARCH_QUERIES.length} queries`);
-    return { repos, fetchSuccess: repos.length > 0 };
+    const [repos, papers, news] = await Promise.all([
+      searchRoboticsRepos(sevenDaysAgo),
+      fetchArxivCategory(ARXIV_CATEGORIES).catch((): ArxivPaper[] => []),
+      fetchRssNews("robotics").catch((): RssItem[] => []),
+    ]);
+
+    console.log(
+      `  [robotics] ${repos.length} repos, ${papers.length} papers, ${news.length} news (from ${SEARCH_QUERIES.length} queries)`,
+    );
+    return { repos, papers, news, fetchSuccess: repos.length > 0 || papers.length > 0 || news.length > 0 };
   } catch (err) {
     console.error(`  [robotics] Fetch failed: ${err}`);
-    return { repos: [], fetchSuccess: false };
+    return { repos: [], papers: [], news: [], fetchSuccess: false };
   }
 }

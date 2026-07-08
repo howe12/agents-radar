@@ -1,7 +1,11 @@
 /**
  * CAD & Mechanical Design data source — GitHub Search API for
- * CAD, geometry, 3D-printing, generative-design repositories.
+ * CAD, geometry, 3D-printing, generative-design repositories,
+ * plus ArXiv cs.GR/cs.CG papers and RSS news.
  */
+
+import type { ArxivPaper } from "./arxiv.js";
+import { fetchArxivCategory, fetchRssNews, type RssItem } from "./rss.js";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -19,6 +23,8 @@ export interface CadRepo {
 
 export interface CadData {
   repos: CadRepo[];
+  papers: ArxivPaper[];
+  news: RssItem[];
   fetchSuccess: boolean;
 }
 
@@ -38,6 +44,8 @@ const SEARCH_QUERIES = [
   { q: "topic:g-code", label: "gcode" },
   { q: "code-cad+pipeline", label: "codecad" },
 ];
+
+const ARXIV_CATEGORIES = ["cs.GR", "cs.CG"];
 
 // ---------------------------------------------------------------------------
 // Fetch
@@ -108,11 +116,18 @@ export async function fetchCadData(): Promise<CadData> {
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
   try {
-    const repos = await searchCadRepos(sevenDaysAgo);
-    console.log(`  [cad] ${repos.length} unique repos from ${SEARCH_QUERIES.length} queries`);
-    return { repos, fetchSuccess: repos.length > 0 };
+    const [repos, papers, news] = await Promise.all([
+      searchCadRepos(sevenDaysAgo),
+      fetchArxivCategory(ARXIV_CATEGORIES).catch((): ArxivPaper[] => []),
+      fetchRssNews("cad").catch((): RssItem[] => []),
+    ]);
+
+    console.log(
+      `  [cad] ${repos.length} repos, ${papers.length} papers, ${news.length} news (from ${SEARCH_QUERIES.length} queries)`,
+    );
+    return { repos, papers, news, fetchSuccess: repos.length > 0 || papers.length > 0 || news.length > 0 };
   } catch (err) {
     console.error(`  [cad] Fetch failed: ${err}`);
-    return { repos: [], fetchSuccess: false };
+    return { repos: [], papers: [], news: [], fetchSuccess: false };
   }
 }

@@ -914,6 +914,31 @@ ${lobstersText}
 // ---------------------------------------------------------------------------
 
 export function buildRoboticsPrompt(data: RoboticsData, dateStr: string, lang: Lang = "zh"): string {
+  // Format papers from ArXiv cs.RO
+  const papersText =
+    data.papers.length > 0
+      ? data.papers
+          .map(
+            (p) =>
+              `- **${p.title}**\n  ${p.authors.slice(0, 3).join(", ")}${p.authors.length > 3 ? ` et al. (${p.authors.length} authors)` : ""}\n  ${p.url}\n  ${p.summary.slice(0, 200)}${p.summary.length > 200 ? "..." : ""}`,
+          )
+          .join("\n\n")
+      : lang === "en"
+        ? "(No cs.RO papers available)"
+        : "（无 cs.RO 论文数据）";
+
+  // Format RSS news
+  const newsText =
+    data.news.length > 0
+      ? data.news
+          .slice(0, 15)
+          .map((n) => `- [${n.title}](${n.url}) — _${n.source}_\n  ${n.summary}`)
+          .join("\n")
+      : lang === "en"
+        ? "(No news available)"
+        : "（无行业新闻数据）";
+
+  // Format repos
   const reposText = data.repos
     .map((r, i) =>
       lang === "en"
@@ -929,19 +954,28 @@ export function buildRoboticsPrompt(data: RoboticsData, dateStr: string, lang: L
     .join("\n\n");
 
   if (lang === "en") {
-    return `You are a robotics & embodied AI analyst. The following are recently active robotics-related GitHub repositories (pushed in the last 7 days, sorted by stars, ${data.repos.length} total):
+    return `You are a robotics & embodied AI analyst. Here is your source material for today's digest:
 
----
+## Industry News (${data.news.length} items from IEEE Spectrum, The Robot Report, ROS Discourse)
+${newsText}
 
+## Latest Papers — ArXiv cs.RO (${data.papers.length} papers)
+${papersText}
+
+## Active GitHub Repos (pushed in last 7 days, ${data.repos.length} total, sorted by stars)
 ${reposText}
 
 ---
 
-Generate a structured Embodied AI Open Source Digest in English:
+Generate a structured Embodied AI Open Source Digest in English that weaves together all three sources:
 
-1. **Today's Highlights** — 3-5 sentences on the most notable robotics open-source activity
+1. **Today's Highlights** — 3-5 sentences synthesizing the most notable activity across news, papers, and repos
 
-2. **Key Projects** — Select 8-15 most important repos, organized by category:
+2. **Industry Pulse** — 3-5 key news items from the industry news above, with brief commentary on significance
+
+3. **Research Frontier** — 3-5 most notable cs.RO papers, explaining their contribution to the robotics community
+
+4. **Key Projects** — Select 8-15 most important repos, organized by category:
    - 🦾 Robot Learning & Control (imitation learning, RL, policy learning)
    - 🤖 Simulation & Frameworks (MuJoCo, Isaac, Gazebo, ROS)
    - 🧠 VLA & Foundation Models (vision-language-action, embodied foundation models)
@@ -951,29 +985,38 @@ Generate a structured Embodied AI Open Source Digest in English:
    For each repo:
    - Name (with GitHub link)
    - Star count
-   - One sentence: core contribution and why it matters for the robotics community
+   - One sentence: core contribution and why it matters
 
-3. **Ecosystem Signal** — 100-200 words on emerging trends in robotics open-source
+5. **Ecosystem Signal** — 100-200 words on emerging trends, connecting patterns across news, papers, and repos
 
-4. **Worth Watching** — 2-3 projects most worth following, with reasoning
+6. **Worth Watching** — 2-3 most significant developments overall (can be a news story, paper, or project), with reasoning
 
-Style: English, concise and professional, preserve all GitHub links.
+Style: English, concise and professional, preserve all links.
 `;
   }
 
-  return `你是机器人 & 具身智能领域分析师。以下是最近 7 天内有推送活动的机器人相关 GitHub 仓库（按 star 数降序，共 ${data.repos.length} 个）：
+  return `你是机器人 & 具身智能领域分析师。以下是你今天撰写日报的全部素材：
 
----
+## 行业新闻（${data.news.length} 条，来自 IEEE Spectrum、The Robot Report、ROS Discourse）
+${newsText}
 
+## 最新论文 — ArXiv cs.RO（${data.papers.length} 篇）
+${papersText}
+
+## 活跃 GitHub 仓库（最近 7 天有推送，共 ${data.repos.length} 个，按 star 数降序）
 ${reposText}
 
 ---
 
-请生成一份结构清晰的《具身智能开源动态日报》，要求：
+请综合以上三种信息源，生成一份结构清晰的《具身智能开源动态日报》：
 
-1. **今日速览** — 3~5 句话，概括今日最值得关注的机器人开源动态
+1. **今日速览** — 3~5 句话，综合新闻、论文和仓库三方信息，概括今日最值得关注的动态
 
-2. **重点项目** — 选出 8~15 个最重要的仓库，按分类整理：
+2. **行业脉搏** — 从行业新闻中选出 3~5 条最重要的动态，简述其意义
+
+3. **研究前沿** — 从 cs.RO 论文中选出 3~5 篇最有价值的，说明其对机器人社区的贡献
+
+4. **重点项目** — 选出 8~15 个最重要的仓库，按分类整理：
    - 🦾 机器人学习与控制（模仿学习、强化学习、策略学习）
    - 🤖 仿真与框架（MuJoCo、Isaac、Gazebo、ROS）
    - 🧠 VLA 与基础模型（视觉-语言-动作、具身基础模型）
@@ -985,15 +1028,40 @@ ${reposText}
    - Star 数
    - 一句话说明：核心贡献和对机器人社区的意义
 
-3. **生态趋势信号** — 100~200 字，分析机器人开源领域的新兴趋势
+5. **生态趋势信号** — 100~200 字，串联新闻、论文和仓库中反映的新兴趋势
 
-4. **值得关注** — 2~3 个最值得跟进的项目，简述理由
+6. **值得关注** — 2~3 个最值得跟进的发展（可以是新闻、论文或项目），简述理由
 
-语言要求：中文，简洁专业，保留所有 GitHub 链接。
+语言要求：中文，简洁专业，保留所有链接。
 `;
 }
 
 export function buildCadPrompt(data: CadData, dateStr: string, lang: Lang = "zh"): string {
+  // Format papers from ArXiv cs.GR + cs.CG
+  const papersText =
+    data.papers.length > 0
+      ? data.papers
+          .map(
+            (p) =>
+              `- **${p.title}**\n  ${p.authors.slice(0, 3).join(", ")}${p.authors.length > 3 ? ` et al. (${p.authors.length} authors)` : ""}\n  ${p.url}\n  ${p.summary.slice(0, 200)}${p.summary.length > 200 ? "..." : ""}`,
+          )
+          .join("\n\n")
+      : lang === "en"
+        ? "(No cs.GR/cs.CG papers available)"
+        : "（无 cs.GR/cs.CG 论文数据）";
+
+  // Format RSS news
+  const newsText =
+    data.news.length > 0
+      ? data.news
+          .slice(0, 15)
+          .map((n) => `- [${n.title}](${n.url}) — _${n.source}_\n  ${n.summary}`)
+          .join("\n")
+      : lang === "en"
+        ? "(No news available)"
+        : "（无行业新闻数据）";
+
+  // Format repos
   const reposText = data.repos
     .map((r, i) =>
       lang === "en"
@@ -1009,19 +1077,28 @@ export function buildCadPrompt(data: CadData, dateStr: string, lang: Lang = "zh"
     .join("\n\n");
 
   if (lang === "en") {
-    return `You are a CAD & mechanical design analyst. The following are recently active CAD-related GitHub repositories (pushed in the last 7 days, sorted by stars, ${data.repos.length} total):
+    return `You are a CAD & mechanical design analyst. Here is your source material for today's digest:
 
----
+## Industry News (${data.news.length} items from FreeCAD Blog, Prusa, Bambu Lab, OpenCASCADE, Hackaday)
+${newsText}
 
+## Latest Papers — ArXiv cs.GR + cs.CG (${data.papers.length} papers)
+${papersText}
+
+## Active GitHub Repos (pushed in last 7 days, ${data.repos.length} total, sorted by stars)
 ${reposText}
 
 ---
 
-Generate a structured CAD & Mechanical Design Open Source Digest in English:
+Generate a structured CAD & Mechanical Design Open Source Digest in English that weaves together all three sources:
 
-1. **Today's Highlights** — 3-5 sentences on the most notable CAD/mechanical open-source activity
+1. **Today's Highlights** — 3-5 sentences synthesizing the most notable activity across news, papers, and repos
 
-2. **Key Projects** — Select 8-15 most important repos, organized by category:
+2. **Industry Pulse** — 3-5 key news items from the industry news above, with brief commentary
+
+3. **Research Frontier** — 3-5 most notable cs.GR/cs.CG papers, explaining their relevance to CAD/mechanical design
+
+4. **Key Projects** — Select 8-15 most important repos, organized by category:
    - 🖥️ CAD Platforms & Editors (FreeCAD, OpenSCAD, Solvespace, web CAD)
    - 📐 Computational Geometry & Kernels (OCCT, CGAL, geometry processing)
    - 🧬 Generative & Parametric Design (topology optimization, generative engineering)
@@ -1032,29 +1109,38 @@ Generate a structured CAD & Mechanical Design Open Source Digest in English:
    For each repo:
    - Name (with GitHub link)
    - Star count
-   - One sentence: core contribution and why it matters for mechanical design
+   - One sentence: core contribution and why it matters
 
-3. **Ecosystem Signal** — 100-200 words on emerging trends in CAD open-source
+5. **Ecosystem Signal** — 100-200 words on emerging trends, connecting patterns across news, papers, and repos
 
-4. **Worth Watching** — 2-3 projects most worth following, with reasoning
+6. **Worth Watching** — 2-3 most significant developments overall (can be a news story, paper, or project), with reasoning
 
-Style: English, concise and professional, preserve all GitHub links.
+Style: English, concise and professional, preserve all links.
 `;
   }
 
-  return `你是 CAD 与机械设计领域分析师。以下是最近 7 天内有推送活动的 CAD 相关 GitHub 仓库（按 star 数降序，共 ${data.repos.length} 个）：
+  return `你是 CAD 与机械设计领域分析师。以下是你今天撰写日报的全部素材：
 
----
+## 行业新闻（${data.news.length} 条，来自 FreeCAD Blog、Prusa、Bambu Lab、OpenCASCADE、Hackaday）
+${newsText}
 
+## 最新论文 — ArXiv cs.GR + cs.CG（${data.papers.length} 篇）
+${papersText}
+
+## 活跃 GitHub 仓库（最近 7 天有推送，共 ${data.repos.length} 个，按 star 数降序）
 ${reposText}
 
 ---
 
-请生成一份结构清晰的《CAD/机械结构开源动态日报》，要求：
+请综合以上三种信息源，生成一份结构清晰的《CAD/机械结构开源动态日报》：
 
-1. **今日速览** — 3~5 句话，概括今日最值得关注的 CAD/机械领域开源动态
+1. **今日速览** — 3~5 句话，综合新闻、论文和仓库三方信息，概括今日最值得关注的动态
 
-2. **重点项目** — 选出 8~15 个最重要的仓库，按分类整理：
+2. **行业脉搏** — 从行业新闻中选出 3~5 条最重要的动态，简述其意义
+
+3. **研究前沿** — 从 cs.GR/cs.CG 论文中选出 3~5 篇最有价值的，说明其对 CAD/机械设计领域的贡献
+
+4. **重点项目** — 选出 8~15 个最重要的仓库，按分类整理：
    - 🖥️ CAD 平台与编辑器（FreeCAD、OpenSCAD、Solvespace、Web CAD）
    - 📐 计算几何与内核（Open CASCADE、CGAL、几何处理）
    - 🧬 创成式与参数化设计（拓扑优化、生成式工程）
@@ -1067,10 +1153,10 @@ ${reposText}
    - Star 数
    - 一句话说明：核心贡献和对机械设计领域的意义
 
-3. **生态趋势信号** — 100~200 字，分析 CAD 开源领域的新兴趋势
+5. **生态趋势信号** — 100~200 字，串联新闻、论文和仓库中反映的新兴趋势
 
-4. **值得关注** — 2~3 个最值得跟进的项目，简述理由
+6. **值得关注** — 2~3 个最值得跟进的发展（可以是新闻、论文或项目），简述理由
 
-语言要求：中文，简洁专业，保留所有 GitHub 链接。
+语言要求：中文，简洁专业，保留所有链接。
 `;
 }
