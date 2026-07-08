@@ -304,6 +304,14 @@ async function generateSummaries(
 // Main
 // ---------------------------------------------------------------------------
 
+/** Respect LANG_FILTER env: "zh"=Chinese only, "en"=English only, unset=both. */
+function activeLangs(): Lang[] {
+  const filter = process.env["LANG_FILTER"];
+  if (filter === "zh") return ["zh"];
+  if (filter === "en") return ["en"];
+  return ["zh", "en"];
+}
+
 async function main(): Promise<void> {
   requireEnv("GITHUB_TOKEN");
 
@@ -312,6 +320,7 @@ async function main(): Promise<void> {
   const dateStr = toCstDateStr(now);
   const utcStr = toUtcStr(now);
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
+  const langs = activeLangs();
 
   const providerName = process.env["LLM_PROVIDER"] ?? "anthropic";
   console.log(`[${now.toISOString()}] Starting digest | provider: ${providerName}`);
@@ -339,12 +348,25 @@ async function main(): Promise<void> {
   const fetchedOpenclaw = fetched.find((f) => f.cfg.id === OPENCLAW.id)!;
   const fetchedPeers = fetched.filter((f) => peerIds.has(f.cfg.id));
 
-  // 2. Generate per-repo LLM summaries in parallel (zh + en simultaneously)
-  console.log("  Generating summaries in ZH and EN in parallel...");
-  const [zhSummaries, enSummaries] = await Promise.all([
-    generateSummaries(fetchedCli, fetchedOpenclaw, skillsData, fetchedPeers, trendingData, dateStr, "zh"),
-    generateSummaries(fetchedCli, fetchedOpenclaw, skillsData, fetchedPeers, trendingData, dateStr, "en"),
-  ]);
+  // 2. Generate per-repo LLM summaries
+  console.log(`  Generating summaries in ${langs.join(" + ")}...`);
+  const summariesArr = await Promise.all(
+    langs.map((l) =>
+      generateSummaries(fetchedCli, fetchedOpenclaw, skillsData, fetchedPeers, trendingData, dateStr, l),
+    ),
+  );
+  const zhSummaries =
+    summariesArr[langs.indexOf("zh")] ??
+    (await generateSummaries(
+      fetchedCli,
+      fetchedOpenclaw,
+      skillsData,
+      fetchedPeers,
+      trendingData,
+      dateStr,
+      "zh",
+    ));
+  const enSummaries = langs.includes("en") ? summariesArr[langs.indexOf("en")]! : zhSummaries;
 
   // 3. Generate cross-repo comparisons in parallel (zh + en)
   console.log("  Calling LLM for comparative analyses (ZH + EN)...");
@@ -372,7 +394,7 @@ async function main(): Promise<void> {
   const cliContent: Record<Lang, string> = {} as Record<Lang, string>;
   const openclawContent: Record<Lang, string> = {} as Record<Lang, string>;
 
-  for (const lang of ["zh", "en"] as const) {
+  for (const lang of langs) {
     const s = summariesByLang[lang];
     const ft = autoGenFooter(lang);
     const suffix = lang === "en" ? "-en" : "";
@@ -405,46 +427,26 @@ async function main(): Promise<void> {
   }
 
   // Web report: zh saves state, en skips state save
-  for (const lang of ["zh", "en"] as const) {
+  for (const lang of langs) {
     await saveWebReport(webResults, webState, utcStr, dateStr, digestRepo, autoGenFooter(lang), lang);
   }
 
-  await Promise.all([
-    saveTrendingReport(
-      trendingData,
-      zhSummaries.trendingSummary,
-      utcStr,
-      dateStr,
-      digestRepo,
-      autoGenFooter("zh"),
-      "zh",
-    ),
-    saveTrendingReport(
-      trendingData,
-      enSummaries.trendingSummary,
-      utcStr,
-      dateStr,
-      digestRepo,
-      autoGenFooter("en"),
-      "en",
-    ),
-    saveHnReport(hnData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
-    saveHnReport(hnData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
-    savePhReport(phData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
-    savePhReport(phData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
-    saveArxivReport(arxivData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
-    saveArxivReport(arxivData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
-    saveHfReport(hfData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
-    saveHfReport(hfData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
-    saveCommunityReport(devtoData, lobstersData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
-    saveCommunityReport(devtoData, lobstersData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
-    saveRoboticsReport(roboticsData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
-    saveRoboticsReport(roboticsData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
-    saveCadReport(cadData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
-    saveCadReport(cadData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
-    saveEmbeddedReport(embeddedData, utcStr, dateStr, digestRepo, autoGenFooter("zh"), "zh"),
-    saveEmbeddedReport(embeddedData, utcStr, dateStr, digestRepo, autoGenFooter("en"), "en"),
-  ]);
+  const saveTasks: Promise<void>[] = [];
+  for (const lang of langs) {
+    const ts = lang === "zh" ? zhSummaries.trendingSummary : enSummaries.trendingSummary;
+    saveTasks.push(
+      saveTrendingReport(trendingData, ts, utcStr, dateStr, digestRepo, autoGenFooter(lang), lang),
+      saveHnReport(hnData, utcStr, dateStr, digestRepo, autoGenFooter(lang), lang),
+      savePhReport(phData, utcStr, dateStr, digestRepo, autoGenFooter(lang), lang),
+      saveArxivReport(arxivData, utcStr, dateStr, digestRepo, autoGenFooter(lang), lang),
+      saveHfReport(hfData, utcStr, dateStr, digestRepo, autoGenFooter(lang), lang),
+      saveCommunityReport(devtoData, lobstersData, utcStr, dateStr, digestRepo, autoGenFooter(lang), lang),
+      saveRoboticsReport(roboticsData, utcStr, dateStr, digestRepo, autoGenFooter(lang), lang),
+      saveCadReport(cadData, utcStr, dateStr, digestRepo, autoGenFooter(lang), lang),
+      saveEmbeddedReport(embeddedData, utcStr, dateStr, digestRepo, autoGenFooter(lang), lang),
+    );
+  }
+  await Promise.all(saveTasks);
 
   // 5. Generate highlights for Telegram notification
   const readReport = (name: string): string | undefined => {
@@ -472,35 +474,31 @@ async function main(): Promise<void> {
     if (en) enReports[id] = en;
   }
 
-  console.log("  Generating highlights for Telegram...");
+  console.log("  Generating highlights...");
   const highlights: Record<Lang, ReportHighlights> = { zh: {}, en: {} };
-  // zh and en are parsed independently so a failure in one language doesn't
-  // wipe the other (a single bad LLM response used to leave both empty).
-  const [zhRes, enRes] = await Promise.allSettled([
-    callLlm(buildHighlightsPrompt(zhReports, "zh"), 2048),
-    callLlm(buildHighlightsPrompt(enReports, "en"), 2048),
-  ]);
-  for (const [lang, res] of [
-    ["zh", zhRes],
-    ["en", enRes],
-  ] as const) {
+  const highlightLangs = langs.length === 1 ? langs : (["zh", "en"] as Lang[]);
+  const results = await Promise.allSettled(
+    highlightLangs.map((l) => callLlm(buildHighlightsPrompt(l === "zh" ? zhReports : enReports, l), 2048)),
+  );
+  highlightLangs.forEach((l, i) => {
+    const res = results[i]!;
     if (res.status !== "fulfilled") {
-      console.error(`  [highlights] ${lang} generation failed: ${res.reason}`);
-      continue;
+      console.error(`  [highlights] ${l} generation failed: ${res.reason}`);
+      return;
     }
     try {
-      highlights[lang] = parseLlmJson<ReportHighlights>(res.value);
+      highlights[l] = parseLlmJson<ReportHighlights>(res.value);
     } catch (err) {
-      console.error(`  [highlights] ${lang} parse failed: ${err}`);
+      console.error(`  [highlights] ${l} parse failed: ${err}`);
     }
-  }
+  });
 
   const highlightsPath = saveFile(JSON.stringify(highlights, null, 2), dateStr, "highlights.json");
   console.log(`  Saved ${highlightsPath}`);
 
   // 6. Create GitHub issues for CLI + OpenClaw (zh + en)
   if (digestRepo) {
-    for (const lang of ["zh", "en"] as const) {
+    for (const lang of langs) {
       const cliUrl = await createGitHubIssue(
         CLI_ISSUE_TITLE(dateStr, lang),
         cliContent[lang],
