@@ -1,120 +1,107 @@
 # AI 开源趋势日报 2026-07-08
 
-> 数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-07-08 05:43 UTC
+> 数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-07-08 06:22 UTC
 
 ---
 
-# 🚀 AI 开源趋势日报 · 2026-07-08
-
-> 数据来源：GitHub Trending 实时榜单（13 仓）+ GitHub 主题搜索（147 仓，已去重）。本期 Trending 中 **12/13 为 AI 相关项目**，AI 渗透率创近期新高。
+# 📊 AI 开源趋势日报 · 2026-07-08
 
 ---
 
 ## 一、今日速览
 
-1. **Agent "技能"生态爆发**：addyosmani/agent-skills、dotnet/skills、awesome-claude-code 同步登榜，"Skills/插件作为 Agent 增强方式"正在成为新的社区共识范式。
-2. **Agent 工具链向 Office / 视频 / 沙箱延伸**：OfficeCLI（Office 自动化）、claude-video（视频理解）、TencentCloud/CubeSandbox（安全沙箱）三件套同时上榜，标志 Agent 正在从"能聊"走向"能用"。
-3. **本地化与轻量化依然强势**：Meetily（4× 实时转录的本地会议助手）与 kyutai-labs/pocket-tts（CPU 级 TTS）持续引爆，证明端侧 AI 仍是开发者最关注的实战方向之一。
-4. **System Prompts 泄露成为新型"民间文档"**：asgeirtj/system_prompts_leaks 收录 Claude、GPT、Gemini、Grok、Cursor 等系统提示，单日 +1691 stars，反映开发者对厂商 prompt 工程的好奇与逆向需求。
-5. **"AI 求职"工具首次单日爆榜**：ai-job-search 以 **+2514 stars** 登顶，可能与近期就业市场波动及 Anthropic Claude Code 的持续热度相关。
+今日 GitHub Trending 几乎被 AI 项目"屠榜"——13 个热门仓库中 12 个与 AI 直接相关，其中 **6 个围绕 Claude Code / AI Agent 工具链**展开，标志着 **Coding Agent 生态从单一模型走向"技能(Skills) + CLI + 运行容器"的完整外围栈**。本地化、隐私优先的 AI 应用持续爆发：`meetily`（+1777 stars）以纯本地会议助手登顶，`RuView`（+1129）用 WiFi 信号做空间感知，体现 **"反云端、重边缘"的工程范式回归**。此外，`system_prompts_leaks` 一次性泄露 Claude Fable 5 / Opus 4.8 / Gemini 3.5 Flash 等前沿模型系统提示，反映社区对新版本大模型的强烈兴趣。
 
 ---
 
 ## 二、各维度热门项目
 
-### 🤖 AI 智能体 / 工作流（今日最热）
+### 🔧 AI 基础工具（框架 / SDK / 推理 / CLI）
 
-| 项目 | 数据 | 说明 |
+| 项目 | Stars | 一句话 |
 |---|---|---|
-| [MadsLorentzen/ai-job-search](https://github.com/MadsLorentzen/ai-job-search) | ⭐ 0 (+2514 today) | 基于 Claude Code 的求职自动化框架：JD 评估、CV 定制、面试准备一站式，**今日 Trending 冠军** |
-| [bradautomates/claude-video](https://github.com/bradautomates/claude-video) | ⭐ 0 (+965 today) | 给 Claude"看视频"的能力：自动下载、抽帧、转录、上下文打包 |
-| [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | ⭐ 0 (+893 today) | **首个专为 Agent 设计的 Office CLI**，单二进制、无需安装 Office，让 Agent 直接读写 Word/Excel/PPT |
-| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | ⭐ 211,123 | "与用户共同成长的 Agent"，主题榜 LLM 类别头部 |
-| [Significant-Gravitas/AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | ⭐ 185,432 | 老牌 Agent 框架持续高活跃，生态常青 |
-| [affaan-m/ECC](https://github.com/affaan-m/ECC) | ⭐ 227,146 | Agent Harness 性能优化系统：技能、本能、记忆、安全一体化 |
-| [browser-use/browser-use](https://github.com/browser-use/browser-use) | ⭐ 103,390 | 让网站对 Agent 可访问，浏览器自动化标杆 |
-| [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) | ⭐ 91,708 | 多 Agent LLM 金融交易框架，垂直 Agent 典范 |
+| [vllm-project/vllm](https://github.com/vllm-project/vllm) | ⭐85,657 | 高吞吐 LLM 推理与 serving 引擎，事实上的开源推理标准 |
+| [sgl-project/sglang](https://github.com/sgl-project/sglang) | ⭐30,064 | 高性能多模态 LLM serving 框架，针对结构化生成优化 |
+| [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) | ⭐48,293 | 统一接入多家前沿 LLM 的桌面 AI 工作台，含 300+ 助手 |
+| [steipete/CodexBar](https://github.com/steipete/CodexBar) | ⭐0 (+376 today) | 今日新星：无需登录即可查看 OpenAI Codex & Claude Code 用量统计的 macOS 菜单栏工具 |
+| [Gitlawb/openclaude](https://github.com/Gitlawb/openclaude) | ⭐29,861 | "runs anywhere. uses anything"——跨平台 Claude Code 运行时 |
+| [esengine/DeepSeek-Reasonix](https://github.com/esengine/DeepSeek-Reasonix) | ⭐26,367 | DeepSeek 原生 AI 终端编码 Agent，专为 prefix-cache 稳定性设计 |
+| [jackwener/OpenCLI](https://github.com/jackwener/OpenCLI) | ⭐26,261 | 把任意网站"包"成 CLI，复用登录态浏览器供 AI Agent 调用 |
+| [iOfficeAI/AionUi](https://github.com/iOfficeAI/AionUi) | ⭐29,490 | 7×24 本地 Cowork 客户端，同时调度 Claude Code / Codex / Hermes 等 20+ CLI |
 
----
+### 🤖 AI 智能体 / 工作流
 
-### 🔧 AI 基础工具（框架 / SDK / CLI）
-
-| 项目 | 数据 | 说明 |
+| 项目 | Stars | 一句话 |
 |---|---|---|
-| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | ⭐ 0 (+1317 today) | Google Chrome 团队出品：面向 AI 编程 Agent 的**生产级工程技能集**，今日最值得关注的"Skills 范式"代表 |
-| [TencentCloud/CubeSandbox](https://github.com/TencentCloud/CubeSandbox) | ⭐ 0 (+664 today) | 腾讯云出品："**Agent 专用沙箱**"——即时、并发、安全、轻量，是为 Agent 时代补上的一环 |
-| [steipete/CodexBar](https://github.com/steipete/CodexBar) | ⭐ 0 (+376 today) | macOS 状态栏监控 OpenAI Codex / Claude Code 用量，开发者刚需工具 |
-| [dotnet/skills](https://github.com/dotnet/skills) | ⭐ 0 (+64 today) | Microsoft 官方为 .NET/C# 添加的 Agent 技能，**官方下场=生态成熟标志** |
-| [vllm-project/vllm](https://github.com/vllm-project/vllm) | ⭐ 85,655 | 高吞吐 LLM 推理引擎事实标准 |
-| [sgl-project/sglang](https://github.com/sgl-project/sglang) | ⭐ 30,063 | 与 vLLM 并列的高性能 LLM/多模态服务框架 |
-| [ollama/ollama](https://github.com/ollama/ollama) | ⭐ 175,688 | 本地模型运行标杆，社区热度不减 |
-| [langgenius/dify](https://github.com/langgenius/dify) | ⭐ 148,108 | Agentic workflow 生产级平台 |
-
----
+| [MadsLorentzen/ai-job-search](https://github.com/MadsLorentzen/ai-job-search) | ⭐0 (+2514 today) | 🔥 **今日榜首**：基于 Claude Code 的求职框架，Fork 后自动评估岗位、定制简历与面试准备 |
+| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | ⭐0 (+1317 today) | 🔥 Google 团队出品，生产级 AI Coding Agent 工程技能库 |
+| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | ⭐211,151 | "和你一起成长的 Agent"——Nous Research 开源通用代理核心 |
+| [OpenHands/OpenHands](https://github.com/OpenHands/OpenHands) | ⭐79,912 | 老牌 AI-Driven 全自动开发平台 |
+| [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) | ⭐91,714 | 多 Agent LLM 金融交易框架，量化研究新范式 |
+| [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | ⭐52,842 | 让 AI Agent 读取 Twitter / Reddit / YouTube / 小红书等全网信息，零 API 费用 |
+| [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | ⭐57,637 | Agent 工具上下文压缩器，减少 60–95% token 消耗 |
+| [HKUDS/nanobot](https://github.com/HKUDS/nanobot) | ⭐45,115 | 港大数据团队开源的轻量级 AI Agent 框架 |
+| [zhayujie/CowAgent](https://github.com/zhayujie/CowAgent) | ⭐45,861 | 自主演进的开源超级 Agent（原 chatgpt-on-wechat） |
 
 ### 📦 AI 应用（垂直场景）
 
-| 项目 | 数据 | 说明 |
+| 项目 | Stars | 一句话 |
 |---|---|---|
-| [Zackriya-Solutions/meetily](https://github.com/Zackriya-Solutions/meetily) | ⭐ 0 (+1777 today) | 隐私优先的本地 AI 会议助手：Parakeet/Whisper + Ollama + 说话人分离，**100% 本地处理** |
-| [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | ⭐ 0 (+1691 today) | 收录 Claude 5/Opus 4.8、GPT 5.5、Gemini 3.5、Grok、Cursor 等厂商系统提示 |
-| [ruvnet/RuView](https://github.com/ruvnet/RuView) | ⭐ 0 (+1129 today) | 把 WiFi 信号转成"空间智能"与生命体征监测——**无摄像头感知** |
-| [kyutai-labs/pocket-tts](https://github.com/kyutai-labs/pocket-tts) | ⭐ 0 (+531 today) | Moshi 团队新作：CPU 上可跑的 TTS，端侧语音里程碑 |
-| [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | ⭐ 37,560 | 文档→可编辑 PPT（含原生图表 + 语音旁白） |
-| [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | ⭐ 52,824 | 一个 CLI 让 Agent 读遍 Twitter/Reddit/B站/小红书，零 API 费用 |
-| [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | ⭐ 55,640 | LLM 驱动的多市场股票分析系统，中文社区代表作 |
+| [Zackriya-Solutions/meetily](https://github.com/Zackriya-Solutions/meetily) | ⭐0 (+1777 today) | 🔥 Rust 写的隐私优先 AI 会议助手，Parakeet/Whisper 本地转写 + Ollama 摘要，号称 macOS/Windows 上最强自托管方案 |
+| [ruvnet/RuView](https://github.com/ruvnet/RuView) | ⭐0 (+1129 today) | 🔥 **不需要摄像头**：用 WiFi 信号实现人体感知、姿态估计与生命体征监测 |
+| [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | ⭐0 (+893 today) | 🔥 首个专为 AI Agent 操作 Word/Excel/PPT 而生的 Office CLI，单二进制、零依赖 |
+| [bradautomates/claude-video](https://github.com/bradautomates/claude-video) | ⭐0 (+965 today) | 给 Claude "装上眼睛"：自动下载视频、抽帧、转写后送入 Claude 推理 |
+| [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | ⭐55,657 | LLM 驱动的多市场股票分析系统，含自动推送与定时运行 |
+| [huangjunsen0406/py-xiaozhi](https://github.com/huangjunsen0406/py-xiaozhi) | ⭐3,392 | 含 MCP、多模态、IoT 的开源 AI 语音助手生态 |
+| [OpenBB-finance/OpenBB](https://github.com/OpenBB-finance/OpenBB) | ⭐70,291 | 面向分析师、量化与 AI Agent 的开放金融数据平台 |
 
----
+### 🧠 大模型 / 训练 / 推理引擎
 
-### 🧠 大模型 / 训练 / 微调
-
-| 项目 | 数据 | 说明 |
+| 项目 | Stars | 一句话 |
 |---|---|---|
-| [unslothai/unsloth](https://github.com/unslothai/unsloth) | ⭐ 67,902 | Unsloth Studio 推出 web UI，**Qwen3.6、DeepSeek、gpt-oss 本地训练/推理一体化** |
-| [Eigenwise/atomic-agents](https://github.com/Eigenwise/atomic-agents) | ⭐ 6,032 | "原子化构建 AI Agent"框架，低层可组合设计 |
-| [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics) | ⭐ 59,232 | YOLO26/YOLO11 持续维护，视觉侧常青 |
-| [NVlabs/Sana](https://github.com/NVlabs/Sana) | ⭐ 8,449 | 高分辨率线性 DiT 图像生成模型 |
-| [huggingface/transformers](https://github.com/huggingface/transformers) | ⭐ 162,361 | 多模态模型定义框架，事实标准 |
-
----
+| [kyutai-labs/pocket-tts](https://github.com/kyutai-labs/pocket-tts) | ⭐0 (+531 today) | 🔥 Kyutai 出品，"装得进口袋"的 CPU 端 TTS 模型 |
+| [unslothai/unsloth](https://github.com/unslothai/unsloth) | ⭐67,903 | 本地训练与运行 Gemma 4 / Qwen3.6 / DeepSeek / GPT-OSS 的 Web UI |
+| [OpenPipe/ART](https://github.com/OpenPipe/ART) | ⭐10,346 | Agent Reinforcement Trainer，用 GRPO 让 Agent 在真实任务中边训边学 |
+| [OpenRLHF/OpenRLHF](https://github.com/OpenRLHF/OpenRLHF) | ⭐9,759 | 基于 Ray 的高可扩展 Agentic RL 框架，支持 PPO/DAPO/REINFORCE++ |
+| [TencentCloud/CubeSandbox](https://github.com/TencentCloud/CubeSandbox) | ⭐0 (+664 today) | 🔥 面向 AI Agent 的轻量、高并发、强隔离安全沙箱 |
+| [NVlabs/Sana](https://github.com/NVlabs/Sana) | ⭐8,449 | 英伟达出品，用线性 Diffusion Transformer 做高分辨率图像生成 |
+| [Isaac-sim/IsaacLab](https://github.com/isaac-sim/IsaacLab) | ⭐7,630 | 基于 Isaac Sim 的统一机器人学习框架 |
 
 ### 🔍 RAG / 知识库 / 向量检索
 
-| 项目 | 数据 | 说明 |
+| 项目 | Stars | 一句话 |
 |---|---|---|
-| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | ⭐ 84,551 | RAG + Agent 一体化引擎，国产 RAG 标杆 |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | ⭐ 86,364 | Agent 跨会话持久记忆：捕获→压缩→注入 |
-| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | ⭐ 79,722 | **把任意目录转成可查询知识图谱**，Agent 时代"外脑" |
-| [mem0ai/mem0](https://github.com/mem0ai/mem0) | ⭐ 60,345 | Agent 通用记忆层 |
-| [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | ⭐ 57,628 | 工具输出 / 日志 / RAG 块压缩 60–95%，**降 token 利器** |
-| [Mintplex-Labs/anything-llm](https://github.com/Mintplex-Labs/anything-llm) | ⭐ 62,841 | 本地优先的全栈 Agent 体验 |
-| [run-llama/llama_index](https://github.com/run-llama/llama_index) | ⭐ 50,720 | 文档 Agent 与 OCR 平台 |
-| [milvus-io/milvus](https://github.com/milvus-io/milvus) | ⭐ 45,131 | 云原生向量数据库标杆 |
+| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | ⭐84,553 | RAG + Agent 双引擎，主打开源最完整的企业级上下文层 |
+| [langgenius/dify](https://github.com/langgenius/dify) | ⭐148,111 | 生产级 Agentic 工作流编排平台，国产开源 LLMOps 标杆 |
+| [open-webui/open-webui](https://github.com/open-webui/open-webui) | ⭐144,651 | 最受欢迎的自托管 LLM 前端，原生兼容 Ollama / OpenAI API |
+| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | ⭐141,264 | Agent 工程化事实标准 SDK |
+| [mem0ai/mem0](https://github.com/mem0ai/mem0) | ⭐60,348 | AI Agent 通用记忆层，跨会话持久化偏好与上下文 |
+| [topoteretes/cognee](https://github.com/topoteretes/cognee) | ⭐27,323 | 用知识图谱为 Agent 构建长期记忆，开源版"AI 海马体" |
+| [milvus-io/milvus](https://github.com/milvus-io/milvus) | ⭐45,132 | 云原生向量数据库，主打亿级 ANN 检索 |
+| [qdrant/qdrant](https://github.com/qdrant/qdrant) | ⭐33,022 | Rust 写的下一代高性能向量检索引擎 |
+
+> 同时登榜的还有 [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks)（+1691 today）——收录了 Claude Fable 5、Opus 4.8、Gemini 3.5 Flash、GPT 5.5、Codex、Grok 等前沿模型系统提示，对 Prompt Engineering 研究极具价值。
 
 ---
 
 ## 三、趋势信号分析
 
-今日 Trending 清晰地折射出 **"Agent 生产化"** 这条主线。与 2024–2025 年 Agent 元年的"概念验证"阶段不同，本期热榜几乎全是**工程化、补全工具链、完善开发者体验**的项目：
+**1️⃣ Coding Agent 生态进入"外围栈"爆发期。** 今日 Trending 中 `agent-skills`（+1317）、`dotnet/skills`（+64）、`awesome-claude-code`（+144）、`CodexBar`（+376）、`deepclaude` 与多个 CLI Wrapper 同时登榜，说明社区焦点已从"哪个 Agent 最强"转移到 **"如何让 Agent 接入更多工具与企业栈"**——Skills、CLI、Sandbox 三件套开始标准化。腾讯 `CubeSandbox`（+664）切入"Agent 安全沙箱"这一空白赛道，呼应企业对 Agent 可控执行的迫切需求。
 
-- **AI Coding Agent 的"应用层扩展"** 成为热点方向：给 Agent 加上 Office（OfficeCLI）、视频（claude-video）、用量监控（CodexBar）、沙箱（CubeSandbox）、Skills（agent-skills/dotnet/skills/awesome-claude-code）的"五件套"全部一日内登榜。这意味着开发者社区已经默认"LLM 是新的操作系统"，正在围绕它构建 **Plug-in/Harness/Skills 生态**——与当年围绕浏览器建立扩展生态如出一辙。
+**2️⃣ "反云端"本地 AI 形成稳定产品线。** `meetily` 强调"100% 本地处理"，`RuView` 用 WiFi 信号绕开摄像头做感知，`pocket-tts` 把 TTS 塞进 CPU——三者共同体现 **"不依赖云、不采集视频、硬件极简"** 的边缘 AI 趋势，与年初以来 Apple Intelligence / Privacy-first LLM 的行业方向一脉相承。
 
-- **WiFi 感知（RuView）和 CPU TTS（pocket-tts）的同步爆发** 则代表 **"去视觉化、本地化"** 的暗线：在隐私与硬件成本约束下，无摄像头人体感知与端侧语音合成成为新热点，预期将催生一批医疗、养老、车载场景的开源项目。
-
-- **System Prompts 泄露合集 +1691 stars** 说明开发者对前沿大模型 prompt 工程的学习需求强烈，但同时也带来**版权与合规风险**，长期看会推动"厂商官方 Skills / Tools 规范"的进一步标准化。
-
-- 与近期行业事件的潜在关联：Anthropic Claude Code 持续迭代 + Claude 5/Opus 4.8 生态扩展 + 各类 Skills 框架相继开源——共同推动了"让 Agent 真正能干活"这一波开发者高潮。
+**3️⃣ 新一代模型版本号暗藏行业事件。** `system_prompts_leaks` 的版本号迭代（Claude Opus 4.8、Gemini 3.5 Flash、GPT 5.5、Antigravity）显示 Anthropic、Google、OpenAI 近期均有重大模型发布；Kyutai Labs 的 `pocket-tts` 与 Nous Research 的 `hermes-agent` 各自巩固欧洲系开源地位的意图明显。
 
 ---
 
-## 四、社区关注热点（开发者重点 follow）
+## 四、社区关注热点
 
-- 🛰️ **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** (+1317 today)：由 Google Chrome 团队出品，预示 **Skills/MCP 范式** 将成为 Agent 时代的事实标准，建议立即研究其目录结构和 skill 编写规范。
-- 🛠️ **[TencentCloud/CubeSandbox](https://github.com/TencentCloud/CubeSandbox)** (+664 today)：Agent 安全的"最后一公里"——为 Agent 提供 OS 级隔离，企业级落地绕不开。
-- 🎬 **[bradautomates/claude-video](https://github.com/bradautomates/claude-video)** (+965 today)：把视频理解塞进 Claude CLI 的轻量方案，多模态 Agent 的样板工程，值得学习其 pipeline 设计。
-- 📚 **[asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks)** (+1691 today)：研究各家大模型 prompt 工程思路的"民间教科书"，**但请注意合规风险**。
-- 🧠 **[headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom)** (⭐57,628)：工具输出压缩 60–95% 的方案，在 GPT/Claude 长上下文越来越贵的当下，**直接降低 5–10 倍推理成本**，企业级 RAG 必看。
+- 🔥 **[MadsLorentzen/ai-job-search](https://github.com/MadsLorentzen/ai-job-search)**（+2514 today）——Agent 应用范式的"小白入门级"案例，Fork 即用，最能体现 AI Coding Agent 的实际生产力价值。
+- 🔥 **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)**（+1317 today）——Google 工程团队出品，是打造企业内部 Agent 的优质"技能模板"起点。
+- 🔥 **[Zackriya-Solutions/meetily](https://github.com/Zackriya-Solutions/meetily)**（+1777 today）——纯本地 Rust 会议助手，企业合规场景刚需，建议关注 Parakeet 转写 + Ollama 摘要的技术组合。
+- 🔥 **[ruvnet/RuView](https://github.com/ruvnet/RuView)**（+1129 today）——用 WiFi CSI 做感知，开创了 **"无摄像头人体感知"** 的全新应用空间，值得硬件与 IoT 开发者深入研究。
+- 🔥 **[iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)**（+893 today）——当"Agent 操作 Office"成为标配，Office 自动化赛道将被彻底重写，是 B 端 SaaS 开发者不可忽视的信号。
 
 ---
 
-*报告生成时间：2026-07-08 · 数据为当日 GitHub Trending + 主题搜索快照*
+*📌 数据口径：Trending 榜单为 GitHub 当日实时榜；主题搜索为近 7 天活跃项目，已去除纯机器人、游戏、ROS 驱动等非 AI 核心方向（部分嵌入式/具身智能项目因明确服务于 AI 模型训练保留展示）。*
