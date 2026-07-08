@@ -1,174 +1,107 @@
 # ArXiv AI Research Digest 2026-07-08
 
-> Source: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 50 papers | Generated: 2026-07-08 02:49 UTC
+> Source: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | 50 papers | Generated: 2026-07-08 05:43 UTC
 
 ---
 
 # ArXiv AI Research Digest — 2026-07-08
 
-## 🔥 Today's Highlights
+---
 
-Today's submission cycle reveals a strong pivot toward **agentic system orchestration and meta-cognitive frameworks**. Standout work includes a theoretical definition and roadmap for **world models** (Chen et al.) consolidating a fragmented concept across RL, video generation, and robotics, alongside Danus's **fact-graph memory** for orchestrating parallel mathematical reasoning agents. On the safety frontier, **TILDE** introduces tilt-based distributional erasure for concept unlearning in diffusion models, while **Pluralis v0.1** launches a multicultural benchmark exposing Western-centric blind spots in VLM safety evaluation. Methodology papers are converging on **rigorous evaluation of stochastic AI systems** — exemplified by an experimental-design approach to agentic model discovery and information-gain-based rollout policy optimization (IGPO) for multi-turn LLM agents.
+## 1. Today's Highlights
+
+Today's submissions reveal three significant research currents. First, **long-context inference efficiency** is a major battleground, with two complementary papers (DepthWeave-KV and FreqDepthKV) tackling KV cache compression through token-adaptive and frequency-guided strategies. Second, **agentic systems are maturing beyond demos**—papers on mathematical reasoning (Danus), clinical decision orchestration (LCA), and grounded sports commentary (Pitwall) show production-grade multi-agent pipelines with explicit memory and fact-graph structures. Third, a foundational **roadmap paper on "World Models"** attempts to unify the fragmented terminology across model-based RL, video generation, and embodied AI, signaling the field's growing need for conceptual consolidation as physical-AI applications accelerate.
 
 ---
 
-## 📑 Key Papers
+## 2. Key Papers
 
 ### 🧠 Large Language Models
 
-- **[Token-Based Dual-view Fusion for Breast Cancer Classification](http://arxiv.org/abs/2607.06309v1)** — Ghayouri Pirsoltan, Babakordi, Mohammadi
-  Token-level fusion of CC/MLO mammography views via large vision models improves multi-view breast cancer classification.
+- **[WordVoice: Explicit and Decoupled Multi-Dimensional Word-Level Control for LLM-Based TTS](http://arxiv.org/abs/2607.06461v1)** — Nie, Ji, Xing et al.
+  Addresses the coarse-grained control limitation of LLM-based TTS by introducing explicit word-level multi-dimensional control—critical for stylized and temporally-aligned speech synthesis.
 
-- **[Estimating Uncertainty from Reasoning: Multi/Crosslingual MCQA in LLMs](http://arxiv.org/abs/2607.06327v1)** — Alfarano, Bacciu, Mansour et al.
-  First large-scale uncertainty-estimation evaluation across 22 languages, challenging the English-centric UE literature.
+- **[DepthWeave-KV: Token-Adaptive Cross-Layer Residual Factorization for Long-Context KV Cache Compression](http://arxiv.org/abs/2607.06523v1)** — Cordoba, Puente Tercero, Angulo Hijo et al.
+  Replaces uniform per-layer KV budgets with token-adaptive cross-layer factorization, preserving retrieval cues that uniform methods destroy—important for scaling cost-effective long-context inference.
 
-- **[DT-Guard: Intent-Driven Reasoning-Active Training for Safety Guardrails](http://arxiv.org/abs/2607.06326v1)** — Liu, Miao, Yang et al.
-  Bridges the lightweight-vs-reasoning trade-off in LLM safety guardrails via intent-driven reasoning-active training.
+- **[FreqDepthKV: Frequency-Guided Depth Sharing for Robust KV Cache Compression](http://arxiv.org/abs/2607.06519v1)** — Córdoba, Puente Tercero, Angulo Hijo et al.
+  Orthogonal to DepthWeave-KV, this work uses frequency-domain signals to share KV states across layers safely, protecting multi-step reasoning under aggressive compression.
 
-- **[Spider 2.0-AIFunc: AI-Native SQL Workflows](http://arxiv.org/abs/2607.06229v1)** — Liu, Xu, Lei et al.
-  Extends real-world text-to-SQL benchmarks to native LLM-in-SQL workflows (classification, sentiment, extraction).
+- **[Hierarchical Acoustic-Semantic Modeling for Full-Duplex SLMs](http://arxiv.org/abs/2607.06540v1)** — Liu, Li, Zhang et al.
+  Tackles modality interference—the long-standing bottleneck for native full-duplex spoken language models—via explicit hierarchical separation of acoustic and semantic streams.
 
-- **[LongCrafter: Evidence-Graph-Guided Long-Context Instruction Synthesis](http://arxiv.org/abs/2607.06160v1)** — Yuan, Xu, Xu et al.
-  Graph-guided synthesis pipeline addressing narrow coverage, weak difficulty, and missing faithfulness in long-context SFT data.
+- **[DT-Guard: Intent-Driven Reasoning-Active Training for Reasoning-Free LLM Safety Guardrail](http://arxiv.org/abs/2607.06326v1)** — Liu, Miao, Yang et al.
+  Closes the gap between lightweight classifiers (fast but shallow) and reasoning-based guards (robust but slow) by training intent-driven guardrails that match reasoning-grade robustness at classification-grade latency.
 
-- **[Improving LLM-Generated Process Models via RL Reward Design](http://arxiv.org/abs/2607.06175v1)** — Rombach, Lauer, Mehdiyev
-  Studies how reward shaping in RL unlocks BPMN quality beyond the supervised fine-tuning ceiling.
+- **[Estimating Uncertainty from Reasoning: Multilingual MCQA in LLMs](http://arxiv.org/abs/2607.06327v1)** — Alfarano, Bacciu, Mansour et al.
+  First large-scale uncertainty-estimation benchmark across 22 high-, mid-, and low-resource languages—foundational infrastructure for reliable multilingual LLM deployment.
 
-- **[From Sinhala to Dhivehi: Cross-Lingual ASR Transfer](http://arxiv.org/abs/2607.06289v1)** — Ilyas, Jayatilleke
-  Empirical study on cross-lingual transfer between related Insular Indo-Aryan languages for low-resource ASR.
-
-- **[Pluralis v0.1: Multicultural Multimodal Multilingual AI Risk Benchmark](http://arxiv.org/abs/2607.06196v1)** — Parrish, Shinde, Badhe et al.
-  VLM safety benchmark grounded in regional laws, socio-linguistic nuance, and cultural taboos — not Western defaults.
+---
 
 ### 🤖 Agents & Reasoning
 
 - **[Danus: Orchestrating Mathematical Reasoning Agents with Fact-Graph Memory](http://arxiv.org/abs/2607.06447v1)** — Liu, Gao, Sun et al.
-  Fact-graph shared memory enables coordinated parallel proof attempts in research-level math reasoning agents.
+  Introduces a fact-graph memory to coordinate parallel proof attempts on research-level math problems, addressing the orchestration bottleneck that currently limits scaling of mathematical reasoning agents.
 
-- **[RuBench: Repository-Level Agentic Coding with Russian Task Specs](http://arxiv.org/abs/2607.06411v1)** — Shilov
-  First agentic coding benchmark using natively authored, customer-style Russian task specifications.
+- **[The Large Cancer Assistant (LCA): Model-Agnostic Orchestration Framework for Clinical Decision Support](http://arxiv.org/abs/2607.06531v1)** — Marrakchi, Matei
+  Decouples data ingestion, routing, and inference in oncology AI through a model-agnostic post-hoc orchestration layer—enabling flexible multimodal clinical pipelines without monolithic retraining.
 
-- **[LLM Agents for Deliberative Collaboration Under Partial Observability](http://arxiv.org/abs/2607.06157v1)** — Wang, Yang, Du et al.
-  Studies communication-based deliberation as a coordination mechanism for LLM agents in joint decision making.
+- **[Doomed from the Start: Early Abort of LLM Agent Episodes via a Recall-Controlled Probe Cascade](http://arxiv.org/abs/2607.06503v1)** — Ruan, Huang, Zhou et al.
+  Shows that agent failure is predictable from internal representations much earlier than observable—offering a compute-saving probe cascade to abort doomed trajectories before they consume tokens.
 
-- **[Information Gain-based Rollout Policy Optimization (IGPO)](http://arxiv.org/abs/2607.06223v1)** — Zhang, Xu, Ding et al.
-  Adaptive tree-structured rollout allocation that spends compute where it most reduces uncertainty in multi-turn agent RL.
+- **[Pitwall: Faithful Race-Strategy Briefings from a Calibrated Real-Time Monte Carlo Engine](http://arxiv.org/abs/2607.06495v1)** — Santillana
+  A production system for grounded live F1 commentary, combining a calibrated Monte Carlo engine with LLM generation—a strong example of deadline-driven grounded generation under rapidly shifting state.
 
-- **[Task Decomposition-Guided Reranking for Agent Skill Retrieval](http://arxiv.org/abs/2607.06283v1)** — Chen, Shi, Yang et al.
-  Decomposition-then-rerank pipeline resolves semantic ambiguity in large-scale skill-library selection.
+- **[TopoBrick: Agentic Topology Sampling for Zero-Shot Building IoT Forecasting](http://arxiv.org/abs/2607.06349v1)** — Lin, Yin, Prabowo et al.
+  Training-free framework where an LLM agent samples exogenous variables from physical/spatial topology for zero-shot forecasting—pushing agentic design beyond software tasks into physical infrastructure.
 
-- **[When Does Tool Use Increase Expressive Power of Recurrent Models?](http://arxiv.org/abs/2607.06155v1)** — Zubić, Li, Wang et al.
-  Exact architecture-level complexity characterization of when tool access expands finite-precision recurrent model power.
-
-- **[A Toy Framework for Human-AI Curiosity Ecosystems](http://arxiv.org/abs/2607.06214v1)** — Monosov
-  Formalizes inquiry policy as a function of uncertainty reduction, cost, delayed return, and question-value retention.
-
-- **[Harnessing Code Agents for Automatic Software Verification](http://arxiv.org/abs/2607.06341v1)** — Kan, Kan, Ertel
-  LLM agent architecture for end-to-end proof generation in Coq-style interactive theorem provers.
-
-- **[Demonstrating TOFFEE: Synthesizing Data Agent Trajectories at Scale](http://arxiv.org/abs/2607.06233v1)** — Wang, Li, Yang et al.
-  Learned system for generating diverse, enterprise-realistic trajectories to train generalizable data agents.
+---
 
 ### 🔧 Methods & Frameworks
 
 - **[A Definition and Roadmap for World Models](http://arxiv.org/abs/2607.06401v1)** — Chen, Guo, Guo et al.
-  Consolidating roadmap unifying world-model concepts across RL, video generation, robotics, and physical AI.
-
-- **[An Experimental Design Approach to Evaluating Agentic AI's Autonomous Model Discovery](http://arxiv.org/abs/2607.06413v1)** — He, Liu, Kuhlman et al.
-  Statistical-experimental-design methodology for benchmarking stochastic, adaptive LLM coding agents.
+  Attempts the field's first consolidated definition of "world models" spanning model-based RL, video generation, and robotics—a timely conceptual anchor as physical AI matures.
 
 - **[TILDE: TILt-based Distributional Erasure for Concept Unlearning](http://arxiv.org/abs/2607.06432v1)** — George, Murata, Takida et al.
-  Concept-removal method for text-to-image diffusion models tuned for post-deployment privacy, copyright, and safety needs.
+  Concept unlearning for text-to-image diffusion models using distributional erasure—a more faithful alternative to methods that merely suppress surface features rather than removing concepts.
 
-- **[TopoBrick: Agentic Topology Sampling for Zero-Shot Building IoT Forecasting](http://arxiv.org/abs/2607.06349v1)** — Lin, Yin, Prabowo et al.
-  Training-free framework leveraging physical/spatial/operational topology for zero-shot sensor forecasting.
+- **[Dithered Gaussian Mechanism for Randomness-Efficient Differential Privacy](http://arxiv.org/abs/2607.06320v1)** — Kalinin, Pagh
+  Reduces randomness consumption in differential privacy by discretizing the private output rather than the noise distribution—a practical improvement for DP training pipelines.
+
+- **[EntroPath: Maximum Entropy Path Ensemble Embedding for Manifold Learning](http://arxiv.org/abs/2607.06497v1)** — Rola
+  Combines geodesic-aware path ensembles with maximum-entropy diffusion to recover manifold geometry—addressing the concentration bias of standard random-walk embeddings in dense regions.
 
 - **[ExplAIner: A Declarative Query Language for Explaining Classification Models](http://arxiv.org/abs/2607.06407v1)** — Arenas, Barceló, Bustamante et al.
-  Database-style declarative language unifying diverse XAI queries, scores, and combinations.
+  Brings database-style declarative query semantics to XAI—unifying diverse explanation notions under a single compositional language for analysis.
 
-- **[Physics-Informed Neural Embeddings of PDE Solution Families](http://arxiv.org/abs/2607.06348v1)** — Jimenez, Mayboroda, Protopapas et al.
-  Multihead PINN that learns a shared latent manifold of PDE solutions with cheap linear heads per family.
-
-- **[Dithered Gaussian Mechanism for Randomness-Efficient DP](http://arxiv.org/abs/2607.06320v1)** — Kalinin, Pagh
-  Discretizes the private output rather than the noise distribution, yielding post-processing-based differential privacy.
-
-- **[Quantitative Gaussian-Process Limits of Tensor Programs](http://arxiv.org/abs/2607.06290v1)** — Agazzi, Mosig García, Trevisan
-  Wasserstein-distance finite-width error bounds bridging random-network theory to NTK and beyond.
-
-- **[Function-Space Dichotomy: Exponential Sub-Optimality of NTK on Compositional Tasks](http://arxiv.org/abs/2607.06382v1)** — Ganguli, Constantinescu
-  First quantitative proof that finite-width networks can be exponentially better than NTK on compositional structure.
-
-- **[UBEP: Re-architecting Expert Parallelism for Superpods](http://arxiv.org/abs/2607.06202v1)** — Liu, Liu, Shen et al.
-  Communication library redesign addressing contention and tail latency on NVL72/576- and CloudMatrix384-class systems.
-
-- **[Leveraging Extragradient for Sharpness-Aware Minimization](http://arxiv.org/abs/2607.06151v1)** — Fu, Zhang, Liu et al.
-  Combines extragradient steps with SAM to more reliably converge to flat, generalizing minima.
-
-- **[Entanglement as a Structural Complexity Axis: PAC-Bayes for Quantum RL](http://arxiv.org/abs/2607.06230v1)** — Xu, Zeng, Paisley et al.
-  PAC-Bayesian framework showing entanglement — not parameter count — governs generalization in quantum policies.
-
-- **[Kernel-based Operator Learning + Physics-Informed Extension](http://arxiv.org/abs/2607.06287v1)** — Kempf
-  Two-stage sampling analysis with error bounds and a physics-informed extension for PDE operator learning.
+---
 
 ### 📊 Applications
 
-- **[Analysis-by-Proxy: Localization Signals in VLMs for Diffusion Editing](http://arxiv.org/abs/2607.06445v1)** — Baron, Dorfman, Paiss et al.
-  Diagnoses why VLM-based diffusion editing pipelines lose the localization fidelity of standalone VLMs.
+- **[Training-Free Acceleration for Vision-Language-Action Models with Action Caching and Refinement](http://arxiv.org/abs/2607.06370v1)** — Oi, Otsuka, Matsushima et al.
+  Brings inference-time caching to flow-matching VLA models, enabling faster robotic manipulation without retraining—directly relevant to deploying generalist robots.
 
-- **[Evidence-Linked Multi-Agent Case Finding for H. pylori in Biopsy Reports](http://arxiv.org/abs/2607.06435v1)** — Wang, Sahu, Ng et al.
-  Multi-agent extraction with explicit evidence linking for gastric-cancer-prevention case finding at scale.
+- **[ELSA3D: Elastic Semantic Anchoring for Unified 3D Understanding and Generation](http://arxiv.org/abs/2607.06565v1)** — Yu, Li, Shen et al.
+  Replaces flat token concatenation with elastic semantic anchoring for joint 3D-language reasoning—addressing structural-collapse issues in unified 3D foundation models.
 
-- **[What Images Cannot Say: Language-Guided Olfactory Representation Learning](http://arxiv.org/abs/2607.06402v1)** — Tsonis, Wang, Kalogeiton
-  Language supervision anchors multimodal olfactory learning where visual-only signals under-determine smell.
+- **[FootsiesGym: A Fighting Game Benchmark for Two-Player Zero-Sum Imperfect-Information Games](http://arxiv.org/abs/2607.06514v1)** — McDonald, Tsang, Kerr
+  Open-source benchmark isolating non-transitive fighting-game strategic interactions—filling a gap for imperfect-information multi-agent RL research between Go/Poker and full AAA game environments.
 
-- **[Learning to Throw Objects Safely in Multi-Obstacle Environments](http://arxiv.org/abs/2607.06388v1)** — Kasaei, Voncina, Kasaei
-  Obstacle-aware extension of TossingBot that goes beyond open-space throwing policies.
-
-- **[Training-Free Acceleration for Vision-Language-Action Models](http://arxiv.org/abs/2607.06370v1)** — Oi, Otsuka, Matsushima et al.
-  Action caching and refinement for flow-matching VLAs without retraining — pragmatic deployment win.
-
-- **[Automated Compliance Mapping in Cloud Security with Domain-Adapted Sentence Transformers](http://arxiv.org/abs/2607.06364v1)** — Bianchi, Petrillo, Martinelli et al.
-  Domain-adapted sentence transformers replace manual mapping of cloud security controls to technical metrics.
-
-- **[Responsible Personalisation in HRI](http://arxiv.org/abs/2607.06344v1)** — Andriella, Nasir, Rezzani et al.
-  Structured account of how ethical risks of personalisation emerge across human-robot interaction contexts.
-
-- **[Driving the Wrong Way: Interpretability in End2End Autonomous Driving](http://arxiv.org/abs/2607.06328v1)** — Motzkus, Bernhard
-  Post-hoc dictionary-learning interpretability module injected into state-of-the-art end-to-end driving stacks.
-
-- **[UI2App: Visual Interaction Inference for Executable Web App Generation](http://arxiv.org/abs/2607.06306v1)** — Chen, Guo, Wu et al.
-  Image-driven web generation benchmark targeting layout and cross-page visual coherence.
-
-- **[VendorBench-100: Cross-Paradigm Deepfake Detection Benchmark](http://arxiv.org/abs/2607.06254v1)** — Deshmukh, Rashidunnabi, Gemo et al.
-  Unified evaluation protocol across commercial APIs, zero-shot VLMs, and open-source deepfake detectors.
-
-- **[Canopy: Heterograph Foundation Model for Metabolic Engineering](http://arxiv.org/abs/2607.06224v1)** — Bowden, Legon, Surae
-  Heterogeneous-graph foundation model that learns from experimental data where constraint-based FBA cannot.
-
-- **[TriA: Automatic Audio Annotation Pipeline](http://arxiv.org/abs/2607.06179v1)** — Lyu, Yang, He et al.
-  Scales annotation for under-resourced audio classification scenarios (e.g., domestic environments).
-
-- **[X-FEMR: Token-level Explainability for EHR Foundation Models](http://arxiv.org/abs/2607.06163v1)** — Huang, Yin, Xu et al.
-  Token-level interpretability for FEMR-style longitudinal patient-trajectory models in clinical prediction.
-
-- **[Enhanced Seam Segmentation for Welding Robots via Transfer Learning](http://arxiv.org/abs/2607.06150v1)** — Park, Voeurn, Kweon et al.
-  Reflection-robust segmentation upgrade for autonomous welding under harsh construction-site illumination.
+- **[AirflowAttack: Thermal-Airflow Adversarial Perturbations against Infrared Remote-Sensing VLMs](http://arxiv.org/abs/2607.06485v1)** — Su, Han, Sun et al.
+  First adversarial attack specifically targeting IR remote-sensing VLMs using physical thermal/airflow perturbations—exposing a previously unexamined attack surface in security-critical deployments.
 
 ---
 
-## 📈 Research Trend Signal
+## 3. Research Trend Signal
 
-Three converging currents are visible in today's submissions. **First, the field is building genuine theory for agents.** IGPO formalizes rollout-budget allocation via information gain, the tool-use paper delivers an exact complexity separation for recurrent models with external calls, and curiosity-ecosystem work treats inquiry as a first-class object — together suggesting the agent literature is finally moving past ad-hoc prompting toward principled frameworks. **Second, evaluation itself is being upgraded.** The experimental-design paper, the multicultural Pluralis benchmark, the cross-paradigm VendorBench, and the native-Russian agentic coding benchmark all reflect a recognition that single-run, English-only, single-paradigm benchmarks systematically misrepresent capability. **Third, safety and governance are migrating upstream.** Concept unlearning (TILDE), safety guardrails (DT-Guard), multicultural risk benchmarking, and the responsible-HRI synthesis indicate that deployment-time safety is being designed in parallel with capability — not after it. Robotics, scientific ML, and quantum learning continue as steady secondary streams rather than breakout themes.
+The submissions cluster around three converging themes. **Inference efficiency for long-context LLMs** has become a first-class research target, with two papers in a single day attacking KV cache compression from orthogonal angles (token-adaptive cross-layer sharing vs. frequency-guided depth sharing)—a strong signal that the community views uniform-budget cache management as a solved-against direction. **Agentic AI is moving into production-grade infrastructure**: we see orchestration frameworks for clinical AI (LCA), grounded real-time commentary (Pitwall), zero-shot physical forecasting (TopoBrick), and parallel mathematical proof coordination (Danus), all emphasizing memory structures and early-failure prediction rather than single-agent prompting tricks. Finally, the **conceptual consolidation of "World Models"**—together with a wave of physics-informed and physical-AI papers (VLA acceleration, robotic throwing, IR VLM attacks, autonomous driving interpretability)—indicates that embodied and physical AI is now a self-sustaining research thread, no longer a niche subset of RL.
 
 ---
 
-## 📚 Worth Deep Reading
+## 4. Worth Deep Reading
 
-1. **[A Definition and Roadmap for World Models](http://arxiv.org/abs/2607.06401v1)** — Chen, Guo, Guo et al.
-   A consolidating position paper on a concept that has fragmented across RL, generative video, and robotics. Worth reading because any serious research program in model-based AI now needs a shared vocabulary, and this paper proposes one.
+- **[A Definition and Roadmap for World Models](http://arxiv.org/abs/2607.06401v1)** — Recommended reading. As "world models" is invoked across model-based RL, video generation, robotics, and physical AI, a consolidated definitional paper is genuinely valuable. This is the kind of synthesis paper that helps researchers locate their work within a coherent taxonomy and may shape terminology across subfields for years.
 
-2. **[Information Gain-based Rollout Policy Optimization (IGPO)](http://arxiv.org/abs/2607.06223v1)** — Zhang, Xu, Ding et al.
-   Introduces a compute-allocation principle (information gain) rather than yet another PPO variant. Reading it in full clarifies the emerging family of *adaptive-budget* RL methods for LLM agents.
+- **[Danus: Orchestrating Mathematical Reasoning Agents with Fact-Graph Memory](http://arxiv.org/abs/2607.06447v1)** — Recommended reading. The shift from single-agent reasoning to orchestrated multi-agent mathematical proof systems is one of the more consequential architectural developments in LLM research. Danus's fact-graph memory addresses a real bottleneck (parallel proof coordination), and the paper's framing of how to scale reasoning beyond monolithic prompts is broadly applicable beyond mathematics.
 
-3. **[When Does Tool Use Increase the Expressive Power of Finite-Precision Recurrent Models?](http://arxiv.org/abs/2607.06155v1)** — Zubić, Li, Wang et al.
-   Rare theoretical contribution that gives an exact architectural criterion for when tool augmentation matters. Useful as a reference for anyone designing agent architectures and wanting to separate hype from formal gain.
+- **[Doomed from the Start: Early Abort of LLM Agent Episodes via a Recall-Controlled Probe Cascade](http://arxiv.org/abs/2607.06503v1)** — Recommended reading. The observation that agent failure is predictable from internal representations early in the trajectory is both practically important (compute savings) and conceptually interesting (it suggests agents have observable "commitment signals" before behavioral failure). Likely to influence both agent runtime systems and interpretability research.

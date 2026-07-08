@@ -914,25 +914,26 @@ ${lobstersText}
 // ---------------------------------------------------------------------------
 
 export function buildRoboticsPrompt(data: RoboticsData, dateStr: string, lang: Lang = "zh"): string {
-  // Format papers from ArXiv cs.RO
+  // Format papers from ArXiv cs.RO (top 10, brief)
   const papersText =
     data.papers.length > 0
       ? data.papers
+          .slice(0, 10)
           .map(
             (p) =>
-              `- **${p.title}**\n  ${p.authors.slice(0, 3).join(", ")}${p.authors.length > 3 ? ` et al. (${p.authors.length} authors)` : ""}\n  ${p.url}\n  ${p.summary.slice(0, 200)}${p.summary.length > 200 ? "..." : ""}`,
+              `- **${p.title}**\n  ${p.authors.slice(0, 2).join(", ")}${p.authors.length > 2 ? ` et al.` : ""}\n  ${p.url}\n  ${p.summary.slice(0, 120)}${p.summary.length > 120 ? "..." : ""}`,
           )
           .join("\n\n")
       : lang === "en"
         ? "(No cs.RO papers available)"
         : "（无 cs.RO 论文数据）";
 
-  // Format RSS news
+  // Format RSS news (top 8, title+link only)
   const newsText =
     data.news.length > 0
       ? data.news
-          .slice(0, 15)
-          .map((n) => `- [${n.title}](${n.url}) — _${n.source}_\n  ${n.summary}`)
+          .slice(0, 8)
+          .map((n) => `- [${n.title}](${n.url}) — _${n.source}_`)
           .join("\n")
       : lang === "en"
         ? "(No news available)"
@@ -1037,25 +1038,26 @@ ${reposText}
 }
 
 export function buildCadPrompt(data: CadData, dateStr: string, lang: Lang = "zh"): string {
-  // Format papers from ArXiv cs.GR + cs.CG
+  // Format papers from ArXiv cs.GR + cs.CG (top 10, brief)
   const papersText =
     data.papers.length > 0
       ? data.papers
+          .slice(0, 10)
           .map(
             (p) =>
-              `- **${p.title}**\n  ${p.authors.slice(0, 3).join(", ")}${p.authors.length > 3 ? ` et al. (${p.authors.length} authors)` : ""}\n  ${p.url}\n  ${p.summary.slice(0, 200)}${p.summary.length > 200 ? "..." : ""}`,
+              `- **${p.title}**\n  ${p.authors.slice(0, 2).join(", ")}${p.authors.length > 2 ? ` et al.` : ""}\n  ${p.url}\n  ${p.summary.slice(0, 120)}${p.summary.length > 120 ? "..." : ""}`,
           )
           .join("\n\n")
       : lang === "en"
         ? "(No cs.GR/cs.CG papers available)"
         : "（无 cs.GR/cs.CG 论文数据）";
 
-  // Format RSS news
+  // Format RSS news (top 8, title+link only)
   const newsText =
     data.news.length > 0
       ? data.news
-          .slice(0, 15)
-          .map((n) => `- [${n.title}](${n.url}) — _${n.source}_\n  ${n.summary}`)
+          .slice(0, 8)
+          .map((n) => `- [${n.title}](${n.url}) — _${n.source}_`)
           .join("\n")
       : lang === "en"
         ? "(No news available)"

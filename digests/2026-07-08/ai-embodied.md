@@ -1,63 +1,163 @@
 # 具身智能开源动态日报 2026-07-08
 
-> 数据来源: GitHub Search API (robotics, ROS, embodied-AI 等话题) | 共 119 个仓库 | 生成时间: 2026-07-08 02:49 UTC
+> 数据来源: GitHub Search API (133 仓库) | ArXiv cs.RO (30 篇论文) | RSS 新闻 (28 条) | 生成时间: 2026-07-08 05:53 UTC
 
 ---
 
 # 具身智能开源动态日报
 
-## 📌 今日速览
-
-今日具身智能开源生态呈现出 **VLA 全栈化、MuJoCo 生态扩张、开源硬件加速** 三大主线：InternRobotics 开源 InternVLA-A1 系列模型打通了"理解—生成—动作"的统一框架；MuJoCo-Warp 阵营新增 mjlab（Isaac Lab API）、mpx（JAX MPC）等多个项目，正在挑战 NVIDIA Isaac 的仿真霸权；enactic/openarm 凭 2.7k star 成为本周最受关注的开源人形臂硬件。值得关注的是，针对 VLA 模型的"红队评测"（provael）和"鲁棒性榜单"（awesome-reliable-robotics）开始出现，标志社区进入安全与可靠性建设阶段。
+**日期：2026-07-XX　|　分析师视角：机器人 & 具身智能**
 
 ---
 
-## 🦾 机器人学习与控制
+## 一、今日速览
 
-| 仓库 | Star | 一句话说明 |
-|------|------|-----------|
-| [**RLinf/RLinf**](https://github.com/RLinf/RLinf) | ⭐4,032 | 面向具身/Agentic AI 的 RL 基础设施，统一支持 VLM、Agent 与机器人策略训练 |
-| [**enactic/openarm**](https://github.com/enactic/openarm) | ⭐2,700 | 面向 Physical AI 的全开源仿人臂，针对接触丰富操作设计，是当前最热的开源硬件项目 |
-| [**OpenDriveLab/RISE**](https://github.com/OpenDriveLab/RISE) | ⭐311 | RSS 2026：通过组合式世界模型实现机器人策略的自我改进（Self-Improving Policy） |
-| [**NJU-RLC/quadrupedal-agility**](https://github.com/NJU-RLC/quadrupedal-agility) | ⭐119 | 通过学习多样化自然行为提升四足机器人敏捷性，扩宽足式机器人运动范式 |
-| [**Hebbian-Robotics/openpi-flash**](https://github.com/Hebbian-Robotics/openpi-flash) | ⭐38 | openpi 的实时推理引擎，让 VLA 模型在真机上达到部署级延迟 |
-| [**tunglm2203/votp**](https://github.com/tunglm2203/votp) | ⭐6 | ICML 2026：基于视频反馈的高效离线偏好强化学习，节省人类反馈成本 |
-| [**cair-vinuni/CLP_VLA**](https://github.com/cair-vinuni/CLP_VLA) | ⭐4 | 提出 VLA 微调只需更少层即可保留泛化能力，挑战"全量微调"的范式 |
-| [**provael/provael**](https://github.com/provael/provael) | ⭐3 | 首个开源 VLA 红队评测框架：模拟对抗下报告 Attack Success Rate，对具身 AI 安全具有开创意义 |
-| [**philfung/awesome-reliable-robotics**](https://github.com/philfung/awesome-reliable-robotics) | ⭐154 | 收录真实世界部署中表现鲁棒可靠的机器人研究榜单，反对"仿真刷分" |
+今日动态呈现"VLA 模型 3D 化、世界模型井喷、开源人形硬件崛起"三大主线。学术端，Lift3D-VLA 将 VLA 升级为 3D 几何与动力学感知，RynnWorld 系列提出面向操作的 4D 世界模型；行业端，IEEE Spectrum 深度剖析日本能否在人形机器人领域追上中国；社区端，ROS 迎来新任首席项目官 Vicky Brasseur，2026 杭州 ROS Summer School 同步开放 20 门平行课程；工程端，OpenArm 等开源人形臂与 Newton、mjlab 等 MuJoCo 新生态加速融合，具身智能栈从"单一模型"走向"全栈开源"。
 
-## 🤖 仿真与框架
+---
 
-| 仓库 | Star | 一句话说明 |
-|------|------|-----------|
-| [**google-deepmind/mujoco**](https://github.com/google-deepmind/mujoco) | ⭐14,121 | 通用接触动力学仿真器，具身/RL 研究的"水电煤"，本周持续更新 |
-| [**newton-physics/newton**](https://github.com/newton-physics/newton) | ⭐5,173 | NVIDIA Warp 之上的 GPU 加速物理引擎，专为机器人学家打造 |
-| [**mujocolab/mjlab**](https://github.com/mujocolab/mjlab) | ⭐2,651 | 提供 Isaac Lab 风格的 API，但底层跑在 MuJoCo-Warp，是 NVIDIA 生态之外的强势替代 |
-| [**cyberbotics/webots**](https://github.com/cyberbotics/webots) | ⭐4,448 | 老牌开源机器人仿真器，跨平台、教育友好，仍持续活跃 |
-| [**dora-rs/dora**](https://github.com/dora-rs/dora) | ⭐3,831 | 数据流驱动的机器人中间件，Rust 编写，主打低延迟、可组合的 AI 机器人管线 |
-| [**rl-tools/rl-tools**](https://github.com/rl-tools/rl-tools) | ⭐1,007 | C++ 模板库的"最快深度强化学习库"，对延迟敏感的机器人 RL 极具吸引力 |
-| [**iit-DLSLab/mpx**](https://github.com/iit-DLSLab/mpx) | ⭐245 | JAX 实现的模型预测控制库，方便在 GPU/TPU 上做并行 MPC |
-| [**unilabsim/UniLab**](https://github.com/unilabsim/UniLab) | ⭐824 | 异构架构机器人 RL 框架，突破"GPU 主导"的算力范式 |
+## 二、行业脉搏
 
-## 🧠 VLA 与基础模型
+**1. 日本 vs 中国：人形机器人霸主之争**
+[IEEE Spectrum](https://spectrum.ieee.org/humanoid-robots-japan) 推出长篇分析，回顾日本本田 ASIMO 时代以来的先发优势，正视中国在宇树、智元、优必选等厂商驱动下的规模化追赶。对机器人社区的启示是：硬件供应链与制造规模正成为新一代人形机器人竞赛的关键变量。
+🔗 https://spectrum.ieee.org/humanoid-robots-japan
 
-| 仓库 | Star | 一句话说明 |
-|------|------|-----------|
-| [**datawhalechina/every-embodied**](https://github.com/datawhalechina/every-embodied) | ⭐2,568 | 中文社区最系统的具身智能教程：从 0 构建 OpenVLA/SmolVLA/Pi0 |
-| [**leofan90/Awesome-World-Models**](https://github.com/leofan90/Awesome-World-Models) | ⭐1,873 | 世界模型论文大列表，覆盖视频生成、具身 AI 与自动驾驶 |
-| [**sou350121/VLA-Handbook**](https://github.com/sou350121/VLA-Handbook) | ⭐360 | 首份 VLA 中文实战手册，聚焦机器人特有的算法挑战与面试 |
-| [**FluxVLA/FluxVLA**](https://github.com/FluxVLA/FluxVLA) | ⭐512 | 一站式 VLA 工程平台，串起"数据采集—训练—真机部署"全链路 |
-| [**InternRobotics/InternVLA-A-series**](https://github.com/InternRobotics/InternVLA-A-series) | ⭐465 | InternVLA-A1：统一理解、生成与动作的机器人操控模型 |
-| [**allenai/vla-evaluation-harness**](https://github.com/allenai/vla-evaluation-harness) | ⭐424 | 首个统一 VLA 评测框架，可对接任意模型 × 任意机器人仿真基准 |
-| [**Tencent-Hunyuan/Hy-Embodied-0.5-VLA**](https://github.com/Tencent-Hunyuan/Hy-Embodied-0.5-VLA) | ⭐185 | 腾讯混元：从 VLA 模型到真机学习栈的完整开源方案 |
-| [**TensorAuto/OpenTau**](https://github.com/TensorAuto/OpenTau) | ⭐183 | 张量自动化的 PyTorch VLA 训练基础设施，面向真实机器人训练 |
-| [**ucla-mobility/TIC-VLA**](https://github.com/ucla-mobility/TIC-VLA) | ⭐102 | ICML 2026：Think-in-Control VLA，把链式思考引入机器人导航决策 |
+**2. ROS 社区迎来新任首席项目官 Vicky (VM) Brasseur**
+Open Robotics 宣布任命知名开源治理专家 Vicky Brasseur 担任 CPO。Vicky 在 Python 社区治理与《Forge Your Future with Open Source》一书中有深厚背景，被视为 ROS 在治理、合规与多元化生态建设方面的关键信号。
+🔗 https://discourse.openrobotics.org/t/announcement-welcoming-vicky-vm-brasseur-as-our-new-chief-program-officer/56259
 
-## 🔧 硬件与驱动
+**3. 2026 ROS Summer School 杭州站启动，开放 20 门平行课程**
+课程覆盖 ROS 2 基础、MoveIt 2、Nav2、Gazebo、ROS 2 Control 等内容，面向亚太地区开发者。这是 ROS 社区在中国规模化运营的标志性事件，反映亚太正成为 ROS 培训与项目落地的核心腹地。
+🔗 https://discourse.openrobotics.org/t/20-parallel-courses-available-for-2026-ros-summer-school-hangzhou-china/56233
 
-| 仓库 | Star | 一句话说明 |
-|------|------|-----------|
-| [**commaai/openpilot**](https://github.com/commaai/openpilot) | ⭐63,040 | 已在 300+ 款车型上落地的机器人操作系统，是规模最大的开源机器人项目 |
-| [**rerun-io/rerun**](https://github.com/rerun-io/rerun) | ⭐11,092 | 多模态机器人数据的可视化、查询与流式传输工具，已成为数据基建标配 |
-| [**ArduPilot/ardupilot**](https://github.com/ArduPilot/ardupilot) | ⭐15,433 | 无人机/无人车/无人艇开源飞控，覆盖 Plane/Copter/Rover/Sub 全平台 |
-| [**huangjunsen0406/py-xiaozhi**](https://github.com/huangjunsen0406/py-xiaozhi)
+**4. NASA 月球车概念亮相 Video Friday**
+[Video Friday](https://spectrum.ieee.org/video-friday-nasa-lunar-rover) 报道了为月球表面设计的"地球化"火星车改造版，体现 NASA 在低成本星球车方向上的工程探索，对腿式/轮式融合移动平台具有借鉴价值。
+🔗 https://spectrum.ieee.org/video-friday-nasa-lunar-robot
+
+**5. Gazebo PMC 例会与 BAGEL 更新**
+[Gazebo PMC 2026-07-06 会议纪要](https://discourse.openrobotics.org/t/gazebo-pmc-meeting-minutes-2026-07-06/56229) 与 [BAGEL 更新](https://discourse.openrobotics.org/t/update-on-bagel-bag-exploration-whats-new/56235) 同步发布；前者涵盖新版本路线图，后者扩展 ROS bag 探索工具，是日常工程排障的重要补充。
+🔗 https://discourse.openrobotics.org/t/gazebo-pmc-meeting-minutes-2026-07-06/56229
+🔗 https://discourse.openrobotics.org/t/update-on-bagel-bag-exploration-whats-new/56235
+
+---
+
+## 三、研究前沿
+
+**1. Lift3D-VLA：将 VLA 提升至 3D 几何与动力学感知操作**
+Liu 等人提出 3D 几何 + 动力学感知的 VLA 框架，弥补了主流 VLA 在 2D 像素空间难以推理接触与物理动态的短板，是 OpenVLA / π0 之后的关键升级方向。
+🔗 http://arxiv.org/abs/2607.06564v1
+
+**2. RynnWorld-4D / RynnWorld-Teleop：面向操作与遥操作的 4D 世界模型**
+Zhao 等团队同时发布两条线：RynnWorld-4D 构建 4D 具身世界模型用于预测场景演化；RynnWorld-Teleop 用动作条件世界模型实现"数字遥操作"，有望打破真机数据采集的物理瓶颈。
+🔗 http://arxiv.org/abs/2607.06559v1
+🔗 http://arxiv.org/abs/2607.06558v1
+
+**3. UniLM-Nav：零样本最后一公里导航统一框架**
+Zhang 等人提出融合导航与操作的统一框架，覆盖"导航到目标 → 操作目标物体"的最后一公里场景，是具身移动操作（mobile manipulation）的代表性工作。
+🔗 http://arxiv.org/abs/2607.06537v1
+
+**4. Neural-ESO：双通路可证明鲁棒学习型控制**
+Zhang 等人提出基于 Neural Extended State Observer 的扰动抑制框架，从理论上保证闭环稳定性，为 RL/IL 控制落地提供"可证明安全"的工程范式。
+🔗 http://arxiv.org/abs/2607.06535v1
+
+**5. SIEVE：面向 VLA 模仿学习的结构感知数据选择**
+Wu 等人针对 VLA 训练数据规模膨胀但有效样本稀缺的问题，提出结构感知筛选机制，可显著降低模仿学习的标注与算力开销，是 VLA 数据工程的重要补充。
+🔗 http://arxiv.org/abs/2607.06442v1
+
+---
+
+## 四、重点项目
+
+### 🦾 机器人学习与控制（模仿学习 / RL / 策略学习）
+
+**RLinf** ⭐4,038
+面向具身与 Agentic AI 的强化学习基础设施，支持大规模分布式 RL 训练。
+🔗 https://github.com/RLinf/RLinf
+
+**awesome-reliable-robotics** ⭐154
+聚焦"真实世界可靠机器人"的论文/资源精选清单，强调可复现与稳健部署。
+🔗 https://github.com/philfung/awesome-reliable-robotics
+
+**quadrupedal-agility** ⭐119
+NJU-RLC 出品，学习多样化自然行为以增强四足机器人敏捷性。
+🔗 https://github.com/NJU-RLC/quadrupedal-agility
+
+**mujoco_ros2_control** ⭐212
+为 MuJoCo 物理仿真提供 ROS 2 control 硬件接口及相机/激光雷达插件，是 sim-to-real 链路的关键桥梁。
+🔗 https://github.com/ros-controls/mujoco_ros2_control
+
+**RoboticsAcademy** ⭐479
+JdeRobot 推出的机器人学教学平台，覆盖 Gazebo + ROS 的端到端课程。
+🔗 https://github.com/JdeRobot/RoboticsAcademy
+
+### 🤖 仿真与框架（MuJoCo / Isaac / Gazebo / ROS）
+
+**google-deepmind/mujoco** ⭐14,122
+通用物理仿真器的事实标准，已成 VLA / RL 训练的底座。
+🔗 https://github.com/google-deepmind/mujoco
+
+**isaac-sim/IsaacLab** ⭐7,630
+NVIDIA Isaac Sim 上的统一机器人学习框架，是大规模 GPU 并行 RL 的主流选择。
+🔗 https://github.com/isaac-sim/IsaacLab
+
+**newton-physics/newton** ⭐5,174
+基于 NVIDIA Warp 的开源 GPU 加速物理引擎，专为机器人与仿真研究设计。
+🔗 https://github.com/newton-physics/newton
+
+**mujocolab/mjlab** ⭐2,651
+在 MuJoCo-Warp 上提供 Isaac Lab 风格的 API，对标 Isaac Lab 但降低硬件门槛。
+🔗 https://github.com/mujocolab/mjlab
+
+**gazebosim/gz-sim** ⭐1,406
+新一代 Gazebo 仿真器，是 ROS 2 官方推荐的物理仿真后端。
+🔗 https://github.com/gazebosim/gz-sim
+
+**ros-navigation/navigation2** ⭐4,440
+ROS 2 官方导航框架，机器人落地的事实标准。
+🔗 https://github.com/ros-navigation/navigation2
+
+**copper-project/copper-rs** ⭐1,380
+Rust 写的机器人 OS：可构建、可回放、确定性执行机器人全栈任务。
+🔗 https://github.com/copper-project/copper-rs
+
+### 🧠 VLA 与基础模型（视觉-语言-动作 / 具身基础模型）
+
+**FluxVLA** ⭐512
+一站式 VLA 工程平台，覆盖从数据到真机部署的全链路。
+🔗 https://github.com/FluxVLA/FluxVLA
+
+**InternRobotics/InternVLA-A-series** ⭐466
+上海 AI Lab 出品，统一理解、生成与动作的机器人操作模型（InternVLA-A1）。
+🔗 https://github.com/InternRobotics/InternVLA-A-series
+
+**allenai/vla-evaluation-harness** ⭐425
+一个框架评估任意 VLA 模型在任意仿真基准上的表现，是 VLA 横向对比的基础设施。
+🔗 https://github.com/allenai/vla-evaluation-harness
+
+**Tencent-Hunyuan/Hy-Embodied-0.5-VLA** ⭐187
+腾讯混元从 VLA 模型到真机学习栈的全栈开源，工业级落地参考。
+🔗 https://github.com/Tencent-Hunyuan/Hy-Embodied-0.5-VLA
+
+**TensorAuto/OpenTau** ⭐183
+真机机器学习的 VLA 训练基础设施，PyTorch 原生实现。
+🔗 https://github.com/TensorAuto/OpenTau
+
+**datawhalechina/every-embodied** ⭐2,570
+从 0 构建 VLA/OpenVLA/SmolVLA/π0 的中文实战教程，是国内具身学习社区的核心入口。
+🔗 https://github.com/datawhalechina/every-embodied
+
+### 🔧 硬件与驱动（机器人驱动 / 硬件接口 / 嵌入式）
+
+**enactic/openarm** ⭐2,701
+完全开源的人形机械臂，面向"接触丰富"场景的物理 AI 研究与部署。
+🔗 https://github.com/enactic/openarm
+
+**NVIDIA-ISAAC-ROS/isaac_ros_visual_slam** ⭐1,395
+基于 cuVSLAM 的 GPU 加速视觉 SLAM / 里程计，Isaac ROS 的旗舰包。
+🔗 https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam
+
+**stack-of-tasks/pinocchio** ⭐3,551
+高性能刚体动力学库及其解析导数，是控制 / MPC / 优化的底层基石。
+🔗 https://github.com/stack-of
+---
+*Generated by agents-radar | MiniMax-M3*

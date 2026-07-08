@@ -1,142 +1,139 @@
 # CAD/机械结构开源动态日报 2026-07-08
 
-> 数据来源: GitHub Search API (CAD, FreeCAD, 3D-printing, generative-design 等话题) | 共 115 个仓库 | 生成时间: 2026-07-08 02:49 UTC
+> 数据来源: GitHub Search API (115 仓库) | ArXiv cs.GR+cs.CG (22 篇论文) | RSS 新闻 (4 条) | 生成时间: 2026-07-08 05:53 UTC
 
 ---
 
-# 📐 CAD/机械结构开源动态日报
-
-## 🔍 今日速览
-
-本周开源 CAD 生态最显著的趋势是 **AI Agent 与 CAD 的深度耦合**：FreeCAD-MCP、FreeCAD-AI、Rhino-MCP、Kiln（3D 打印 MCP）、MakerBench（物理世界 Agent 基准）等项目集中爆发，标志着自然语言驱动建模正从概念走向工具链。同时，**WebAssembly 化与浏览器 CAD** 持续推进——occt-wasm、brepjs、bldrs-ai/conway、CADAM、chili3d 共同推动 OCCT 内核在 Web 端落地，纯 Rust 实现的 `cadcore` 内核则展现了去 OCCT 化的新可能。切片端 OrcaSlicer、Marlin、Cura 三大主流项目持续活跃，Klipper 周边（kiauh、mainsail、bambuddy）形成完整生态。
+# CAD/机械结构开源动态日报
+**2026 年 7 月 6 日 · 第 ⌜本期⌝ 期**
 
 ---
 
-## ⭐ 重点项目
+## 1. 今日速览
+
+今天的素材呈现出一个高度一致的信号：**CAD 正在从"画图工具"走向"AI 协同的工程操作系统"**。行业端,FreeCAD 与 Prusa 分别公布了 2026 社区设计大赛结果与 INDX Founders Edition 出货进展,开源 CAD 与消费级硬件两端均有实质性推进;研究端,**ArtisanCAD** 提出基于"专家知识蒸馏"的工业级 LLM-CAD 代理,而**空间布局联合优化**的工作则把物理耦合系统的拓扑+包装问题做成了可求解的工程问题;项目端,从 FreeCAD/Trimesh/OpenCASCADE 等老牌项目到 **occt-wasm**、**brepjs**、**Swift-CAD**、**loupe** 等新工具,围绕"AI Agent + WebAssembly 几何内核 + Code-CAD 流水线"的主线正在快速收口。
+
+---
+
+## 2. 行业脉搏
+
+- **FreeCAD Community Design Competition 2026 揭晓**:由 FreeCAD Blog 公布的赛事结果不仅是社区汇报,更是开源 CAD 在建筑、机电、消费品等场景下"长尾场景落地能力"的一次集中展示。链接:<https://blog.freecad.org/2026/07/06/freecad-community-design-competition-2026-the-results/>
+- **FreeCAD Q2 2026 Grants 公布**:基金拨款方向往往决定下一个季度主线。本次 Q2 资助清单是判断 FreeCAD 路线图优先项最直接的信号(渲染管线、装配、STEP/CAF 等)。链接:<https://blog.freecad.org/2026/07/04/q2-2026-grants-announced/>
+- **FreeCAD WIP Wednesday · 2026-07-01**:Work-In-Progress 周报是把握 FreeCAD 主仓即将合并功能的"最前线信号",从 commit 级颗粒度观察 0.22 / 1.0 边界走向。链接:<https://blog.freecad.org/2026/07/01/wip-wednesday-1-july-2026/>
+- **Prusa INDX · 2026-07 更新:Founder's Edition 出货**:INDX 转入实际发货阶段,意味着开源硬件从"3D 打印小厂"正式向"工业级物料/夹具/成型生产线"延伸。链接:<https://blog.prusa3d.com/indx_july_2026_update_137377/>
+
+> 备注:本批素材中未含 OpenCASCADE、Bambu Lab、Hackaday 当日新条目,后续如出刊再补。
+
+---
+
+## 3. 研究前沿
+
+从 22 篇 cs.GR / cs.CG 投稿中,以下 4 篇与 CAD / 机械结构主线关联最直接:
+
+- **ArtisanCAD: An Industrial-Level CAD Agent with Expert-Grounded Knowledge Distillation** — Xu et al.
+  <http://arxiv.org/abs/2607.05750v1>
+  提出面向工业级零件的 LLM-CAD Agent,核心是用"专家知识蒸馏"解决长链建模中的特征依赖与稳健性问题。对 CAD 领域的意义:把自然语言→可靠零件模型的真正瓶颈(特征编辑、历史树一致性)从"演示 demo"升级到了"工业级可评测"水平,FreeCAD/CadQuery 这类可程序化内核最有可能率先受益。
+
+- **A Decomposition-Based Framework for Joint Optimization and Spatial Packaging of Interconnected Systems with Physical Interactions** — Bückmann et al.
+  <http://arxiv.org/abs/2607.06087v1>
+  针对"互联系统 + 物理耦合"提出分解式联合拓扑优化 + 空间包装。意义:这是把航空、汽车舱内电子冷却类的"几何堆叠+传热耦合"问题切成可并行求解子问题的工程化路径,直接对接 CAD 内的**Packaging / Routing / Layout** 工作流。
+
+- **Generalized altitudes and their bounds** — Dal Poz Kourimska & Wintraecken
+  <http://arxiv.org/abs/2607.06187v1>
+  把单形(vertex-to-opposite-face)上的高线概念推广到任意顶点对。意义:为内核层几何求解器(B-Rep 中的 point-face projection、offset、point-in-solid 测试)提供更紧的数值下界,有助于鲁棒 Booleans。
+
+- **Shifting is Optimal under Gap-ETH: A Lower Bound Framework for Geometric Approximation Schemes** — Cáceres et al.
+  <http://arxiv.org/abs/2607.06069v1>
+  在 Gap-ETH 假设下证明 shifting 技巧在运行时间上最优。意义:对工程中"网格/覆盖/近似多边形"的近似 PTAS 提供了复杂度下界指引——在 STL/网格管线、剖分、近似骨架化等模块里,理论最优线已勾勒。
+
+- **Lower Bounds for Approximating the Vietoris-Rips Filtration** — McCabe
+  <http://arxiv.org/abs/2607.06524v1>
+  给出 Vietoris-Rips 滤链的近似复杂度下界。意义:TDA 在"形状分析 / 制造缺陷检测"链路里越来越被用于点云/网格特征提取;这条边界让工程上选哪种摘要图更加心里有数。
+
+---
+
+## 4. 重点项目
+
+按 6 大主题精选 14 个 7 日内有推送的活跃仓库:
 
 ### 🖥️ CAD 平台与编辑器
 
-- **[FreeCAD/FreeCAD](https://github.com/FreeCAD/FreeCAD)** ⭐ 31,972
-  开源参数化 3D 建模旗舰，基于 OCCT 内核，支持 Python 脚本与工作台扩展，是开源 CAD 生态的事实标准。
-
-- **[openscad/openscad](https://github.com/openscad/openscad)** ⭐ 9,718
-  "程序员的实体建模语言"，纯文本描述几何体，是 Code-CAD 与参数化设计的发源地。
-
-- **[LibreCAD/LibreCAD](https://github.com/LibreCAD/LibreCAD)** ⭐ 6,051
-  跨平台 2D CAD，完整支持 DXF/DWG 读写，是轻量级工程绘图的可靠选择。
-
-- **[solvespace/solvespace](https://github.com/solvespace/solvespace)** ⭐ 4,041
-  参数化 2D/3D CAD，体积小巧、约束求解器强大，适合教学与嵌入式场景。
+- **[FreeCAD/FreeCAD](https://github.com/FreeCAD/FreeCAD)** ⭐ 31,975
+  官方源,跨平台参数化 3D 建模的事实开源标准。今日日报其他动态均围绕它展开。
 
 - **[xiangechen/chili3d](https://github.com/xiangechen/chili3d)** ⭐ 4,660
-  浏览器端 3D CAD 应用，展示了纯 Web 在线建模编辑的方向。
+  浏览器端 3D CAD,Web 化建模栈的关键一环,对"协作 + AI Agent 接管视口"尤其友好。
 
-- **[Adam-CAD/CADAM](https://github.com/Adam-CAD/CADAM)** ⭐ 4,741
-  开源 text-to-CAD Web 应用，自然语言直接生成可编辑 CAD 模型。
+- **[LibreCAD/LibreCAD](https://github.com/LibreCAD/LibreCAD)** ⭐ 6,052
+  2D CAD 主力,DXF/DWG 读写的稳定兜底,常被用于图纸级 DFM 流程入口。
+
+- **[solvespace/solvespace](https://github.com/solvespace/solvespace)** ⭐ 4,041
+  参数化 2D/3D CAD 的轻量标杆,几何求解器演示级样本。
+
+- **[f3d-app/f3d](https://github.com/f3d-app/f3d)** ⭐ 4,527
+  快速极简 3D viewer,STEP/STL 等格式的桌面/Batch 渲染前端,常作切片与仿真的"前哨"。
 
 ### 📐 计算几何与内核
 
 - **[CGAL/cgal](https://github.com/CGAL/cgal)** ⭐ 5,971
-  C++ 计算几何算法库的"百科全书"，覆盖三角化、布尔运算、网格处理等核心算法。
+  C++ 计算几何的"百科全书",机械设计中的布尔、骨架化、剖分、点云处理默认依赖。
 
-- **[Open-Cascade-SAS/OCCT](https://github.com/Open-Cascade-SAS/OCCT)** ⭐ 2,624
-  开源 3D CAD/CAM/CAE 平台的事实工业内核，FreeCAD、CadQuery、mayo 等众多项目的底座。
-
-- **[mikedh/trimesh](https://github.com/mikedh/trimesh)** ⭐ 3,612
-  Python 三角网格处理库，是科研与逆向工程中网格布尔、修复、STL 处理的主力工具。
-
-- **[gkjohnson/three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh)** ⭐ 3,411
-  three.js 网格 BVH 加速库，是 Web 端大规模模型可视化与 raycasting 的性能关键。
-
-- **[YATSKOVSKYI/cadcore](https://github.com/YATSKOVSKYI/cadcore)** ⭐ 27
-  纯 Rust 实现的 B-Rep CAD 几何内核，无 OCCT、无 C++，代表去 OCCT 化的新探索。
+- **[Open-Cascade-SAS/OCCT](https://github.com/Open-Cascade-SAS/OCCT)** ⭐ 2,625
+  开源 B-Rep 几何内核,FreeCAD / CadQuery / EzyCad / mayo 等生态几乎全部直接用到。
 
 ### 🧬 创成式与参数化设计
 
-- **[processing/processing4](https://github.com/processing/processing4)** ⭐ 434
-  创意编程语言，常被用于参数化、可视化与生成式艺术的快速原型。
+- **[earthtojake/text-to-cad](https://github.com/earthtojake/text-to-cad)** ⭐ 7,802
+  "Agent Skills for CAD/robotics/hardware"集合,把模型→抓取→打印串成一个 AI 流水线的入口。
 
-- **[tanishqbhattad/rhino-mcp](https://github.com/tanishqbhattad/rhino-mcp)** ⭐ 8
-  Rhino 8 的 MCP 服务器，Claude/ChatGPT/Codex 等 AI 客户端可直接驱动 115 个建模工具。
+- **[Adam-CAD/CADAM](https://github.com/Adam-CAD/CADAM)** ⭐ 4,741
+  开源 text-to-CAD Web App,直接对应今日研究前沿中 ArtisanCAD 的产品化延伸。
 
-- **[tonykoop/makerbench-hwe](https://github.com/tonykoop/makerbench-hwe)** ⭐ 0
-  面向物理世界的 Agent 基准，测试空间推理与 DFM（面向制造的设计）能力。
+- **[tonykoop/makerbench-hwe](https://github.com/tonykoop/makerbench-hwe)** ⭐ 0(新)
+  "MakerBench"——把 SWE-bench 思路搬到物理设计领域,做**数学评分**而非 LLM 自评的 DFM/空间推理基准。
 
 ### 🖨️ 3D 打印与制造
 
 - **[MarlinFirmware/Marlin](https://github.com/MarlinFirmware/Marlin)** ⭐ 17,471
-  RepRap 3D 打印机的工业级固件标准，支持 8/32 位 MCU，覆盖绝大多数市售 3D 打印机。
+  3D 打印固件的事实标准,与今日 Prusa 硬件发货形成上下游呼应。
 
-- **[OrcaSlicer/OrcaSlicer](https://github.com/OrcaSlicer/OrcaSlicer)** ⭐ 15,036
-  主流 G-code 生成器，全面适配 Bambu/Prusa/Voron 等热门机型，社区活跃度极高。
-
-- **[Ultimaker/Cura](https://github.com/Ultimaker/Cura)** ⭐ 6,987
-  Ultimaker 官方切片 GUI，基于 Uranium 框架，是工业与教育领域装机量最大的切片软件之一。
-
-- **[Sienci-Labs/gsender](https://github.com/Sienci-Labs/gsender)** ⭐ 356
-  开源 grbl/grblHAL CNC 控制器，是桌面级 CNC 与激光雕刻的事实 GUI。
-
-- **[huxingyi/dust3d](https://github.com/huxingyi/dust3d)** ⭐ 3,347
-  跨平台低多边形 3D 建模工具，专为游戏资产与 3D 打印快速建模设计。
+- **[OrcaSlicer/OrcaSlicer](https://github.com/OrcaSlicer/OrcaSlicer)** ⭐ 15,038
+  跨品牌切片器,可把 AI 生成的 STL/3MF 直接送进 Bambu/Prusa/Voron 等机器。
 
 - **[sn4k3/UVtools](https://github.com/sn4k3/UVtools)** ⭐ 1,588
-  MSLA/DLP 光固化打印的标定、修复、文件分析工具集。
+  MSLA/DLP 专用的文件分析、修复与转换工具,对光固化工艺前处理关键。
 
 ### 🔗 文件格式与互操作
 
-- **[f3d-app/f3d](https://github.com/f3d-app/f3d)** ⭐ 4,526
-  快速极简的 3D 查看器，原生支持 STEP、IGES、STL、glTF 等多种 CAD/网格格式。
-
-- **[bldrs-ai/conway](https://github.com/bldrs-ai/conway)** ⭐ 22
-  高性能 Web 端 IFC & STEP 引擎，专为浏览器内 CAD 应用设计。
-
 - **[andymai/occt-wasm](https://github.com/andymai/occt-wasm)** ⭐ 21
-  将 OCCT 编译为 WebAssembly（~4MB brotli），提供干净的 TypeScript API，是 Web CAD 的基础设施。
+  把 OCCT 编译到 WASM(~4MB brotli),为浏览器内**精确** B-Rep 提供底层。
 
 - **[andymai/brepjs](https://github.com/andymai/brepjs)** ⭐ 60
-  Web 端精确 B-Rep 几何库，让浏览器内的精确 CAD 建模成为可能。
+  浏览器侧基于 occt-wasm 的精确 B-Rep 几何库,被 chili3d / 各类 Web CAD 拉来直接当作内核。
 
-- **[FriendsOfCADability/CADability](https://github.com/FriendsOfCADability/CADability)** ⭐ 167
-  纯 .NET 3D 建模类库，原生支持 STEP/STL/DXF 交换，零外部依赖。
+- **[bldrs-ai/conway](https://github.com/bldrs-ai/conway)** ⭐ 22
+  高性能 IFC & STEP Web 引擎,工业交付与 BIM 协作的关键拼图。
+
+- **[1amageek/swift-CAD](https://github.com/1amageek/swift-CAD)** ⭐ 9
+  原生 Swift 的参数化 CAD:IR + B-Rep 评估 + 零拷贝交换 + WebAssembly 支持,CAD 内核多语言生态的又一个端点。
+
+- **[YATSKOVSKYI/cadcore](https://github.com/YATSKOVSKYI/cadcore)** ⭐ 27
+  纯 Rust 的 B-Rep 内核,AP203 STEP 导出、无 OCCT 依赖,代表"非 C++ 内核"路线。
 
 ### 🐍 Code-CAD 与脚本化
 
 - **[CadQuery/cadquery](https://github.com/CadQuery/cadquery)** ⭐ 5,425
-  基于 OCCT 的 Python 参数化 CAD 脚本框架，是 Code-CAD 生态最成熟的代表。
+  基于 OCCT 的 Python 参数化 CAD 脚本框架,机械工程师最常用的"代码建模"入口。
 
-- **[gumyr/build123d](https://github.com/gumyr/build123d)** ⭐ 2,591
-  新一代 Python CAD 编程库，API 更现代，与 CadQuery 互补。
+- **[gumyr/build123d](https://github.com/gumyr/build123d)** ⭐ 2,593
+  Python CAD 编程库的"现代分支",语义更接近真正 3D 建模心智模型,正在蚕食传统 OpenSCAD 思维。
 
-- **[CadQuery/CQ-editor](https://github.com/CadQuery/CQ-editor)** ⭐ 1,194
-  CadQuery 的 PyQt GUI 编辑器，提供交互式可视化与即时执行。
-
-- **[jupytercad/JupyterCAD](https://github.com/jupytercad/JupyterCAD)** ⭐ 229
-  JupyterLab 扩展，支持 3D 几何建模的协作式 Notebook 流程。
-
-- **[neka-nat/freecad-mcp](https://github.com/neka-nat/freecad-mcp)** ⭐ 1,258
-  FreeCAD 的 MCP 服务器，让 LLM 直接操控 FreeCAD 建模流程。
+- **[neka-nat/freecad-mcp](https://github.com/neka-nat/freecad-mcp)** ⭐ 1,260
+  FreeCAD 的 MCP Server,把 FreeCAD 接到 Claude/Codex 等 Agent 客户端。
 
 - **[ghbalf/freecad-ai](https://github.com/ghbalf/freecad-ai)** ⭐ 360
-  FreeCAD AI 助手工作台，自然语言直接生成 3D 模型。
+  FreeCAD 内 AI 工作台,直接用自然语言生成 3D 模型——本日报"AI × CAD"主题的代表性实现。
 
-- **[codeofaxel/Kiln](https://github.com/codeofaxel/Kiln)** ⭐ 31
-  开源 3D 打印 MCP 服务器，AI Agent 可完成"设计→切片→打印"全链路。
-
+- **[jupytercad/JupyterCAD](https://github.com/jupytercad/JupyterCAD)** ⭐ 229
 ---
-
-## 🌊 生态趋势信号
-
-CAD 开源生态正经历三股清晰的合流：**其一是"AI Agent × CAD"的协议化**——MCP（Model Context Protocol）成为 LLM 操控 FreeCAD、Rhino、3D 打印机的通用接口，freecad-mcp、rhino-mcp、Kiln 三者并列爆发意味着"自然语言建模"已从 PoC 走向标准化工具链。**其二是"内核 WASM 化"与"Web CAD"的协同**——occt-wasm + brepjs + bldrs-ai/conway + chili3d + CADAM 共同构建出无需安装的浏览器建模体验，而纯 Rust 实现的 cadcore 则提供了摆脱 OCCT C++ 复杂性的另一条路。**其三是"参数化/Code-CAD"向生成式与 DFM 工作流延伸**——MakerBench 将 Agent 能力评测落到"物理世界"，build123d 持续蚕食 CadQuery 现代 API 生态，Kiln 把切片也纳入 Agent 闭环。整体看，CAD 开源正从"替代商业软件"升级为"AI 原生设计基础设施"。
-
----
-
-## 🎯 值得关注
-
-1. **[neka-nat/freecad-mcp](https://github.com/neka-nat/freecad-mcp)** ⭐ 1,258
-   MCP 协议把 FreeCAD 接入 Claude/Cursor 等 AI 客户端，是"AI 建模"走向生产力的关键节点，其 API 设计将影响整个 LLM-CAD 互操作生态。
-
-2. **[andymai/occt-wasm](https://github.com/andymai/occt-wasm)** ⭐ 21
-   把工业级 OCCT 内核压缩到 ~4MB 并暴露现代 TypeScript API，是 Web CAD 能否真正替代桌面端的基础设施级项目，长期价值高。
-
-3. **[YATSKOVSKYI/cadcore](https://github.com/YATSKOVSKYI/cadcore)** ⭐ 27
-   纯 Rust B-Rep 内核，O(N) 扫描体、STEP AP203 导出、零 OCCT 依赖——若持续成熟，将是开源 CAD 摆脱"必须 link OCCT"枷锁的破局者，值得长期跟踪。
+*Generated by agents-radar | MiniMax-M3*

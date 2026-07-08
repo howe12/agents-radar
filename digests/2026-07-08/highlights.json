@@ -1,4 +1,150 @@
 {
-  "zh": {},
-  "en": {}
+  "zh": {
+    "ai-cli": [
+      "OpenCode v1.17.15 当日最活跃，50 条 PR",
+      "Claude Code 48 Issue vs 6 PR，需求与推进鸿沟大",
+      "Qwen Code v0.19.7，SDK 双端同步发力",
+      "DeepSeek TUI v0.8.67 收尾，v0.8.69 规划中",
+      "行业从'能不能跑'转向'能不能信'的新阶段",
+      "Kimi Code CLI 近乎沉寂，仅 1 条议题"
+    ],
+    "ai-agents": [
+      "OpenClaw 24 小时 241 Issue、500 PR 高吞吐",
+      "今日无新版本，处于半冻结修复期",
+      "PR #101989 修复 OAuth 插件工具注册",
+      "PR #101928 修复会话写锁重入问题",
+      "多 Agent 编排稳定性成社区焦点",
+      "Channel Provider 消息丢失问题集中"
+    ],
+    "ai-trending": [
+      "ai-job-search 登顶 Trending，+2514 stars",
+      "system_prompts_leaks 单日 +1691 stars",
+      "Agent Skills 生态爆发，多仓同步上榜",
+      "OfficeCLI 首个 Agent 专用 Office CLI，+893",
+      "claude-video +965 stars，给 Claude 看视频",
+      "Hermes Agent 21 万 stars 持续走热"
+    ],
+    "ai-web": [
+      "Claude Sonnet 5 正式发布，agentic 能力跃迁",
+      "Sonnet 5 性能接近 Opus 4.8，仍为中端定价",
+      "Free/Pro 用户默认启用 Sonnet 5",
+      "OpenAI 今日无任何更新，节奏对比悬殊",
+      "主动声明网络攻击能力低于 Opus",
+      "官方定义 Sonnet 5 为 agentic 时代起点"
+    ],
+    "ai-hn": [
+      "Rowboat 登顶 HN，132 分本地优先 Claude 替代",
+      "Claude Fable 5 付费延期引发 143 条热议",
+      "GPT-5.6 Sol/Terra/Luna 本周四公测",
+      "The Making of Claude Code 长文 54 分刷屏",
+      "1-bit WebGPU 浏览器跑 1.7B 模型",
+      "Anthropic 揭秘 J-Space 隐藏推理空间"
+    ],
+    "ai-arxiv": [
+      "DepthWeave-KV 实现 token 自适应 KV 压缩",
+      "FreqDepthKV 频域共享保持层特异证据",
+      "Doomed from the Start 智能体早期失败预测",
+      "DT-Guard 意图驱动高效安全护栏",
+      "首次 22 语言 LLM 不确定性大规模评测",
+      "多 Agent 在数学/生物/代码三场景突破"
+    ],
+    "ai-community": [
+      "RAG 系统对表格系统性撒谎引热议",
+      "mcp2cli 在 Agent 循环节省 96-99% token",
+      "Google AI 能耗问题 Lobste.rs 82 分登顶",
+      "AI 写的线程安全计数器反而慢 5 倍",
+      "Stratagems #7 揭示 99.97% 评估盲区",
+      "EchoLeak 零点击数据窃取攻击引发关注"
+    ],
+    "ai-embodied": [
+      "Lift3D-VLA 将 VLA 提升至 3D 几何感知",
+      "RynnWorld-4D 系列 4D 时空建模突破",
+      "IEEE 深度分析日本能否追赶中国人形机器人",
+      "Vicky Brasseur 出任 Open Robotics 首席项目官",
+      "2026 ROS Summer School 杭州开设 20 门课程",
+      "IsaacLab、MuJoCo、Newton 仿真底座领跑"
+    ],
+    "ai-cad": [
+      "FreeCAD 2026 设计大赛结果与 Q2 资助公布",
+      "ArtisanCAD 工业级 CAD Agent 论文发表",
+      "MCP 协议 CAD 工具集中爆发（text-to-cad 等）",
+      "Prusa INDX 创始人版正式发货",
+      "互联系统空间布局联合优化框架发布",
+      "几何内核、AI 入口、制造端三层格局形成"
+    ]
+  },
+  "en": {
+    "ai-cli": [
+      "Claude Code ships v2.1.203 and v2.1.204",
+      "Sub-agent lifecycle management is key pain point",
+      "CLI tools evolve from REPLs to SDK platforms",
+      "Windows bugs cluster in MCP stdio and TTY",
+      "Mature tools ship Fleet views and extension APIs",
+      "Smaller tools race to add TUI parity features"
+    ],
+    "ai-agents": [
+      "OpenClaw sees 241 issues, 500 PRs, zero releases",
+      "4-5× perf regression in openclaw doctor --fix",
+      "Only 6 of 241 issues closed (~2.5% rate)",
+      "Telegram/Feishu/Signal transport stability regressing",
+      "Patch release overdue for 2026.5.20 bugs",
+      "13 Claw ecosystem projects tracked today"
+    ],
+    "ai-trending": [
+      "6 of top 13 trending repos are Claude Code infra",
+      "Leaked system prompts from Opus 4.8, GPT 5.5 trending",
+      "CubeSandbox trends +664 stars (agent sandbox)",
+      "addyosmani/agent-skills trends +1317 stars",
+      "OfficeCLI: first Office suite built for AI agents",
+      "Local-first edge AI: meetily, RuView, pocket-tts"
+    ],
+    "ai-web": [
+      "Anthropic releases Claude Sonnet 5",
+      "Sonnet 5 framed as 'most agentic Sonnet yet'",
+      "Sonnet 5 nears Opus 4.8 at Sonnet pricing",
+      "Sonnet 5 becomes default on Free and Pro plans",
+      "OpenAI publishes zero new articles today",
+      "Mid-tier capability-price compression underway"
+    ],
+    "ai-hn": [
+      "GPT-5.6 Sol/Terra/Luna launch this Thursday",
+      "Trump admin lifts restrictions on GPT 5.6",
+      "Rowboat tops HN at 132 points",
+      "Anthropic Fable 5 extended access through July 12",
+      "Claude Cowork launches on mobile and web",
+      "Anthropic vs Abnormal regulatory battle brewing"
+    ],
+    "ai-arxiv": [
+      "DepthWeave-KV enables token-adaptive KV compression",
+      "FreqDepthKV applies frequency-guided depth sharing",
+      "Roadmap paper unifies 'World Models' terminology",
+      "Multi-agent pipelines mature: Danus, LCA, Pitwall",
+      "WordVoice adds word-level control to LLM TTS",
+      "Agentic systems move from demos to production"
+    ],
+    "ai-community": [
+      "Agent reliability in production under scrutiny",
+      "Zero-click data exfiltration via AI assistants",
+      "Engineers losing fundamentals to AI overreliance",
+      "Embedding inversion attacks gain airtime",
+      "Google compute bloat sparks environmental debate",
+      "Prompt-injection bypasses of safety layers discussed"
+    ],
+    "ai-embodied": [
+      "Lift3D-VLA and SIEVE advance 3D-aware VLA models",
+      "RynnWorld-4D/Teleop targets manipulation data bottleneck",
+      "MuJoCo-Warp and Newton consolidate as GPU sim backends",
+      "IsaacLab remains dominant training framework",
+      "Open Robotics hires Vicky Brasseur as CPO",
+      "Japan vs China humanoid robotics race heats up"
+    ],
+    "ai-cad": [
+      "FreeCAD Q2 2026 grants announced",
+      "FreeCAD Community Design Competition 2026 results out",
+      "ArtisanCAD paper distills expert procedural modeling",
+      "Prusa INDX Founder's Edition now shipping",
+      "New MCP servers for Rhino, OpenSCAD, Bambu printers",
+      "OCCT, CGAL, Boost.Geometry underpin geometry kernels"
+    ]
+  }
 }
