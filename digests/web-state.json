@@ -1,6 +1,6 @@
 {
   "anthropic": {
-    "lastChecked": "2026-07-09T02:37:48.804Z",
+    "lastChecked": "2026-07-09T05:53:50.286Z",
     "seenUrls": {
       "https://www.anthropic.com/news/responsible-scaling-policy-v3": "2026-02-25T23:57:06.000Z",
       "https://www.anthropic.com/research/deprecation-updates-opus-3": "2026-02-25T20:58:11.000Z",
@@ -417,7 +417,7 @@
     }
   },
   "openai": {
-    "lastChecked": "2026-07-09T02:36:25.585Z",
+    "lastChecked": "2026-07-09T05:53:51.640Z",
     "seenUrls": {
       "https://openai.com/index/arvind-kc-chief-people-officer/": "2026-05-29T00:25:33.242Z",
       "https://openai.com/index/put-ai-to-work-for-your-product-team/": "2026-06-12T04:05:36.713Z",
@@ -607,7 +607,7 @@
       "https://openai.com/index/openai-o1-system-card/": "2026-06-01T19:21:44.227Z",
       "https://openai.com/index/advancing-red-teaming-with-people-and-ai/": "2026-05-22T19:11:26.108Z",
       "https://openai.com/index/trading-inference-time-compute-for-adversarial-robustness/": "2026-07-08T20:02:46.328Z",
-      "https://openai.com/index/gdpval/": "2026-07-08T23:16:47.487Z",
+      "https://openai.com/index/gdpval/": "2026-07-09T05:35:17.545Z",
       "https://openai.com/index/defining-and-evaluating-political-bias-in-llms/": "2026-05-22T19:03:13.277Z",
       "https://openai.com/index/introducing-indqa/": "2026-06-11T07:37:17.482Z",
       "https://openai.com/index/frontierscience/": "2026-05-22T19:08:16.920Z",
@@ -868,7 +868,7 @@
       "https://openai.com/index/building-chatgpt-atlas/": "2026-06-17T19:45:23.888Z",
       "https://openai.com/index/shipping-sora-for-android-with-codex/": "2026-06-03T22:18:34.662Z",
       "https://openai.com/index/the-state-of-enterprise-ai-2025-report/": "2026-05-22T19:39:48.019Z",
-      "https://openai.com/index/openai-for-healthcare/": "2026-07-08T22:52:55.499Z",
+      "https://openai.com/index/openai-for-healthcare/": "2026-07-09T05:50:51.675Z",
       "https://openai.com/global-affairs/the-power-of-personalized-ai/": "2026-05-29T00:25:32.817Z",
       "https://openai.com/global-affairs/1000-scientist-ai-jam-session/": "2026-05-29T00:25:25.435Z",
       "https://openai.com/index/nonprofit-commission-advisors/": "2026-05-22T19:19:36.254Z",
@@ -1079,7 +1079,7 @@
       "https://openai.com/index/introducing-workspace-agents-in-chatgpt/": "2026-06-12T12:48:25.401Z",
       "https://openai.com/index/speeding-up-agentic-workflows-with-websockets/": "2026-06-04T14:48:41.195Z",
       "https://openai.com/index/gpt-5-5-bio-bug-bounty/": "2026-05-22T19:28:22.808Z",
-      "https://openai.com/index/introducing-gpt-5-5/": "2026-07-08T22:56:34.287Z",
+      "https://openai.com/index/introducing-gpt-5-5/": "2026-07-09T05:51:11.574Z",
       "https://openai.com/index/gpt-5-5-system-card/": "2026-05-22T19:40:57.298Z",
       "https://openai.com/index/our-principles/": "2026-06-19T00:24:11.598Z",
       "https://openai.com/index/open-source-codex-orchestration-symphony/": "2026-06-12T12:58:32.579Z",
@@ -1113,7 +1113,7 @@
       "https://openai.com/index/advancing-content-provenance/": "2026-05-22T19:26:25.776Z",
       "https://openai.com/deployco/": "2026-05-29T00:25:31.786Z",
       "https://openai.com/index/model-disproves-discrete-geometry-conjecture/": "2026-06-03T04:01:03.645Z",
-      "https://openai.com/business/learn/gartner-2026-agentic-coding-leader/": "2026-07-08T20:04:17.245Z",
+      "https://openai.com/business/learn/gartner-2026-agentic-coding-leader/": "2026-07-09T04:10:04.955Z",
       "https://openai.com/index/building-self-improving-tax-agents-with-codex/": "2026-06-04T19:16:32.732Z",
       "https://openai.com/index/openai-frontier-governance-framework/": "2026-06-04T08:13:48.422Z",
       "https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/": "2026-06-04T13:41:59.710Z",
@@ -1137,12 +1137,12 @@
       "https://openai.com/index/daybreak-securing-the-world/": "2026-06-25T10:12:01.877Z",
       "https://openai.com/index/openai-broadcom-jalapeno-inference-chip/": "2026-07-02T06:28:47.433Z",
       "https://openai.com/index/how-agents-are-transforming-work/": "2026-07-06T15:42:40.613Z",
-      "https://openai.com/index/previewing-gpt-5-6-sol/": "2026-07-08T23:11:04.131Z",
+      "https://openai.com/index/previewing-gpt-5-6-sol/": "2026-07-09T05:52:09.556Z",
       "https://openai.com/index/hp-frontier-partnership/": "2026-07-01T23:23:03.958Z",
       "https://openai.com/index/introducing-genebench-pro/": "2026-07-03T20:54:36.291Z",
       "https://openai.com/index/core-dump-epidemiology-data-infrastructure-bug/": "2026-07-06T16:31:15.664Z",
-      "https://openai.com/index/introducing-gpt-live/": "2026-07-09T02:34:24.757Z",
-      "https://openai.com/index/separating-signal-from-noise-coding-evaluations/": "2026-07-09T00:12:03.164Z"
+      "https://openai.com/index/introducing-gpt-live/": "2026-07-09T05:53:46.305Z",
+      "https://openai.com/index/separating-signal-from-noise-coding-evaluations/": "2026-07-09T05:09:06.368Z"
     }
   }
 }

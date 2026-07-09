@@ -1,6 +1,6 @@
 # AI 开源趋势日报 2026-07-09
 
-> 数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-07-09 02:36 UTC
+> 数据来源: GitHub Trending + GitHub Search API | 生成时间: 2026-07-09 05:53 UTC
 
 ---
 
@@ -10,107 +10,109 @@
 
 ## 第一步：AI 相关性筛选结果
 
-**Trending 榜单（15 个）筛除非 AI 项目 5 个**，保留 **10 个 AI 相关项目**：
-
-| 筛除项目 | 理由 |
-|---|---|
-| prisma/prisma | Node.js 通用 ORM |
-| ruvnet/RuView | WiFi 信号处理（传统信号处理技术） |
-| argoproj/argo-cd | Kubernetes 持续部署 |
-| Diolinux/PhotoGIMP | GIMP 图像处理补丁 |
-| huxingyi/autoremesher | 3D 几何重网格化工具 |
-
-**主题搜索结果（149 个）** 全部保留——均来自 AI 主题标签检索（ai-agent / llm / ml / rag / vector-db / ros / llm-model / robotics / embodied-ai / rl / robot-learning）。
+**Trending 榜单中 AI 相关项目（12/15）：**
+✅ agent-skills · RuView · TencentDB-Agent-Memory · last30days-skill · OfficeCLI · system_prompts_leaks · superpowers · zvec · DesktopCommanderMCP · claude-video · CubeSandbox
+❌ 已排除：prisma（ORM）· argo-cd（K8s 部署）· PhotoGIMP（PS 替代）· autoremesher（几何处理）
 
 ---
 
-## 第二步 & 第三步：分类与趋势报告
+## 今日速览
+
+今日 GitHub Trending 几乎被 **"AI Agent Skills"** 主题霸榜——围绕 Claude Code / Cursor 等编码 Agent 的模块化能力包、记忆系统、沙箱安全成为爆发点。同时 **AI Agent × 办公自动化**（OfficeCLI 单日 +1717 stars）和 **本地化长期记忆**（TencentDB-Agent-Memory）方向出现新热点，反映出开发者正从"造 Agent 框架"转向"为 Agent 添砖加瓦"。向量数据库老牌强者之外，阿里轻量级内嵌向量库 zvec 以单日 +395 回归热度榜。
 
 ---
 
-## 1. 今日速览
+## 🔧 AI 基础工具（框架 / SDK / 推理引擎 / 开发工具）
 
-> **今日 GitHub AI 热榜被"AI Agent 技能/工具链"全面主导。** OfficeCLI（+1,717）、agent-skills（+1,297）、superpowers（+1,116）等"为 Agent 提供专项能力"的仓库集体爆发，叠加 Tencent 的 Agent Memory 与 CubeSandbox，标志 Agent 生态正从"框架层（LangChain/AutoGen）"下沉到"技能/工具层"的工业化阶段。**向量数据库**（alibaba/zvec 首次登顶，+395）与**大模型系统提示词泄露**（system_prompts_leaks，+1,218）两大经典赛道依然保持高热度。值得关注的是，**具身智能（Embodied AI）与机器人学习**在主题搜索中占比超过 25%，RLinfra、VLA、World Model 等项目正形成第二增长极。
+| 项目 | Stars | 今日新增 | 一句话说明 |
+|---|---|---|---|
+| [DesktopCommanderMCP](https://github.com/wonderwhy-er/DesktopCommanderMCP) | — | +28 | 为 Claude 提供终端、文件检索与 diff 编辑能力的 MCP 服务器，Agent 工具链标配 |
+| [vllm](https://github.com/vllm-project/vllm) | 85,764 | — | 高吞吐低显存 LLM 推理引擎，社区事实标准 |
+| [sglang](https://github.com/sgl-project/sglang) | 30,086 | — | 高性能 LLM/多模态服务框架，结构化输出场景首选 |
+| [ollama](https://github.com/ollama/ollama) | 175,767 | — | 本地运行 Kimi-K2.6、GLM-5.1、DeepSeek 等模型的最便捷方式 |
+| [unsloth](https://github.com/unslothai/unsloth) | 67,943 | — | 本地训练/微调开源模型的 Web UI，效率优化显著 |
+| [ray](https://github.com/ray-project/ray) | 43,168 | — | 分布式 AI 计算引擎，RL/Agentic 训练基础设施 |
+| [firecrawl](https://github.com/firecrawl/firecrawl) | 147,959 | — | 为 AI Agent 提供 Web 搜索/抓取/交互 API |
 
 ---
 
-## 2. 各维度热门项目
+## 🤖 AI 智能体 / 工作流
 
-### 🔧 AI 基础工具（框架/SDK/推理引擎/CLI）
-
-| 项目 | Stars | 今日 | 一句话说明 |
+| 项目 | Stars | 今日新增 | 一句话说明 |
 |---|---|---|---|
-| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | — | **+1,297** | Google Chrome 团队出品的"生产级 Agent 编程技能包"，标准化 Agent 工程能力 |
-| [obra/superpowers](https://github.com/obra/superpowers) | — | **+1,116** | Agentic 技能框架 + 软件开发方法论，提出"可被 Agent 调用的工作流" |
-| [TencentCloud/CubeSandbox](https://github.com/TencentCloud/CubeSandbox) | — | **+564** | 面向 AI Agent 的轻量安全沙箱（Rust），解决代码执行隔离痛点 |
-| [wonderwhy-er/DesktopCommanderMCP](https://github.com/wonderwhy-er/DesktopCommanderMCP) | — | **+28** | Claude 的 MCP 服务器，赋予终端控制、文件系统、Diff 编辑能力 |
-| [vllm-project/vllm](https://github.com/vllm-project/vllm) | 85,742 | — | 高吞吐 LLM 推理引擎，Agent 后端标配 |
-| [ollama/ollama](https://github.com/ollama/ollama) | 175,760 | — | 一键运行 Kimi-K2.6 / GLM-5.1 / DeepSeek / Qwen 等开源模型 |
-| [langchain4j/langchain4j](https://github.com/langchain4j/langchain4j) | 12,558 | — | Java 生态 LangChain，对接 Quarkus/Spring Boot，企业级 LLM 集成首选 |
-| [sgl-project/sglang](https://github.com/sgl-project/sglang) | 30,081 | — | 高性能 LLM/多模态服务框架，与 RL 训练紧耦合 |
+| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | — | **+1297** | Google Chrome 团队出品，面向生产级 AI 编码 Agent 的工程化技能集 |
+| [obra/superpowers](https://github.com/obra/superpowers) | — | **+1116** | 智能体技能框架 + 软件开发方法论，Agent 工程化方法论级项目 |
+| [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | — | **+352** | 一键跨 Reddit/X/YouTube/HN 调研主题的 Agent 技能，社区实战范本 |
+| [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | — | **+1717** 🔥 | 首个专为 AI Agent 打造的 Office 工具链，单二进制，免安装 Office |
+| [bradautomates/claude-video](https://github.com/bradautomates/claude-video) | — | **+951** | 让 Claude 直接"看"视频——下载、抽帧、转写一体化 |
+| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | 211,726 | — | 与用户共同成长的开源 Agent 框架 |
+| [OpenHands](https://github.com/OpenHands/OpenHands) | 80,101 | — | AI 驱动的软件开发 Agent，标杆项目 |
+| [browser-use](https://github.com/browser-use/browser-use) | 103,787 | — | 让 AI Agent 像人一样操作浏览器的明星库 |
 
-### 🤖 AI 智能体/工作流（Agent 框架/自动化/多智能体）
+---
 
-| 项目 | Stars | 今日 | 一句话说明 |
+## 📦 AI 应用（垂直场景解决方案）
+
+| 项目 | Stars | 今日新增 | 一句话说明 |
 |---|---|---|---|
-| [iOfficeAI/OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) | — | **+1,717** | 🏆 今日 AI 榜冠军。首个专为 Agent 设计的 Office 工具链，单二进制免安装 |
-| [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | — | **+1,218** | 收录 Claude/GPT-5.5/Gemini-3.5/Grok 等十余款产品系统提示词，是 Prompt 工程研究宝库 |
-| [bradautomates/claude-video](https://github.com/bradautomates/claude-video) | — | **+951** | 让 Claude 看视频：自动抽帧+转录+多模态喂入，扩展 Agent 感知能力 |
-| [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | — | **+318** | 腾讯云出品，4 级渐进式管道实现 Agent 长期记忆，零外部 API 依赖 |
-| [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | — | **+352** | Agent 技能：聚合 Reddit/X/YouTube/HN/Polymarket 数据做主题研究 |
-| [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | 211,640 | — | "与你共同成长的 Agent"，Hermes 系列持续高产 |
-| [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) | 48,323 | — | 一体化 AI 生产力工室，集成 300+ 助手 |
-| [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 53,312 | — | 给 Agent 装上"互联网之眼"：统一 CLI 接入 6 大平台、零 API 费用 |
-| [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents) | 91,892 | — | 多 Agent 金融交易框架，LLM 驱动投研自动化 |
-| [Eigenwise/atomic-agents](https://github.com/Eigenwise/atomic-agents) | 6,032 | — | "原子化"构建 AI Agent，主打可组合与可测试 |
+| [ruvnet/RuView](https://github.com/ruvnet/RuView) | — | **+799** | WiFi 信号感知实现无摄像头人体监测/呼吸检测，边缘 AI 落地代表 |
+| [TencentCloud/CubeSandbox](https://github.com/TencentCloud/CubeSandbox) | — | **+564** | 面向 AI Agent 的并发安全沙箱，Agent 执行环境基础设施 |
+| [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 53,389 | — | 让 Agent 零 API 费用读遍主流社交平台 |
+| [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | 37,843 | — | 从文档生成原生可编辑 PPT，含语音旁白，Agentic PPT 标杆 |
+| [OpenBB](https://github.com/OpenBB-finance/OpenBB) | 70,344 | — | 金融分析师/AI Agent 的开放数据平台 |
 
-### 📦 AI 应用（具体产品/垂直场景）
+---
 
-| 项目 | Stars | 一句话说明 |
+## 🧠 大模型 / 训练
+
+| 项目 | Stars | 说明 |
 |---|---|---|
-| [ZhuLinsen/daily_stock_analysis](https://github.com/ZhuLinsen/daily_stock_analysis) | 55,933 | LLM 驱动的多市场股票分析系统，零成本定时运行 |
-| [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | 37,787 | 文档一键生成可编辑 PPT（非图片），原生图表动画+语音旁白 |
-| [siyuan-note/siyuan](https://github.com/siyuan-note/siyuan) | 44,998 | 隐私优先的本地知识管理，深度集成 AI 能力 |
-| [OpenBB-finance/OpenBB](https://github.com/OpenBB-finance/OpenBB) | 70,337 | 面向分析师/量化/Agent 的开放数据平台 |
-| [nocobase/nocobase](https://github.com/nocobase/nocobase) | 23,288 | AI + 无代码双驱动，业务系统搭建平台 |
-| [huangjunsen0406/py-xiaozhi](https://github.com/huangjunsen0406/py-xiaozhi) | 3,393 | 开源 AI 助手生态，支持 MCP+多模态+IoT+跨平台语音 |
-| [jeecgboot/JeecgBoot](https://github.com/jeecgboot/JeecgBoot) | 46,973 | 国内流行 AI 低代码平台，AI 生成+配置+代码生成开发闭环 |
-| [OpenHands/OpenHands](https://github.com/OpenHands/OpenHands) | 80,064 | 老牌 AI 驱动开发代理，能独立完成 PR 级工作 |
+| [huggingface/transformers](https://github.com/huggingface/transformers) | 162,399 | 多模态模型定义与训练事实标准 |
+| [pytorch/pytorch](https://github.com/pytorch/pytorch) | 101,606 | 深度学习基础框架 |
+| [OpenPipe/ART](https://github.com/OpenPipe/ART) | 10,352 | Agent 强化训练框架（GRPO），真实任务 RL 首选 |
+| [OpenRLHF/OpenRLHF](https://github.com/OpenRLHF/OpenRLHF) | 9,770 | 基于 Ray 的高性能 Agentic RL 框架 |
+| [ultralytics](https://github.com/ultralytics/ultralytics) | 59,267 | YOLO26/YOLO11 最新视觉检测系列 |
+| [VLM-R1](https://github.com/om-ai-lab/VLM-R1) | 6,001 | 强化学习驱动的视觉理解 VLM |
 
-### 🧠 大模型/训练（模型权重/训练框架/微调）
+---
 
-| 项目 | Stars | 一句话说明 |
-|---|---|---|
-| [huggingface/transformers](https://github.com/huggingface/transformers) | 162,392 | 事实标准的模型定义框架，覆盖文本/视觉/音频/多模态 |
-| [unslothai/unsloth](https://github.com/unslothai/unsloth) | 67,937 | 消费级显卡微调 Gemma4/Qwen3.6/DeepSeek 的"平民化"工具 |
-| [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics) | 59,261 | YOLO26/YOLO11/YOLOv8 一体化仓库，计算机视觉基础设施 |
-| [OpenPipe/ART](https://github.com/OpenPipe/ART) | 10,350 | Agent 强化学习训练器（GRPO），让 Agent "在职培训" |
-| [OpenRLHF/OpenRLHF](https://github.com/OpenRLHF/OpenRLHF) | 9,769 | 基于 Ray 的大规模 Agentic RL 框架（PPO/DAPO/REINFORCE++） |
-| [NVlabs/Sana](https://github.com/NVlabs/Sana) | 8,451 | 线性 Diffusion Transformer，高分辨率图像生成新 SOTA |
-| [open-compass/opencompass](https://github.com/open-compass/opencompass) | 7,174 | 权威 LLM 评测平台，覆盖 100+ 数据集与主流模型 |
-| [galilai-group/stable-pretraining](https://github.com/galilai-group/stable-pretraining) | 281 | 新兴：可靠/极简/可扩展的预训练库，主攻基础与世界模型 |
+## 🔍 RAG / 知识库 / 记忆
 
-### 🔍 RAG / 知识库（向量库/检索/知识管理）
-
-| 项目 | Stars | 今日 | 一句话说明 |
+| 项目 | Stars | 今日新增 | 一句话说明 |
 |---|---|---|---|
-| [alibaba/zvec](https://github.com/alibaba/zvec) | 14,445 | **+395** | 阿里出品的进程内轻量向量数据库，主打"闪电级"嵌入式检索 |
-| [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | 141,325 | — | "Agent 工程平台"，事实标准已从链式扩展到全 Agent 栈 |
-| [langgenius/dify](https://github.com/langgenius/dify) | 148,230 | — | 生产级 Agentic 工作流平台，可视化编排 LLM 应用 |
-| [infiniflow/ragflow](https://github.com/infiniflow/ragflow) | 84,628 | — | 领先的开源 RAG 引擎，RAG + Agent 双能力融合 |
-| [mem0ai/mem0](https://github.com/mem0ai/mem0) | 60,429 | — | 通用 Agent 记忆层，为 LLM 提供跨会话持久记忆 |
-| [run-llama/llama_index](https://github.com/run-llama/llama_index) | 50,741 | — | 文档 Agent + OCR 平台 |
-| [qdrant/qdrant](https://github.com/qdrant/qdrant) | 33,062 | — | 高性能 Rust 写就的向量数据库 |
-| [milvus-io/milvus](https://github.com/milvus-io/milvus) | 45,139 | — | 云原生向量数据库，大规模 ANN 搜索首选 |
-| [topoteretes/cognee](https://github.com/topoteretes/cognee) | 27,371 | — | 开源 Agent 记忆平台，基于自托管知识图谱 |
-| [StarTrail-org/LEANN](https://github.com/StarTrail-org/LEANN) | 12,659 | — | 边缘设备 RAG，节省 97% 存储、完全本地化 |
+| [alibaba/zvec](https://github.com/alibaba/zvec) | 14,516 | **+395** | 阿里开源的轻量级进程内向量数据库，嵌入式 RAG 新选项 |
+| [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | — | **+318** | 4 级渐进管线的本地长期记忆系统，零外部依赖 |
+| [asgeirtj/system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks) | 54,449 | **+1218** | 收录 Claude 5/Opus 4.8、GPT 5.5、Gemini 3.5 等最新系统提示词 |
+| [mem0ai/mem0](https://github.com/mem0ai/mem0) | 60,439 | — | AI Agent 通用记忆层 |
+| [milvus](https://github.com/milvus-io/milvus) | 45,142 | — | 云原生高性能向量数据库 |
+| [qdrant](https://github.com/qdrant/qdrant) | 33,071 | — | Rust 写的高性能向量搜索引擎 |
+| [VectifyAI/PageIndex](https://github.com/VectifyAI/PageIndex) | 33,885 | — | 无向量化的推理式 RAG 文档索引 |
+| [cognee](https://github.com/topoteretes/cognee) | 27,382 | — | 自托管知识图谱引擎，Agent 长期记忆新范式 |
+| [llama_index](https://github.com/run-llama/llama_index) | 50,742 | — | 领先的文档 Agent 与 OCR 平台 |
 
-### 🦾 具身智能 / 机器人（今日次热点）
+---
 
-| 项目 | Stars | 一句话说明 |
-|---|---|---|
-| [RLinf/RLinf](https://github.com/RLinf/RLinf) | 4,045 | 面向具身与 Agentic AI 的强化学习基础设施 |
-| [huangjunsen0406/py-xiaozhi](https://github.com/huangjunsen0406/py-xiaozhi) | 3,393 | MCP 集成的
+## 📈 趋势信号分析
+
+今日热榜最显著的特征是 **"Agent Skills" 这一新模式的全面爆发**：agent-skills（+1297）、superpowers（+1116）、last30days-skill（+352）三个项目集中登榜，呈现出类似 MCP 协议的"模块化能力包"形态——开发者不再从零写 Agent，而是组合可复用的技能单元。这与 Claude Code、Cursor、Cline 等编码 Agent 用户群迅速扩大直接相关，生态正向"工具集市"方向演进。
+
+第二大信号是 **AI Agent 的工程化基础设施补齐**：CubeSandbox（+564，沙箱安全）、TencentDB-Agent-Memory（+318，长期记忆）、OfficeCLI（+1717，办公能力扩展）、claude-video（+951，多模态输入）——围绕 Agent 的"执行环境、记忆、工具、多模态"四个支柱同步被攻克。
+
+第三，**系统提示词与本地化隐私**持续吸引关注：system_prompts_leaks 单日 +1218，反映开发者对前沿模型行为的高度研究兴趣；TencentDB-Agent-Memory 和 RuView 等"零外部依赖"项目热登，则反映出 **Local-First AI** 趋势的加速。
+
+---
+
+## 🎯 社区关注热点（开发者重点关注）
+
+- 🔥 **[OfficeCLI](https://github.com/iOfficeAI/OfficeCLI)** — 首个 AI 原生 Office CLI，Agent 自动化企业文档的杀手级工具，建议立即 Star。
+- 🧠 **[TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)** — 本地优先的 Agent 长期记忆方案，4 级渐进管线设计值得架构借鉴。
+- 🛡️ **[CubeSandbox](https://github.com/TencentCloud/CubeSandbox)** — Agent 沙箱安全是 2026 年必答题，并发安全的 Rust 实现值得关注。
+- 🎬 **[claude-video](https://github.com/bradautomates/claude-video)** — 把"看视频"变成 Agent 原生能力，多模态 Agent 的轻量参考实现。
+- 📚 **[system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks)** — 研究主流模型行为对齐/提示工程的"必读清单"，每日更新。
+
+---
+
+> *数据来源：GitHub Trending（今日 stars） + GitHub Topic Search（近 7 天活跃 AI 仓库，共 134 项）*
 
 ---
 *本日报由 [agents-radar](https://github.com/howe12/agents-radar) 自动生成。*

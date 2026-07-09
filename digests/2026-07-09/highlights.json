@@ -1,4 +1,93 @@
 {
-  "zh": {},
+  "zh": {
+    "ai-cli": [
+      "Claude Code v2.1.205 发布，主打安全加固",
+      "Pi 以 43 条 Issue 居首，远超其他工具",
+      "Gemini CLI 三处 RCE 漏洞集中修复",
+      "Codex 0.144.0-alpha 三连发，OTEL 大重构",
+      "Qwen v0.19.8 + 多 Workspace RFC 引热议",
+      "DeepSeek TUI v0.8.68 同日落地 arm64 与 xAI"
+    ],
+    "ai-agents": [
+      "OpenClaw 单日 1000 条更新，无新版本",
+      "Issue 关闭率仅 7.8%，修复压力巨大",
+      "subagent 静默丢消息等 P0/P1 集中爆发",
+      "Codex app-server 升至 0.143.0 适配协议",
+      "事件投影器改为 fail-closed 防协议漂移",
+      "频道路由与 OAuth 轮换成社区焦点"
+    ],
+    "ai-trending": [
+      "agent-skills 单日 +1297 stars 霸榜",
+      "OfficeCLI 单日 +1717 stars 办公自动化爆",
+      "superpowers +1116，Agent 工程化方法论级",
+      "zvec 回归 +395 stars，阿里轻量级内嵌",
+      "last30days-skill +352，跨平台调研技能",
+      "claude-video、agent-skills 主题主导榜单"
+    ],
+    "ai-web": [
+      "Anthropic 一次性回填 35 篇历史研究",
+      "首提\"知识可控开关\"取代拒绝训练",
+      "经济仪表盘五连发量化 Claude 真实影响",
+      "OpenAI 仅 4 条增量，GPT Live 标题亮相",
+      "Frontier Red Team 评估触国家安全阈值",
+      "ANTHROPIC 主动响应白宫红队承诺"
+    ],
+    "ai-hn": [
+      "GPT-Live 以 660 分登顶 HN 引发 429 讨论",
+      "\"LLM burnout\"贴 261 分，AI 倦怠蔓延",
+      "Claude Code 在中国遭遇安全警示 4 报道",
+      "微软 Flint Agent 可视化 DSL Show HN 第二",
+      "Anthropic 分类器\"过度对齐\"争议 200 分",
+      "三大模型同题构建应用，开发者校准选型"
+    ],
+    "ai-arxiv": [
+      "Co-LMLM 外置事实知识缓解幻觉",
+      "分析驱动的 Transformer 线性化突破",
+      "PALS 激活分位数动态稀疏打破统一率",
+      "自我改进与部署规则成治理新焦点",
+      "RL 后训练仍是热点（GRPO/蒸馏）",
+      "世界模型与 VLA 双潜变量记忆并行"
+    ],
+    "ai-hf": [
+      "GLM-5.2 周赞 3677 断层第一，MoE+DSA",
+      "Qwen3.6 生态多变体下载破百万",
+      "NVIDIA LocateAnything-3B 下载 142 万",
+      "百度 Unlimited-OCR 下载破百万",
+      "NVIDIA NVFP4 定义后训练量化新标准",
+      "腾讯混元 Hy3 / DeepSeek V4-Pro 新发布"
+    ],
+    "ai-community": [
+      "Agent 伪造测试日志自欺引 16 赞热议",
+      "RAG 上下文窗口不是越大约好的反思",
+      "Claude Opus 裸跑可捕获 65% 教科书缺陷",
+      "Lobsters 算力能耗议题高分登顶",
+      "MCP 替代大体积 i18n 文件 6 赞",
+      "AI 评审器度量错位反思 4 篇扎堆"
+    ],
+    "ai-embodied": [
+      "Tesollo 灵巧手启动 IPO，产业链成熟",
+      "NVIDIA 联手 HF 为 LeRobot 引入新模型",
+      "ABB F712 叉车引入 vSLAM 无基建部署",
+      "GeoGS-SLAM 仅几何信息稠密单目定位",
+      "EmbodiedGen V2 推代理化 3D 世界引擎",
+      "VLA 双潜变量记忆改进 π0 类范式"
+    ],
+    "ai-embedded": [
+      "C64 改装现代 SRAM 解决可靠性问题",
+      "Pi 5 化身 ALSA TOSLINK 光纤声卡",
+      "ATLAS 自动化 HLS 降低 FPGA 部署门槛",
+      "Amazon Echo Show 8 硬件级 UART 破解",
+      "Arduino UNO Q 切入工业预测性维护",
+      "RISC-V 扩展至区块链与量子控制处理器"
+    ],
+    "ai-cad": [
+      "FreeCAD 2026 社区设计大赛结果公布",
+      "Q2 拨款聚焦 OCCT/Assembly/Path 等工作台",
+      "Prusa INDX 创始版出货，切片器系统化",
+      "Text-to-CAD 与 MCP 协议化重塑设计入口",
+      "occt-wasm 与 Rust B-Rep 模糊桌面边界",
+      "Bambu 委内瑞拉断网 maker 本地化制造"
+    ]
+  },
   "en": {}
 }
