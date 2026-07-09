@@ -33,6 +33,23 @@ import { createGitHubIssue } from "./github.ts";
 
 import type { EmbeddedData } from "./embedded.ts";
 import { saveWebState, type WebFetchResult, type WebState } from "./web.ts";
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+/** Retry LLM call if output is too short (MiniMax sometimes returns empty). */
+async function callLlmWithRetry(prompt: string, maxTokens?: number, minLen = 200): Promise<string> {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const result = await callLlm(prompt, maxTokens);
+    if (result.length >= minLen) return result;
+    if (attempt < 2) {
+      console.log(`  LLM returned short output (${result.length} chars), retrying (${attempt + 2}/3)...`);
+      await new Promise((r) => setTimeout(r, 2000));
+    }
+  }
+  return await callLlm(prompt, maxTokens); // last attempt, return as-is
+}
 import type { HnData } from "./hn.ts";
 import type { PhData } from "./ph.ts";
 import type { TrendingData } from "./trending.ts";
@@ -350,7 +367,7 @@ export async function saveRoboticsReport(
 
   console.log(`  [robotics/${lang}] Calling LLM for robotics report...`);
   try {
-    const summary = await callLlm(buildRoboticsPrompt(roboticsData, dateStr, lang));
+    const summary = await callLlmWithRetry(buildRoboticsPrompt(roboticsData, dateStr, lang));
     const fileName = lang === "en" ? "ai-embodied-en.md" : "ai-embodied.md";
     const header =
       lang === "en"
@@ -443,7 +460,7 @@ export async function saveCadReport(
 
   console.log(`  [cad/${lang}] Calling LLM for CAD report...`);
   try {
-    const summary = await callLlm(buildCadPrompt(cadData, dateStr, lang));
+    const summary = await callLlmWithRetry(buildCadPrompt(cadData, dateStr, lang));
     const fileName = lang === "en" ? "ai-cad-en.md" : "ai-cad.md";
     const header =
       lang === "en"
@@ -487,7 +504,7 @@ export async function saveEmbeddedReport(
 
   console.log(`  [embedded/${lang}] Calling LLM for embedded report...`);
   try {
-    const summary = await callLlm(buildEmbeddedPrompt(embeddedData, dateStr, lang));
+    const summary = await callLlmWithRetry(buildEmbeddedPrompt(embeddedData, dateStr, lang));
     const fileName = lang === "en" ? "ai-embedded-en.md" : "ai-embedded.md";
     const header =
       lang === "en"
