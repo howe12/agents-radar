@@ -1,0 +1,77 @@
+{
+  "zh": {
+    "ai-cli": [
+      "GPT-5.6 Sol/Terra/Luna发布，Codex、OpenCode、Pi同步适配",
+      "全9款CLI工具当日零发版，进入工程化打磨期",
+      "MCP协议稳定性、鉴权、跨进程桥接问题集中暴露",
+      "Codex #11023 Linux桌面支持获733赞，热度第一",
+      "Pi单日19个PR，GPT-5.6适配最密集",
+      "Qwen Code多工作区架构RFC引20条评论热议"
+    ],
+    "ai-agents": [
+      "10个活跃项目24小时内全部零发版",
+      "ZeroClaw单日50 PR冲刺Goal Mode模式",
+      "IronClaw进入Reborn重塑期，安全短板凸显",
+      "NanoBot触发42项安全审计，积压明显",
+      "Hermes Agent密集修bug为下版本蓄力",
+      "安全治理取代新功能成生态首要瓶颈"
+    ],
+    "ai-trending": [
+      "DesktopCommanderMCP以+909 stars登顶GitHub Trending",
+      "obra/superpowers +740星，Agent Harness框架爆款",
+      "Google stitch-skills +340星，兼容多CLI",
+      "claude-cookbooks +219星，可组合Agent架构成共识",
+      "vLLM、Ollama、LangChain三足鼎立格局稳定",
+      "系统提示词泄漏合集持续受社区研究关注"
+    ],
+    "ai-hn": [
+      "《Stop Telling Me to Ask an LLM》162分领跑反思潮",
+      "Mesh LLM分布式推理92高分，去中心化AI受捧",
+      "OpenAI深陷舆论：安全负责人离职、Apple三度起诉",
+      "Anthropic因隐蔽追踪器与1660万账单乌龙陷危机",
+      "GPT-5.6-Sol被曝误删用户文件",
+      "Anthropic发现Claude内部隐藏概念思考空间"
+    ],
+    "ai-hf": [
+      "智谱GLM-5.2以3833周赞登顶，MoE+DSA架构",
+      "NVIDIA连发LocateAnything-3B等多款新品",
+      "MoE架构成主流厂商默认配置",
+      "NVFP4量化与GGUF并行崛起",
+      "Tencent Hy3、Meituan LongCat-2.0国产模型集中亮相",
+      "LocateAnything-3B下载量破147万，视觉定位需求旺盛"
+    ],
+    "ai-community": [
+      "Dev.to实战化与反思并存，AI可控性成新主旋律",
+      "《Stratagems #11》以50赞登顶当日互动榜",
+      "Slack转AI teammate自动开PR实战案例",
+      "AI指令漂移(decay)成可测工程问题",
+      "OpenTelemetry追踪多步LLM Agent链路",
+      "模型Kombat把LLM参数做成可视化游戏"
+    ],
+    "ai-embodied": [
+      "AI² Robotics融资7.35亿美元，估值达30亿",
+      "IsaacLab、MuJoCo、Newton仿真基础设施密集迭代",
+      "乌克兰战场地面机器人实战反馈首次系统化",
+      "RISE组合式世界模型让机器人策略在线自演化",
+      "VAGEN将RL引入多轮VLM Agent推理",
+      "新ISO机器人安全标准倒逼供应商合规升级"
+    ],
+    "ai-embedded": [
+      "MicroPython成功移植SNES，Claude Fable助力",
+      "Raspberry Pi官方推荐部署开源OpenClaw重制版",
+      "神经递质模型驱动机器人行为，仿生新尝试",
+      "1997年BBC Ceefax图文电视信号发生器拆解",
+      "3D打印机陶土外设实现可打印陶器",
+      "3dfx Voodoo显卡二次调校复古风潮"
+    ],
+    "ai-cad": [
+      "FreeCAD社区设计大赛2026结果公布，装配级质量验证",
+      "AI Agent×CAD主线：freecad-mcp等工具链加速落地",
+      "Web几何内核化：occt-wasm、chili3d等并行突破",
+      "Bambu Lab联名Insta360发起Luna Ultra设计挑战",
+      "委内瑞拉应急事件中分布式3D打印救援",
+      "OpenSCAD等脚本式实体建模器持续受程序员青睐"
+    ]
+  },
+  "en": {}
+}
