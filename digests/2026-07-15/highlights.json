@@ -1,0 +1,93 @@
+{
+  "zh": {
+    "ai-cli": [
+      "skill-creator修复run_eval.py始终0%recall问题",
+      "document-typography skill防止文档排版问题",
+      "self-audit skill v1.3.0交付前自审计",
+      "skill-quality-analyzer元技能提案",
+      "覆盖Claude Code等9个主流AI CLI工具",
+      "横向对比栏目待补充内容"
+    ],
+    "ai-agents": [
+      "OpenClaw 2026.7.1升级引发P0级crash-loop",
+      "单日1000条更新但无新版本发布",
+      "维护者steipete提交多条XL级重构PR",
+      "Memory Core embedding_cache主键冲突",
+      "Windows升级崩溃问题需紧急修复",
+      "openclaw doctor无法恢复卡死实例"
+    ],
+    "ai-trending": [
+      "Graphify-Labs/graphify以+1851 stars领跑",
+      "mattpocock/skills Claude工程师技能包+1679",
+      "HKUDS/Vibe-Trading AI交易Agent +1256",
+      "Nutlope/hallmark反AI slop设计技能+1015",
+      "ollama已支持Kimi-K2.6和GLM-5.1",
+      "社区从造Agent转向让其更稳更省token"
+    ],
+    "ai-web": [
+      "Anthropic发布Claude for Teachers面向K-12",
+      "承诺1000万加元资助加拿大三大AI研究所",
+      "加拿大占全球Claude流量2.6%排名第八",
+      "加拿大人均使用率是人口预期4倍以上",
+      "省级收入水平无法解释采用率差异",
+      "OpenAI今日无新增发布保持静默"
+    ],
+    "ai-hn": [
+      "如何让Claude停止说load-bearing斩获434分",
+      "Codex加密子智能体prompt引409分热议",
+      "OpenAI广告业务被预测少完成目标90%",
+      "BIS发布AI泡沫融资报告引发担忧",
+      "YC S26项目Agnost AI从agent挖掘用户反馈",
+      "Oodle.ai推每百万trace仅10美元可观测服务"
+    ],
+    "ai-arxiv": [
+      "LLM元认知能力系统综述论文",
+      "LLM-as-Judge偏见的机制可解释性分析",
+      "小米Xiaomi-Robotics-U0具身基础模型亮相",
+      "RAG中采样温度对意识形态的非线性影响",
+      "GraphRAG工程化进入生产部署阶段",
+      "多智能体分布式后门安全研究"
+    ],
+    "ai-hf": [
+      "zai-org/GLM-5.2以3949周点赞稳居榜首",
+      "Qwen3.6-35B视觉MoE下载量破244万",
+      "世界模型LingBot系列首次进入Top 30",
+      "1-bit和2-bit亚比特量化开始可投产",
+      "百度Unlimited-OCR工业级文档解析",
+      "腾讯混元Hy3通用文本生成模型"
+    ],
+    "ai-community": [
+      "AI爬取论坛自动外呼销售引发隐私危机",
+      "RAG评测不一致根因是检索阶段非确定性",
+      "对抗验证存在75%天花板无法突破",
+      "AI框架demo外90%生产环境才是痛点",
+      "vLLM原生后端与本地Hailo-8推理成主线",
+      "开发者对现有AI评估体系信任度下降"
+    ],
+    "ai-embodied": [
+      "X Square Robot提出通用机器人基础栈理念",
+      "NVIDIA公开通用机器人策略真实评估方法",
+      "人形机器人能源管理成为产业化瓶颈",
+      "Ondas 8.76亿美元收购DZYNE加码防务",
+      "IsaacLab等头部VLA项目并行密集演进",
+      "Jetson-PI让VLA实时推理边缘部署可行"
+    ],
+    "ai-embedded": [
+      "Arduino UNO Q首次承载企业内网服务器",
+      "Hackaday报道纤维肌肉柔性驱动新方案",
+      "回收硬件+开源算法实现低成本全身VR追踪",
+      "HeteroMosaic边缘LLM异构调度框架发布",
+      "Realizable N:M稀疏Transformer推理加速",
+      "OpenROAD集成RAM生成器补齐开源EDA"
+    ],
+    "ai-cad": [
+      "Roshera-CAD提出带合法性证书B-Rep引擎",
+      "Bambu Lab联合Insta360推出Luna Ultra挑战赛",
+      "FreeCAD新增强参考物香蕉缩放插件",
+      "NeuralActuator神经建模执行器动力学",
+      "IBPA增量球枢法实现水下实时网格重建",
+      "AI代理+Web CAD成为今日核心关键词"
+    ]
+  },
+  "en": {}
+}
