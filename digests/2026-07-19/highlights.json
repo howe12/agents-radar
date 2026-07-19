@@ -1,0 +1,77 @@
+{
+  "zh": {
+    "ai-cli": [
+      "OpenAI Codex 发布 v0.144.6 稳定版与 v0.145.0-alpha.24",
+      "Gemini CLI 发布 v0.52.0-nightly.20260719",
+      "Qwen Code 一日连发三版本含 v0.19.12",
+      "行业收敛 ACP 协议为 Agent 通信事实标准",
+      "Subagent 治理与 Windows 稳定性成共性痛点",
+      "Copilot CLI 仍停滞在 v1.0.71，活跃 issue 27 条"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.7.2-beta.3 发布冲刺稳定版",
+      "24h 内 390 issues、500 PRs 同步密集收口",
+      "Remote coding sessions 支持云端 Control UI",
+      "Maintainer @steipete 主导 Session Dashboard 合入",
+      "2026.7.1 升级后 Gateway 无法启动回归告警",
+      "生态覆盖 13 个项目含 NanoBot、Hermes Agent"
+    ],
+    "ai-trending": [
+      "Kimi CLI 登榜 GitHub Trending 终端编码 Agent",
+      "AirLLM 单卡 4GB 显存推理 70B 模型爆火",
+      "Wigolo MCP 服务器日涨 203 星",
+      "Ollama 17.6 万星，已支持 Kimi-K2.6 等国产模型",
+      "RAG 减负方案涌现：Headroom、PageIndex、Cognee",
+      "vllm 8.6 万星稳坐推理引擎事实标准"
+    ],
+    "ai-hn": [
+      "GPT-5.6 攻克 30 年凸优化难题登顶 504 分",
+      "Claude Code 远程控制闲置 Mac 指南引热议",
+      "Claude 对 Anthropic 存在系统性偏见测试曝光",
+      "开源 Claude Design 替代品 7.7 万星、百万安装",
+      "llm-inspector：本地推理的 htop 式监控工具",
+      "Ilya 阅读清单被打造成 Kimi K3 驱动 RPG"
+    ],
+    "ai-hf": [
+      "智谱 GLM-5.2 以 4126 点赞登顶日榜",
+      "Gemma 4-31B-it 周下载量突破 1260 万",
+      "Bonsai-27B-gguf 系列周下载破百万引爆亚比特量化",
+      "百度 Unlimited-OCR 下载超 200 万成中文 OCR 基座",
+      "腾讯 Hy3 采用自研 hy_v3 架构备受关注",
+      "Qwythos-9B 支持 1M 上下文 GGUF 多模态模型"
+    ],
+    "ai-community": [
+      "Kimi K3 2.8 万亿参数开源再破天花板",
+      "开源模型已承载 63% Token 流量引热议",
+      "PDF Token 浪费：RAG 系统隐性成本实战拆解",
+      "FLUX 在 RTX 4070 消费级显卡实操指南",
+      "安全 Agent 从工具调用升级到决策引擎",
+      "Lobsters 纵深讨论 Pangram AI 检测原理"
+    ],
+    "ai-embodied": [
+      "Weave Robotics 发布首款移动人形机器人 Isaac",
+      "X Square Robot 推出通用机器人端到端基础栈",
+      "Monumental 获新融资将砌砖机器人推向美国",
+      "Maximo 机器人在太阳能施工场景加速落地",
+      "Palm Garden AI 发布社交机器人 Coherence Guard",
+      "InternVLA-A1 等 VLA 世界模型仓库持续高活跃"
+    ],
+    "ai-embedded": [
+      "ESP32 取代 555 定时器驱动 WiFi 轮盘",
+      "AI Ham Radio Buddy 标志边缘 AI 进入无线电",
+      "Arduino CNC 热丝切割机进军航空机翼制造",
+      "高速旋转无人机实现视觉隐身新思路",
+      "计算器 UI 隐藏的状态机与多核调度复杂度",
+      "Hackaday 复古与现代融合趋势日益鲜明"
+    ],
+    "ai-cad": [
+      "FreeCAD 上线趣味度量插件 Banana For Scale",
+      "AI-Agent 驱动 Code-CAD 工具链集中爆发",
+      "浏览器 WASM B-Rep 内核集群：chili3d、replicad",
+      "FreeCAD 3.2 万星、OpenSCAD 近万星稳态演化",
+      "Marlin、OrcaSlicer 切片固件保持高活跃",
+      "自然语言到可制造几何的工程闭环加速落地"
+    ]
+  },
+  "en": {}
+}
