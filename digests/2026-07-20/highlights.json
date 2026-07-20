@@ -1,0 +1,77 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code 发布 v2.1.215，主打广度",
+      "OpenAI Codex 单日合并 16 项 TUI 性能 PR",
+      "Gemini CLI 跨大版本升级 TS 7.0 与 Vitest 4",
+      "Qwen Code 双版本并行：v0.20.0 + preview",
+      "OpenCode 推进 2.0 事件总线重构，50 条 PR",
+      "DeepSeek TUI 进入 v0.9.1 紧急维护期"
+    ],
+    "ai-agents": [
+      "OpenClaw 24h 内 348 Issue + 500 PR 高速运转",
+      "2026.7.1 版本回归 Bug 多项 P1 仍未闭环",
+      "Telegram getUpdates IPv6→IPv4 回退修复",
+      "CLI config 校验与 update.run 单飞锁 PR 合并",
+      "session-state/message-loss 为当前主要风险",
+      "维护者 steipete 多项修复暗示补丁版酝酿中"
+    ],
+    "ai-trending": [
+      "code-review-graph 单日 +663 stars 领跑",
+      "kimi-cli +410 stars，月之暗面终端 Agent 亮相",
+      "ktransformers +360，异构推理持续走热",
+      "airllm +358 stars，单卡 4GB 跑 70B",
+      "voicebox +610 stars，语音 AI 应用升温",
+      "ollama 17.6w、vllm 8.6w 仍为部署标杆"
+    ],
+    "ai-hn": [
+      "Claude Code 切换 Rust 版 Bun 运行时引爆 561 评",
+      "OpenAI 暗中将 Codex 上下文从 372k 缩至 272k",
+      "OpenAI 抗议+Apple 诉讼+删文件事件叠加负面",
+      "Ask HN「最爱的非 AI 博客」现 AI 疲劳信号",
+      "安全视角：AI 攻防核心已从模型转向 harness",
+      "四类独立指标为 AI 实际进展辩护"
+    ],
+    "ai-hf": [
+      "GLM-5.2 以 4170 点赞登顶周榜",
+      "Gemma-4-31B-it 单周下载破 1230 万",
+      "Bonsai-27B 极限量化 1/2/3-bit 探索压缩",
+      "Qwythos-9B 下载 212 万，支持 1M 上下文",
+      "百度 Unlimited-OCR 下载 212 万",
+      "Qwen3.5/3.6 衍生模型霸榜多赛道"
+    ],
+    "ai-community": [
+      "GPT-5.6 Sol 解出 30 年数学难题",
+      "Moonshot 2.8T 参数旗舰 Kimi K3 指南",
+      "Agent 工程化文章占 Dev.to 近三分之一版面",
+      "Thinking Machines 发布 Inkling 模型",
+      "OneNote MCP 接入微软 Graph 完整踩坑记",
+      "AI Agent 数学异常超时死锁陷阱剖析"
+    ],
+    "ai-embodied": [
+      "Weave Robotics 推出首款移动人形 Isaac",
+      "X-Square Robot 提出通用机器人 Foundation Stack",
+      "IsaacLab 7.7k 星 + RLinf 4.1k 星成训练双引擎",
+      "Palm Garden AI 发布 Coherence Guard 关系决策层",
+      "VLA 模型 FluxVLA/InternVLA-A1/OpenTau 扩张",
+      "Maximo 用机器人 6 倍速安装太阳能板"
+    ],
+    "ai-embedded": [
+      "Zilog Z80 迎来 50 周岁生日引发怀旧",
+      "QT6 将 BASIC 编译流程搬上 Web 浏览器",
+      "3D 打印借调平传感器自动整定 Pressure Advance",
+      "旧笔记本/iMac 拆解 PC 改造文化回潮",
+      "Arduino 驱动 CNC 热丝切割机专造飞机机翼",
+      "今日 GitHub 与 ArXiv 嵌入式数据为空"
+    ],
+    "ai-cad": [
+      "FreeCAD 发布 WIP Wednesday 核心进展速报",
+      "CADAM 4.8k 星，Text-to-CAD Web 应用落地",
+      "chili3d 4.7k 星，浏览器内 3D CAD 编辑器",
+      "solvespace 4k 星，轻量参数化求解器",
+      "Web 原生 + AI 文本生成几何 + WASM OCCT 三主线",
+      "FreeCAD 3.2w 星，非商业参数化建模事实标准"
+    ]
+  },
+  "en": {}
+}
