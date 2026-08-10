@@ -1,0 +1,77 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Qwen Code单日PR产出50+，位列榜首",
+      "OpenAI Codex最强工程节奏，#17827单条150赞",
+      "Claude Code安全分类器反噬成共性痛点",
+      "多Agent协作成Gemini/Qwen/OpenCode新战场",
+      "Gemini CLI发布nightly版本，依赖治理密集",
+      "MCP协议韧性成为Copilot/Codex关注焦点"
+    ],
+    "ai-agents": [
+      "OpenClaw日吞吐500条Issues+500条PRs",
+      "PR#110261修复ACP harness follow-up turn交付",
+      "Telegram/Matrix多通道silent reply故障集中爆发",
+      "6.x→7.x升级状态迁移问题尚未根治",
+      "OpenClaw生态覆盖13个Agent框架项目",
+      "PR流转效率35.2%优于Issue的14.4%"
+    ],
+    "ai-trending": [
+      "PrimeIntellect-ai/prime-agent单日+2356星登顶",
+      "Google与Addy Osmani同期推出Agent Skills标准",
+      "agency-agents角色化AI岗位Agent即开即用",
+      "ollama已支持Kimi-K2.6、GLM-5.2等最新模型",
+      "法律harveyai、金融stock analysis首次密集登榜",
+      "DeepMind weathernext接力科学ML方向"
+    ],
+    "ai-hn": [
+      "用LLM学习复杂技术话题帖获390分最高赞",
+      "Qwen3.8与ClaudeOpus5印证基准不等于性价比",
+      "ByteDance开启10T参数模型预训练正面竞争",
+      "Show HN:Lumabri让LLM像Napster一样工作",
+      "70%收入高度集中于OpenAI与Anthropic",
+      "以色列初创被指对头部AI实验室发动黑客攻击"
+    ],
+    "ai-hf": [
+      "视频生成模型MiniMax-H3衍生11个模型登榜",
+      "Kimi-K3以10,399赞领跑LLM热度榜",
+      "GLM-5.2下载量达248万，国产MoE主力",
+      "Baidu Unlimited-OCR与NVIDIA VoiceChat-11B上榜",
+      "Qwen3.6去审查微调生态持续走热",
+      "Qwen3.6-27B融合版下载量239万成社区爆款"
+    ],
+    "ai-community": [
+      "RAG生产级分块策略文章获16赞今日最高",
+      "长期运行Telegram Agent工程日志揭示真实痛点",
+      "AI Agent运行时spend cap失效达4.2倍",
+      "评测集腐烂成Agent评估常被忽视的隐患",
+      "AI-native初级工程师不会debug引行业反思",
+      "AI产品重新定义价值：你还活得起吗"
+    ],
+    "ai-embodied": [
+      "Walden Robotics联手丰田打造实用化人形机器人",
+      "Avatar Robotics拿下650万美元种子轮",
+      "腾讯混元开源Hy-Embodied-0.5-VLA全栈学习框架",
+      "StanfordVL/BEHAVIOR-1K成1K任务仿真基准",
+      "三套机器人OS同日活跃，OS for Robots成新焦点",
+      "FCC清单扩展至移动机器人影响中国厂商"
+    ],
+    "ai-embedded": [
+      "Arduino UNO Q板推出DIY复古掌机官方教程",
+      "中国厂商推出可拆解维修智能眼镜对抗封闭设计",
+      "激光束传输模拟视频展现低成本光通信价值",
+      "压缩空气连续挤出3D打印管助力软体机器人",
+      "Trinitron CRT维修体现维修权文化持久生命力",
+      "Xerox Alto故事回溯计算历史经典硬件"
+    ],
+    "ai-cad": [
+      "Manyfold资产管理器原生支持FreeCAD缩略图预览",
+      "FreeCAD 1.1开发分支推进Part Design改进",
+      "FreeCAD MCP服务器涌现：neka-nat与blwfish双实现",
+      "Kiln MCP同时支持Bambu/Prusa/Klipper打印机",
+      "Multi-Agent-CAD把测试时计算引入几何生成",
+      "AI Agent正成为CAD/制造的操作系统层"
+    ]
+  },
+  "en": {}
+}
