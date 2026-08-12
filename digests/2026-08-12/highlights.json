@@ -1,0 +1,93 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code v2.1.228 发布，消息队列191赞",
+      "OpenAI Codex alpha.7/8 单日合并20+ PR",
+      "Gemini CLI 修复2个CRITICAL CVE漏洞",
+      "Qwen Code 四通道并行发布 v0.21.10",
+      "Copilot CLI Issue爆量41个，PR极少",
+      "生态三梯队分化，Subagent成焦点"
+    ],
+    "ai-agents": [
+      "OpenClaw 单日500 Issues/500 PRs流转",
+      "#121675 P0 启动收敛守卫需lockstep对齐",
+      "#106402 修复CJK字符串内存占用获白金评级",
+      "Hermes Agent ⭐229k 经典Agent框架",
+      "NanoBot ⭐46.8k 超轻量自托管Agent",
+      "PR合并率43%显著高于Issue处置率"
+    ],
+    "ai-trending": [
+      "PrimeIntellect/prime-agent +1138星全榜冠军",
+      "Self-Improving Agent成新叙事热点",
+      "anthropics/skills +485 定义Agent技能标准",
+      "agency-agents +958 完整AI Agency角色体系",
+      "semantica +893 押注图原生结构化记忆",
+      "垂直领域AI应用多点开花"
+    ],
+    "ai-web": [
+      "OpenAI Daybreak Models登陆AWS",
+      "Daybreak为新模型命名首次出现",
+      "OpenAI启动多云分发战略",
+      "Anthropic在AWS优势或被稀释",
+      "Anthropic今日零更新信号待观察",
+      "多云渠道博弈或将升级"
+    ],
+    "ai-hn": [
+      "OpenAI首席伦理官/COO相继离职",
+      "Claude Code curl命令泄露真实邮箱",
+      "OpenAI/Anthropic deep_think泄露隐藏CoT",
+      "Daybreak Blue新模型悄然上线",
+      "VLM击败专用视频嵌入模型",
+      "推理痕迹可从闭源API反推"
+    ],
+    "ai-arxiv": [
+      "On-policy自蒸馏全面爆发解决零信号",
+      "BDH-CQ无需显式CoT的递归潜变量推理",
+      "SKALD技能锚定蒸馏解决63-68%零信号",
+      "OPD训练目标需重新定义防循环骗指标",
+      "VF-TTS挑战传统chain-of-thought范式",
+      "LLM智能体安全延伸至harness与IP保护"
+    ],
+    "ai-hf": [
+      "Kimi-K3 以10526点赞登顶本周榜",
+      "DeepSeek-V4-Flash 下载破百万次",
+      "MiniMax-H3 视频生成生态统治HF",
+      "NVIDIA Nemotron 3.5 NVFP4量化推理加速",
+      "国产开源LLM持续领跑周热门",
+      "GGUF/INT8量化版本密集涌现"
+    ],
+    "ai-community": [
+      "7 Tips让AI Agent更可预测获33赞",
+      "Kiro Crew 8层防护+137条deny模式",
+      "Pi vs Claude Code 100小时实战对比",
+      "Claude新水印原理与绕过点解读",
+      "Weng评测体系存在方向性盲点",
+      "多Agent架构prompt cache命中率痛点"
+    ],
+    "ai-embodied": [
+      "Cambridge Aerospace 融资3亿美元做防务无人机",
+      "Hadrian 融资13.7亿美元加速国防制造",
+      "人形机器人市场预测达3700亿美元",
+      "具身AI操作系统概念走向代码化",
+      "RoboTwin 2.0 入选ICML 2026",
+      "PlusAI L4自动驾驶卡车即将启动"
+    ],
+    "ai-embedded": [
+      "Arduino UNO Q 成复古掌机官方平台",
+      "DOOM 跑进廉价104合1掌机",
+      "1954年纯机械-二极管计算机PC-1考古",
+      "1984年超前PC OS复刻重见天日",
+      "玩具Game Boy改造为真Game Boy",
+      "20美分零件修复Makita锂电池"
+    ],
+    "ai-cad": [
+      "FreeCAD 8月29日举办全球黑客松",
+      "LLM+CAD融合项目freecad-mcp涌现",
+      "OCCT 通过occt-wasm走进浏览器",
+      "Multi-Agent-CAD ⭐734 多智能体生成CAD",
+      "Roshera-CAD Rust内核带结构验证证书",
+      "ChiselCAD GPU加速CSG建模"
+    ]
+  },
+  "en": {}
+}
