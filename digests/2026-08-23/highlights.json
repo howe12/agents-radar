@@ -1,0 +1,77 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code 日更两版v2.1.240/241密集修Bug",
+      "OpenAI Codex 0.150.0-alpha.7进入Rust重写过渡期",
+      "Gemini CLI v0.56.0-nightly聚焦安全沙箱加固",
+      "Qwen Code v0.22.0双轨发布正式版加Nightly",
+      "OpenCode/Pi/DeepSeek PR先行版本后置",
+      "生态重心从功能扩张转向可靠性与多Provider兼容"
+    ],
+    "ai-agents": [
+      "OpenClaw单日1000条Issue/PR更新高活跃",
+      "v2026.8.1-beta.2引发事件循环阻塞等回归",
+      "主线仍处发布验证无新版本转稳定性修复",
+      "64个PR合并关闭率仅12.8%积压严重",
+      "安全边界PR强化安装策略警告确认机制",
+      "doctor误判trusted-proxy修复待合并PR#91268"
+    ],
+    "ai-trending": [
+      "openai/codex单日涨星1544夺AI工具榜首",
+      "mattpocock/skills爆涨2683星领Agent领域",
+      "modular/modular Mojo/MAX平台涨星395",
+      "cursor/plugins官方插件规范涨星286",
+      "sub2api多模型统一代理涨星278",
+      "vllm/sglang/ollama稳居高吞吐推理核心"
+    ],
+    "ai-hn": [
+      "Anthropic被爆Claude Code暗中A/B降级模型",
+      "本地LLM为何更笨登顶166分引开发者共鸣",
+      "OpenAI GPT-5.6 Sol降价20%引爆价格战",
+      "Prime Intellect公开NanoGPT训练极限",
+      "English↔Claudish翻译器戏称Claude已成方言",
+      "LLM接生产数据库权限撤回成新难题"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B以12135赞稳居HF榜首",
+      "Unsloth GGUF量化包下载量突破632万",
+      "Moonshot Kimi-K3以10926赞重回头部",
+      "MiniMax-H3视频生成模型下载逼近400万",
+      "DeepSeek-V4-Flash下载逼近300万成开源首选",
+      "Qwen3.8-2.4T-A95B稀疏MoE探索超大规模低推理成本"
+    ],
+    "ai-community": [
+      "12岁无笔记本少年用安卓机打造AI SaaS",
+      "Planner升级模型未解决问题引发实证反思",
+      "Reasoning Ledger为AI Agent设计可审计账本",
+      "LLM应用关闭标签页仍浪费Token成本曝光",
+      "同模型不同推理引擎速度差异选型指南",
+      "RAG检索质量9种实战技巧详解"
+    ],
+    "ai-embodied": [
+      "Schaeffler 2027量产人形机器人减速器",
+      "Amazon Prime Air两年内覆盖近500城市",
+      "Persona AI押注船厂焊接为人形机器人首个落地场景",
+      "τ0-VLA引入世界模型引导测试时计算",
+      "MuJoCo-Warp mjlab/Newton降低双臂研究门槛",
+      "无人机抓附北极冰山拓展空中操作边界"
+    ],
+    "ai-embedded": [
+      "ExpressLRS开源遥控链路刷新远距离纪录",
+      "3D打印相机配真实机械快门可用性跃升",
+      "全模拟盖革计数器零MCU精密传感设计",
+      "Arduino Cloud新增多页仪表盘与Spaces总览",
+      "555定时器实现拍频振荡器信号合成教学",
+      "Sleeper E-bike电磁铁显示极客改装"
+    ],
+    "ai-cad": [
+      "FreeCAD与KiCad在OSHOP 2026同台对垒",
+      "FreeCAD Q3 2026资助计划截止在即",
+      "Prusa CORE One+ Gen 2 INDX量产发货",
+      "HelixCore spinner设计者揭示爆款反哺平台",
+      "AI代理驱动CAD项目密集涌现MCP集成加速",
+      "浏览器端WASM几何内核brepjs/occt-wasm崛起"
+    ]
+  },
+  "en": {}
+}
