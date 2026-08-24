@@ -1,0 +1,69 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Qwen Code PR数=Issue数，迭代最激进",
+      "Claude Code最热门Issue #77136获351赞",
+      "OpenAI Codex发布v0.149.1稳定版+alpha.4.3",
+      "DeepSeek TUI发布v0.9.11新版本",
+      "跨会话持久化记忆成多工具共同焦点",
+      "Kimi Code活跃度偏低，需警惕社区冷却"
+    ],
+    "ai-agents": [
+      "OpenClaw日更500 Issues但无新版本发布",
+      "v2026.8.1-beta.2卡在release-validation阶段",
+      "P1级跨渠道消息丢失问题引发关注",
+      "PR#126501让subagent completion可投递",
+      "PR#125471修复Gateway重启后OAuth失效",
+      "Codex app-server session-key缺TTL引发回归"
+    ],
+    "ai-trending": [
+      "OpenAI Codex CLI单日+2715星登顶Trending",
+      "mattpocock/skills单日+2447星，Skills爆火",
+      "NousResearch/hermes-agent单日+454星",
+      "18个Trending仓库中13个与AI直接相关",
+      "Agent Skills正成为工程化标准件",
+      "vllm以89808星稳居推理引擎事实标准"
+    ],
+    "ai-hn": [
+      "AI拒用者放弃梦想工作故事登顶HN（34分）",
+      "Palantir创始人称前沿AI正试图让人上瘾",
+      "开源模型权重可潜伏定时触发后门",
+      "MCP服务器空载即吃掉47K tokens引热议",
+      "《经济学人》专题探索LLM内部意识表征",
+      "企业AI债务累积引投资者警觉信号"
+    ],
+    "ai-community": [
+      "MCP生态被忽视的token税：单服务器47K",
+      "9种RAG技巧系统性提升检索质量",
+      "AI调度任务静默崩溃3周的可观测性盲区",
+      "纯离线TFLite碰撞检测引擎登陆Flutter",
+      "多数Agent浪费一半上下文窗口在冗余信息",
+      "开发者从跑通demo转向解决真实工程痛点"
+    ],
+    "ai-embodied": [
+      "Schaeffler宣布2027量产人形机器人减速器",
+      "Persona AI人形机器人落地美国船厂焊接",
+      "RLinf定位VLA+RL时代训练底座（4616星）",
+      "commaai/openpilot已在300+车型实车部署",
+      "τ0-VLA/OpenTau/FluxVLA等VLA平台同期活跃",
+      "今日ArXiv cs.RO无新增论文"
+    ],
+    "ai-embedded": [
+      "AROS操作系统在树莓派上实现裸机运行",
+      "Arduino Cloud推出多页仪表盘+Spaces总览",
+      "黑客在16位SNES上极限改造运行Minecraft",
+      "开发者尝试在家庭实验室自制LED芯片",
+      "WiiMote电池漏液修复与蓝牙调试案例",
+      "复古OS与SBC结合扩展嵌入式应用边界"
+    ],
+    "ai-cad": [
+      "Prusa CORE One+ Gen 2正式发货开放订购",
+      "FreeCAD与KiCad将在OSHOP 2026同台对决",
+      "Kiln/FreeCAD/Rhino MCP等AI代理项目密集更新",
+      "OCCT编译为WASM加速浏览器端CAD进程",
+      "FreeCAD Q3 2026资助计划截止日临近",
+      "参数化指尖陀螺+短视频形成新制造范式"
+    ]
+  },
+  "en": {}
+}
