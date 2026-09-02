@@ -1,0 +1,77 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code v2.1.257/258 发布,模型能力跃升",
+      "OpenAI Codex rust-v0.152.1 远程控制重点投入",
+      "Gemini CLI v0.58.0 主线安全加固",
+      "OpenCode v1.18.26 架构演进密集期",
+      "Copilot CLI v1.0.83-1 小步快跑回归频发",
+      "Qwen Code OpenTUI/ACP 双主线重构"
+    ],
+    "ai-agents": [
+      "CoPaw v2.2.0-beta.6 极高活跃度",
+      "ZeroClaw 5 项 RFC 投票推进中",
+      "Hermes Agent 群聊架构与Prefix-cache修复",
+      "IronClaw agent-loop 重构 + Slack修复",
+      "NanoBot WebSocket 跨平台支持",
+      "NanoClaw Provider Contract 6-PR 系列"
+    ],
+    "ai-web": [
+      "Anthropic 发布企业级安全产品 EFS",
+      "Claude 文本水印机制应对 EU AI Act",
+      "EFS 客户数据托管于自有云基础设施",
+      "100+ 跨行业客户共创 EFS",
+      "OpenAI 发布 Path to Astra 路线图",
+      "Anthropic 安全三角战略同日集中释放"
+    ],
+    "ai-hn": [
+      "Claude Fable 5.1 + Mythos 5.1 双模型霸榜(959分)",
+      "OpenAI Path to Astra 路线图引发讨论",
+      "Apple 起诉 OpenAI 销毁证据商业秘密",
+      "Nori Robotics 低成本人形机器人 YC S26",
+      "LLM 推理效率前沿帕累托讨论",
+      "Dwarf Fortress 创作者炮轰游戏业 AI"
+    ],
+    "ai-arxiv": [
+      "Transformer 注意力存在近幂等性代数解释",
+      "对比路由提升 MoE 专家特化程度",
+      "潜意识学习揭示 SFT 蒸馏隐藏偏好传递",
+      "PCoMoE 打破整专家激活刚性抽象",
+      "冻结 LLM 中递归优化潜变量推理",
+      "ARISE-RL rubric 锚定智能体自演化"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B 以 13,588 点赞稳居榜首",
+      "Kimi-K3 月之暗面新一代 11,130 点赞",
+      "MiniMax-H3 最火视频生成模型 5.53M 下载",
+      "Qwen3.8-Flash-Next 实验性极速推理",
+      "GLM-5.3 系列智谱纯文本旗舰",
+      "去审查权重本地化分发生态活跃"
+    ],
+    "ai-community": [
+      "Google 出品 AI 评估设计方法论",
+      "自修改提示词安全门实战全记录",
+      "语义缓存戳破 AI 特性伪需求",
+      "AI 协作生存手册争议评论 24 条",
+      "Mac 本地 AI 无用 Windows 可用对比",
+      "Agent 可靠性 9 个看似正常实则 Bug"
+    ],
+    "ai-embedded": [
+      "Arduino 边缘 Agentic AI 落地工厂机械臂",
+      "金塑综合症摧毁玩具与游戏机可靠性",
+      "智能插座给 VR 加风热反馈的廉价方案",
+      "Hackaday Europe 2026 PS4 改造湿度计",
+      "PETG 替代 PLA 的省心长丝材料",
+      "LLM-on-MCU 与机器人控制边界打破"
+    ],
+    "ai-cad": [
+      "FreeCAD History Workbench Git 版本化",
+      "PrusaSlicer 3.0 预览版开启未来切片",
+      "FreeCAD/FreeCAD 33,198 stars 开源标杆",
+      "多款 MCP 服务器覆盖 CAD 全链路",
+      "Bambu Lab School Ambassadors 教育下沉",
+      "参数化设计端到端消费场景案例"
+    ]
+  },
+  "en": {}
+}
