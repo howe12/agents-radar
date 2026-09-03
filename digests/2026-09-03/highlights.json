@@ -1,0 +1,93 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code v2.1.259 持续企业级硬化",
+      "OpenAI Codex rust-v0.153.0 快速迭代",
+      "Copilot CLI v1.0.83 爆发 OOM 稳定性危机",
+      "Pi 单日 28 个 PR，AgentHarness 成新主线",
+      "DeepSeek TUI 37 个 PR，0.9.12 集成收尾",
+      "Windows 桌面端稳定性成全行业共性短板"
+    ],
+    "ai-agents": [
+      "OpenClaw 单日 500 Issue、500 PR 维持高活跃",
+      "2026.8.1 升级残留问题成当日 P1 重灾区",
+      "多智能体路由 AgentSelectionRequiredError 受关注",
+      "Telegram 投递链路 tombstone 与 watchdog 交互修复中",
+      "当日无版本发布，集中精力闭环 bug",
+      "Slack/Matrix 会话路由反向不可达问题待解"
+    ],
+    "ai-trending": [
+      "ponytail 单日 +1354 星登顶全榜",
+      "mattpocock/skills +1166 星成 Skills 范式标杆",
+      "pacifio/atlas +888 星做多 Agent 源码调度",
+      "Chrome DevTools MCP 官方包装浏览器调试",
+      "openclaude +775 星做 Claude Code 多后端",
+      "VoiceStudio +832 星推动本地语音克隆平民化"
+    ],
+    "ai-web": [
+      "Anthropic 发布企业级安全方案 EFS",
+      "EFS 客户数据存于自有云，零数据留存",
+      "新模型命名首现 Mythos 与 Claude Fable 5.1",
+      "100+ 企业客户联合开发，覆盖七大行业",
+      "Anthropic 承认智能体自主破坏行为已被观测",
+      "56 项试验评估劳动力再培训政策效果"
+    ],
+    "ai-hn": [
+      "Aisle 独立审计 curl 发现 6 个 CVE",
+      "METR 报告 OpenAI 与 HuggingFace 遭入侵",
+      "美司法部支持 OpenAI 在《纽约时报》案中立场",
+      "Kimi K3、GLM-5.3 多基准超越 Gemini 3.8 Flash",
+      "Qwen3.8-Max 力压 Claude Opus 5 Max",
+      "Anthropic 推出 Claude 生成内容检测工具"
+    ],
+    "ai-arxiv": [
+      "Debias-SparseGPT 揭示剪枝会放大模型偏见",
+      "实证 MoE 各层路由器共享几何结构",
+      "SEAL 通过对齐共享专家提升 MoE 全局安全",
+      "Kronecker-Fisher 让十亿参数二阶压缩可计算",
+      "扩散模型拓展到 OpenIE 信息抽取新任务",
+      "长程智能体评测成新前沿"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B 以近 5 万下载量稳居榜首",
+      "GLM-5.3 上线 glm_moe_dsa 新架构",
+      "腾讯混元 Hy4-preview 尝鲜 v4 架构",
+      "视频生成 MiniMax-H3 与 LTX-2.5 双双破百万下载",
+      "Qwen3.8-27B 衍生 6+ 个 GGUF 量化版本",
+      "星火 Spark-X2.5-4B 轻量版入榜"
+    ],
+    "ai-community": [
+      "Agents That Act Need Brakes 引发治理层讨论",
+      "执行树替代平面日志成 Agent 调试新范式",
+      "AI 网关每个请求多 400ms，来源全拆解",
+      "工程师自测 AI Agent 工具访问发现 3 个漏洞",
+      "一个月三款 AI 配对编程实测，哪款能上线",
+      "AST 与确定性 trace 嵌入 CI/CD 成新实践"
+    ],
+    "ai-embodied": [
+      "ZETA 论文研究 VLA 跨具身零样本迁移",
+      "World Action Model 引入几何潜空间扩散",
+      "RoboBusiness 共识：食品是 Physical AI 最难",
+      "呼吁补齐人形机器人 AI 行为安全层",
+      "Visko 实时模型 Orbis 完成 Pre-seed 融资",
+      "Elmo 运动控制进入无人货运飞机场景"
+    ],
+    "ai-embedded": [
+      "Arduino 发布边缘 Agentic AI 完整工作流",
+      "Hackaday 为 1980 年代 CoCo 2 加装 HDMI",
+      "机械微抖动让热敏打印机分辨率翻倍",
+      "用高压静电收集纳米布沙漠雾水",
+      "社区反思 FDM 3D 打印是否已达天花板",
+      "复古计算与边缘 AI 成开源硬件双主线"
+    ],
+    "ai-cad": [
+      "FreeCAD History Workbench 引入 Git 版本管理",
+      "PrusaSlicer 3.0 预览版发布，下一代架构",
+      "text-to-cad 仓库突破 14k 星持续火爆",
+      "CadQuery、occt-wasm 等 WASM 几何内核活跃",
+      "Bambu Lab 公布 IoT 安全全球认证进展",
+      "OrcaSlicer、Marlin 等切片固件持续迭代"
+    ]
+  },
+  "en": {}
+}
