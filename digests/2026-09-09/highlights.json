@@ -1,0 +1,85 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code发布v2.1.265/266 hotfix",
+      "OpenAI Codex alpha.7/.8双版本推进",
+      "Gemini CLI三线并行v0.59/v0.60/v0.61",
+      "OpenCode单日合并20+PR重构Desktop",
+      "Qwen Code v0.23.1含破坏性变更发布",
+      "行业进入工程化深耕阶段"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.9.3聚焦升级安全修复",
+      "OpenClaw 24h 484 Issues+500 PRs高位",
+      "升级采用isolated彩排机制防Gateway崩溃",
+      "Codex OAuth刷新成核心痛点",
+      "多Agent会话持久化主线议题",
+      "PR合并率约55%维护节奏健康"
+    ],
+    "ai-trending": [
+      "AI Agent Skills霸榜Top16占7席",
+      "OpenAI官方skills目录点燃生态",
+      "microsoft/markitdown单日+2047 stars",
+      "context-mode新登榜号称减98% token",
+      "hyperframes代表Agent视频输出层",
+      "ollama 180k stars仍是本地部署标准"
+    ],
+    "ai-web": [
+      "Anthropic指名道姓指控中国三实验室蒸馏",
+      "DeepSeek/Moonshot/MiniMax被指工业蒸馏",
+      "24000欺诈账户产生1600万次交互",
+      "Anthropic一次性刷新5篇安全政策报告",
+      "OpenAI发布ChatGPT Images 2.5",
+      "OpenAI Navier-Stokes专题引关注"
+    ],
+    "ai-hn": [
+      "OpenAI称攻克Navier-Stokes难题1142分",
+      "Anthropic研究员公开辞职指AI安全失控",
+      "ChatGPT Images 2.5发布276分369评论",
+      "LLM Attention可视化Show HN获132分",
+      "OUI-1世界首个生成式UI模型上榜",
+      "争议聚焦AI手段不干净与不当署名"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B以14396点赞登顶周冠军",
+      "Qwen3.8-Flash-Next 5009点赞紧随",
+      "MiniMax-H3视频模型下载近500万",
+      "Uncensored微调3个Qwen3.8变体上榜",
+      "Unsloth/NVIDIA/ISTA贡献Qwen压缩方案",
+      "GPT-2/BERT长青模型持续在榜"
+    ],
+    "ai-community": [
+      "开发者集体反思AI是否让编码变懒",
+      "Agent只是穿了风衣的if语句引共鸣",
+      "6行规则引擎胜过整套Matcher方案",
+      "美国政府支持OpenAI应对NYT版权诉讼",
+      "系统设计在AI时代不可替代",
+      "MCP协议Bug与Agent安全性成焦点"
+    ],
+    "ai-embodied": [
+      "AI跑不过人形机器人硬件评论引关注",
+      "Cyborg蟑螂救援机器人装载穿刺针",
+      "Vitestro抽血机器人进入临床部署",
+      "Boston Dynamics元老创立Dynamic Creatures",
+      "BitVLA等1-bit VLA新工作涌现",
+      "VLA模型与具身基础模型仓库扩张"
+    ],
+    "ai-embedded": [
+      "1024字节Python解释器极限代码艺术",
+      "Arduino推出DIY手持热成像相机方案",
+      "修复90年代LEGO调速器复兴维修权",
+      "Hackaday Europe 2026聚焦户外机器人",
+      "桌面与工业FDM工程实测对比",
+      "cs.AR学术侧今日无新增论文"
+    ],
+    "ai-cad": [
+      "FreeCAD新Microwave工作台疑为RF建模",
+      "Prusa 5卷耗材混出45色PLA方案",
+      "Bambu Lab公布全球IoT安全认证进展",
+      "FreeCAD生态MCP/Addon/文档三足鼎立",
+      "OCCT走向浏览器WASM/Rust化",
+      "Code-CAD程序化建模范式持续壮大"
+    ]
+  },
+  "en": {}
+}
