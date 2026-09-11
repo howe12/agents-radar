@@ -1,0 +1,93 @@
+{
+  "zh": {
+    "ai-cli": [
+      "可靠性成共识：循环防护、Token失控是6工具头号痛点",
+      "OpenAI Codex与Qwen Code 1:1 PR/Issue配比，工程吞吐极高",
+      "Claude Code发布v2.1.268，今日以维护为主",
+      "社区工具OpenCode/Pi/DeepSeek TUI治理细节超越官方",
+      "MCP协议与Provider抽象成新基础设施战场",
+      "Windows平台稳定性成横跨多工具难题"
+    ],
+    "ai-agents": [
+      "OpenClaw发布v2026.6.35 LTS终结版",
+      "24小时内436 Issues、500 PR，活跃度爆表",
+      "覆盖13个OpenClaw生态项目",
+      "6.x到9.x升级暴露多处迁移兼容性问题",
+      "聚焦Codex hook链路与SQLite锁竞争稳定性",
+      "项目处于关键质量收敛期"
+    ],
+    "ai-trending": [
+      "Agent Skills框架化成最鲜明信号",
+      "腾讯teamai-cli单日+841星，大厂下场",
+      "OmniRoute +626星，覆盖352家AI供应商",
+      "13/16热门项目与AI直接相关",
+      "本地推理持续吸量：colibri纯C MoE引擎",
+      "PI-Desktop：本地优先AI编码Agent桌面端"
+    ],
+    "ai-web": [
+      "Claude Opus 4.5发布，定价降至$5/$25每百万token",
+      "微软/NVIDIA/Anthropic三方联盟，30亿Azure算力",
+      "Anthropic收购Bun，Claude Code突破10亿运行率",
+      "Claude登陆Microsoft Foundry成唯一前沿模型",
+      "披露首例AI自主网络间谍活动（中国国家级）",
+      "Anthropic新增55篇内容，OpenAI仅6条元数据"
+    ],
+    "ai-hn": [
+      "OpenAI Agents API正式发布，HN当日最高146分",
+      "OpenAI在Navier-Stokes取得实质进展附Lean 4证明",
+      "GPT-Live-1登陆API，实时多模态成Agent底层",
+      "Anthropic深陷舆论：威胁情报、辞职事件叠加",
+      "AI安全与公司治理成全网最高密度话题",
+      "System76 Thelio Mira AI工作站配192GB显存"
+    ],
+    "ai-arxiv": [
+      "SWRouter：多轮对话相似度收缩窗口路由机制",
+      "FARM：从冻结世界模型内部读取失败信号",
+      "DeFiFlowBench：207条DeFi工作流合成基准",
+      "Vidu S2实时角色与视频编辑模型演进",
+      "PII匿名化对LLM推理能力影响系统实证",
+      "概念擦除与反事实干预统一框架MUtE提出"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B下载近740万，本周冠军",
+      "DeepSeek-V4.1-Flash新发布即冲榜首",
+      "MiniMax-H3与LTX-2.5领跑视频生成",
+      "智谱GLM-5.3系列全量版与Flash版齐发",
+      "微软VibeVoice流式ASR新发布",
+      "Google TimesFM 3.0时序预测模型亮相"
+    ],
+    "ai-community": [
+      "MCP让工具可发现但并未让它们安全",
+      "AI编程致PR膨胀却无人评审成危机",
+      "Agent自主操作权限边界成最热交叉话题",
+      "真实事件：评论区4个AI Agent协作重建支付",
+      "本地小模型逼近前沿质量成趋势",
+      "WebMCP让网站可被Agent消费解锁新场景"
+    ],
+    "ai-embodied": [
+      "Teradyne起诉JAKA侵犯3项Universal Robots专利",
+      "Swarmer拟2.24亿美元收购Ratel Robotics",
+      "FARM：无训练失败监测方法读世界模型信号",
+      "VLA与具身OS生态迅速扩张成新一轮热点",
+      "CAP：人形机器人感知盲连续自适应运动方法",
+      "Agility Digit、机器蟑螂救援、采血机器人三线并行"
+    ],
+    "ai-embedded": [
+      "Arduino官方重新设计热门机械臂平台",
+      "CPR机器人开辟医疗机器人DIY新领域",
+      "开源声学无人机检测方案降低安防门槛",
+      "自研AMOLED腕戴验证可穿戴显示DIY可行性",
+      "无透镜3D成像降低嵌入式视觉传感成本",
+      "3D打印喷嘴流道几何硬件软件工艺协同"
+    ],
+    "ai-cad": [
+      "FreeCAD新推Microwave Workbench面向射频",
+      "Prusament PLA ColorMix五卷耗材覆盖45色",
+      "AI Agent与CAD集成进入工具化爆发期",
+      "OCCT经WebAssembly实现浏览器内运行",
+      "Code-CAD范式巩固脚本化设计主流地位",
+      "pascalorg/editor集成MCP工具与Agent双工作流"
+    ]
+  },
+  "en": {}
+}
