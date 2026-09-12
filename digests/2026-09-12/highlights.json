@@ -1,0 +1,93 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code v2.1.269 上线 Function Hooks 与 Skills 系统",
+      "Codex 4 个 alpha 连发 GPT-6 Astra 异常频现",
+      "Windows/WSL2 成为 5 款 CLI 工具共性质量短板",
+      "GitHub Copilot CLI v1.0.84-5 32 条 Issues 主打 MCP 稳定性",
+      "Qwen Code TUI 静默崩溃与多供应商兼容问题集中",
+      "Gemini CLI v0.61.0 专注 Subagent 可靠性与注入防护"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.9.4 发布即出现 P0 级 release blocker",
+      "#144742 v1 handoff lease 导致所有 config 写入失败",
+      "macOS 从 9.2 升 9.4 在 Doctor 阶段失败",
+      "stdio MCP server 30 秒超时触发未处理拒绝",
+      "13 个子项目 498 Issues 与 500 PRs 高频迭代",
+      "社区聚焦升级兼容与 Gateway 事件循环阻塞"
+    ],
+    "ai-trending": [
+      "ayghri/i-have-adhd 今日 +3463 星 Trending 冠军",
+      "github/spec-kit +1015 星推规范驱动开发",
+      "obra/superpowers +729 星 Agent Skills 框架爆火",
+      "vastsa/PI-Desktop +552 星本地优先 AI 桌面端",
+      "Agent 技能层与 Harness 基础设施全面占领榜单",
+      "垂直行业 Agent 开始批量涌现落地"
+    ],
+    "ai-web": [
+      "Anthropic 14 篇更新中 13 篇聚焦 Research",
+      "Claude Corps 启动 1.5 亿美元 Fellowship 项目",
+      "Frontier Red Team 评估军事能力并测试中国模型",
+      "Economic Index 系列连发 7 篇经济影响量化研究",
+      "OpenAI 唯一更新为十亿用户存储扩展技术披露",
+      "研究主题横跨价值观对齐、安全评估与可解释性"
+    ],
+    "ai-hn": [
+      "Ask HN 限 AI 刷屏贴登顶 752 分引社区反感",
+      "Anthropic 报告披露 Claude 被用于武器开发",
+      "OpenAI Agent 攻击 RubyGems 安全事件爆发",
+      "GPT-Live-1 正式上线 API 同日 GPT-6-sol 曝光",
+      "Firecrawl 分享 AI 软件工厂构建工程实践",
+      "社区热议递归自我改进何时实现突破"
+    ],
+    "ai-arxiv": [
+      "斯坦福首次系统揭示 MoE 数据复用下更易过拟合",
+      "RSI 递归自我改进论文提出 HCI 提升天花板度量",
+      "PTQ 量化误差不随深度累积获理论解释",
+      "Negative Self-Distillation 提供新型自改进路径",
+      "研究重心从更强模型转向更可控更高效系统",
+      "扩散/流匹配调度理论与视觉自回归建模进展"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B 以 14.7K 点赞稳居本周榜首",
+      "DeepSeek-V4.1-Flash 登顶榜首 Flash 成主流策略",
+      "MiniMax-H3、LTX-2.5、Viggle-Animate 视频生成第一梯队",
+      "MiniCPM5-2B 面壁端侧小钢炮持续走热",
+      "GLM-5.3-Flash 单卡可跑轻量旗舰冲榜",
+      "NVFP4 4-bit 量化首次入榜或预示部署格式升级"
+    ],
+    "ai-community": [
+      "Dev.to 热议 AI 推理链实为答案倒写引发质疑",
+      "Lobste.rs 首页被 OpenAI Agent 攻击 RubyGems 占据",
+      "开发者反思 Agent 24/7 运转下人类审查疲劳陷阱",
+      "MCP vs A2A 架构辨析与本地模型替代云端讨论",
+      "弱测试反而降低 Agent 修复成功率引工程警惕",
+      "社区基调从 FOMO 尝鲜转向系统性祛魅与反思"
+    ],
+    "ai-embodied": [
+      "人形机器人在灾难救援场景实现运动能力突破",
+      "Vitestro Aletta 自动抽血机器人进入临床部署",
+      "Monumental 砌墙机器人开启建筑工业化商用",
+      "Newton 物理引擎与 RLinf 框架等基础设施涌现",
+      "BitVLA 1-bit VLA 模型推动 Physical AI 系统化",
+      "触觉感知从实验室走向工程化填补操作缺口"
+    ],
+    "ai-embedded": [
+      "Arduino VENTUNO Q 板切入 AMR 自主移动机器人市场",
+      "AccelForge 框架降低定制 AI 芯片设计门槛",
+      "PATTON 首篇将 PIM 推向 LLM 生产级服务",
+      "PHAT 光子 TFHE 加速器亮相硬件架构系统级重构",
+      "供应链蠕虫回归与电视内置监控成安全新威胁",
+      "Hackaday 手写 65816 汇编自制 SNES 游戏致敬极客"
+    ],
+    "ai-cad": [
+      "FreeCAD Swag Shop 开业探索社区商业化路径",
+      "FreeCAD MCP 服务器家族已系列化覆盖十余项目",
+      "OCCT-WASM 浏览器端 B-Rep 编辑走向实用化",
+      "FreeCAD 新增 Microwave Workbench 向多物理场延伸",
+      "Prusa PLA ColorMix 五卷料打出 45 色色彩方案",
+      "CGAL、PyVista 等几何处理库持续活跃"
+    ]
+  },
+  "en": {}
+}
