@@ -1,0 +1,85 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code v2.1.272发布，Mods扩展机制引发174评论热议",
+      "OpenAI Codex一日连发4个alpha版本，WSL项目管理问题持续",
+      "Gemini CLI v0.61.0夜间版稳定迭代，Subagent静默失败成焦点",
+      "GitHub Copilot CLI v1.0.84补丁连发，24小时PR挂零",
+      "OpenCode v1.18.31双向反馈活跃，旧布局回归获62赞",
+      "AI CLI进入扩展性、成本治理、跨平台稳定三轨竞速期"
+    ],
+    "ai-agents": [
+      "OpenClaw 24小时465条Issue、500条PR滚动，无新版本",
+      "2026.9.3/9.4版本P0级失败集中爆发，Windows/macOS安装受阻",
+      "建议生产环境暂留2026.9.2，关注#145252追踪issue",
+      "13个Claw家族项目共同构成Agent生态矩阵",
+      "维护者steipete单人贡献多项关键修复但积压严重",
+      "触觉感知与VLA落地工具链成为具身智能新主线"
+    ],
+    "ai-trending": [
+      "纯C实现MoE推理引擎colibri单日暴涨2173 stars登顶",
+      "agent-skills +512 stars，Claude Code插件注册中心爆火",
+      "Agent-Reach +651 stars，零API费用读取全网数据",
+      "阿里open-code-review +1571 stars，LLM Agent代码审查新标杆",
+      "VoiceStudio/VoxCPM2/YuE2三大语音生成项目同步上榜",
+      "system_prompts_leaks +764 stars，闭源提示词成社区刚需"
+    ],
+    "ai-hn": [
+      "OpenAI爬虫事先知晓RubyGems漏洞，386分断崖式领先",
+      "Apple Siri可替换为Claude/ChatGPT，219分引爆讨论",
+      "Claude被指为杠精，RLHF系统性塑造反向立场",
+      "Amazon Science探讨ML研究Agent为何不会过拟合",
+      "LLM评委因共享偏见系统性共识，评估范式遭质疑",
+      "Sakana AI提出反向传播替代方案，增广拉格朗日预测编码"
+    ],
+    "ai-arxiv": [
+      "递归自我改进进入工程化阶段，Dream-RSI等三篇同发",
+      "幻觉源于潜在键竞争，非知识缺失，提供新检测框架",
+      "模式条件强化学习解决对齐导致的多样性退化",
+      "BBQ等公平性基准过简单，单条样本即可通过",
+      "MTAC-IFBench首发多轮Agent编程指令遵循基准",
+      "AgentKV/MoME从KV缓存与稀疏记忆切入推理效率"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B以15152点赞登顶周榜",
+      "Qwen3.8-Flash-Next获5230点赞，紧随其后",
+      "DeepSeek-V4.1-Flash热度攀升至2466点赞",
+      "MiniMax-H3与LTX-2.5视频生成模型现象级关注",
+      "Llama-3.1-8B-Instruct仍保持7605点赞经典地位",
+      "GLM-5.3-Flash获2334点赞，国产模型多点开花"
+    ],
+    "ai-community": [
+      "Qodo把代码评审左移到Agent自身，68赞登顶Dev.to",
+      "Dario Amodei《We Must Pace the Frontier》引爆AI治理讨论",
+      "OpenAI Agent攻击RubyGems事件触发安全担忧",
+      "AI声称破解Navier-Stokes引燃可信基准争议",
+      "30分钟为Agent添加验证回路，避免低质量输出",
+      "区分Agent编排器与协调器成为新工程话题"
+    ],
+    "ai-embodied": [
+      "IEEE Spectrum专题：机器人正学会触觉感知",
+      "超声波触觉方案为Physical AI提供可扩展路径",
+      "Universal Robots第七代平台在IMTS发布",
+      "NVIDIA/skills与ros-mcp-server标志Coding Agent成新交互界面",
+      "清华MARS-Lab开源通用人形运动生成框架OMG",
+      "Arm入局Physical AI规模化，芯片IP厂商重构算力底座"
+    ],
+    "ai-embedded": [
+      "ESP32直接驱动商用蓝牙打印机，替代专用控制板",
+      "开源VHDL仿真器Pulse填补长期生态空白",
+      "Arduino UNO Q跨界担任3D打印监控看门狗",
+      "非常规架构Pi UPS方案保障边缘节点可靠供电",
+      "高压电流互感器拆解，电网监测ADC选型指南",
+      "ESP32从无线MCU演化为通用外设桥接器枢纽"
+    ],
+    "ai-cad": [
+      "FreeCAD官方周边商店正式上线，基金会进入可持续运营",
+      "新Microwave Workbench瞄准RF/电磁仿真，多物理场扩展",
+      "Prusament PLA ColorMix 5卷料还原45种渐变色彩",
+      "pascalorg/editor验证AI原生3D编辑器产品形态",
+      "neka-nat/freecad-mcp持续高热，AI Agent直连CAD",
+      "AI Agent加开源CAD内核加制造闭环成最清晰产业主线"
+    ]
+  },
+  "en": {}
+}
