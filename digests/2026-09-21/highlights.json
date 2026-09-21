@@ -1,0 +1,69 @@
+{
+  "zh": {
+    "ai-cli": [
+      "OpenAI Codex 24小时连发4个alpha版本，v0.156.0即将转正",
+      "Windows适配成最普遍痛点，覆盖Pi、Codex、Kimi等7款工具",
+      "Qwen Code发布v0.24.2稳定版，伞形议题结构化推进",
+      "Pi v0.86.1紧急修复回归问题，0.86阵痛中接入新Provider",
+      "Gemini CLI v0.62.0 nightly，Agent可靠性议题最密集",
+      "社区诉求从能不能跑转向可观测性、可靠性、安全性三角"
+    ],
+    "ai-agents": [
+      "NanoBot/CoPaw/ZeroClaw单日更新≥50条，头部项目高频迭代",
+      "LobsterAI单日发布4个新版本，仅有2个项目当日发版",
+      "CoPaw发布v2.2.2-beta.3，多租户Hub RFC引31条评论",
+      "ZeroClaw积压44条PR待审核，安全类PR占比显著",
+      "NanoBot合并率65%，Provider生态扩张+Agent Loop重构",
+      "生态焦点收敛于Provider协议、WebUI、Memory、安全、商业化五大方向"
+    ],
+    "ai-trending": [
+      "cloudflare/security-audit-skill单日狂揽+2,428 stars现象级登顶",
+      "trycua/cua以+1,018 stars代表Computer-Use 2.0首次亮相",
+      "affaan-m/ECC以+826 stars拿下Claude Code Agent Harness第一",
+      "higgsfield-ai/higgsfield +465 stars，万亿参数GPU编排新方向",
+      "vercel-labs/json-render +291 stars，生成式UI框架首登榜",
+      "Agent生态从能跑走向可信、可审计、可视化阶段"
+    ],
+    "ai-hn": [
+      "ChatGPT广告追踪器争议登顶625分，隐私焦虑引爆",
+      "Pirate Face拯救被弃用LLM模型457分紧随其后",
+      "OpenAI被预测2030年前烧掉约2800亿美元，泡沫叙事升温",
+      "Chief of Staff模式编排Claude Code Agents，22条评论热议",
+      "本地推理编排器LocalAI/exo/GPUStack/vLLM横评上线",
+      "Anthropic被指签署非法减速协议，监管争议持续发酵"
+    ],
+    "ai-community": [
+      "Dev.to热议企业级AI Agent四阶段DevSecOps流水线架构",
+      "Agent Harness成新工程范式：Orca并行编码环境引关注",
+      "Brad Traversy探讨Agentic Coding冲击心流编程体验",
+      "OpenAI monorepo经libheif+SSO缺陷被攻陷实战曝光",
+      "Agent记忆被定义为安全攻击面，可观测性成焦点",
+      "Planner/Implementer双代理契约与证据优先多代理兴起"
+    ],
+    "ai-embodied": [
+      "SoftBank拟收购Robotics and AI Institute，顶级资本加速聚集",
+      "Digit 5主打安全定义产品，人型机器人进工厂扫清障碍",
+      "AI时代物理机器人网络安全需重思，视觉欺骗成新风险",
+      "VLA分化加速：τ0-VLA引入世界模型引导测试时计算",
+      "OpenBMB SimpleMemVLA探索长时序记忆机制新范式",
+      "NVIDIA Newton与MuJoCo-Warp高性能仿真栈持续受关注"
+    ],
+    "ai-embedded": [
+      "TEMPEST注入式攻击复活，物理隔离仍遭电磁旁路泄露",
+      "无GPU跑通旗舰LLM，量化+CPU推理栈走向成熟可用",
+      "Maker Faire Bay Area 2026即将开幕，全球Maker盛会倒计时",
+      "索尼车机LCD反向工程范例，无文档屏驱动全流程复现",
+      "带通滤波器实战教程，面向SDR与IoT射频前端设计",
+      "本周嵌入式社区活跃度受周末影响整体偏低"
+    ],
+    "ai-cad": [
+      "FreeCAD官方Lens测试服务器上线，迈向云端协作",
+      "FreeCAD+5款MCP/AI插件成LLM操作CAD事实标准",
+      "earthtojake/text-to-cad技能库登顶，AI编程式CAD爆发",
+      "Clay-Good/anvilate从文本直出可编辑STEP文件",
+      "浏览器原生B-Rep成熟，occt-wasm/brepjs/conway免本地OCCT",
+      "Prusament PLA Lightweight减重65%，FDM航模迎来新耗材"
+    ]
+  },
+  "en": {}
+}
