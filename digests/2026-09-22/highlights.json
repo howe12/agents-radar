@@ -1,0 +1,93 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code Mods/Hooks进入发布倒计时",
+      "OpenAI Codex单日狂发7个alpha版本",
+      "Qwen Code同步发布4类产物(v0.24.3)",
+      "Kimi Code CLI v1.51.0成归档最终版",
+      "Copilot CLI单日3版本密集迭代",
+      "OpenCode批量关闭历史Issue清理积压"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.7.35网关扩展稳定版发布",
+      "24小时500条Issue关闭率仅4.2%",
+      "PR合并率25.4%暴露审阅瓶颈",
+      "大量P0/P1议题长期携带no-new-fix-pr标签",
+      "覆盖13个项目单日500条PR",
+      "维护者审阅能力与社区贡献严重失衡"
+    ],
+    "ai-trending": [
+      "Trending 12席中8席为AI项目",
+      "trycua/cua计算机使用基建+609星/日",
+      "ollama以181k星稳坐端侧AI底座",
+      "mem0/cognee记忆层走向开源",
+      "端侧离线AI首次进入主流视野",
+      "BuilderIO/agent-native今日新登榜"
+    ],
+    "ai-web": [
+      "Claude 4周提速30+生物分子模型4倍",
+      "Anthropic联合Adaptyv Bio设100万美元蛋白质赛",
+      "low-memory模式单卡GPU跑10k token",
+      "OpenAI成立数学与AI顾问组",
+      "Anthropic把Science推向生态+竞赛工业化",
+      "OpenAI当日仅三条轻量级业务更新"
+    ],
+    "ai-hn": [
+      "《The Claude Delusion》引发156条讨论",
+      "Mini-AGI在8GB VRAM实现持续学习",
+      "Foremerge检测并行编码Agent意图冲突",
+      "Anthropic/OpenAI遭反垄断诉讼",
+      "Robin Williams女儿谴责AI生成视频",
+      "Halo后训练比TRL/Megatron快3倍"
+    ],
+    "ai-arxiv": [
+      "模型合并走热：任务向量秩分配",
+      "RLVR渗透机器人与VLA领域",
+      "稀疏蒸馏仅需1%token即可估梯度",
+      "信息时间PPO突破逐token时序范式",
+      "SAE用于SSM与Transformer概念对比",
+      "LLM Agent安全治理与可观测性成新方向"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B以15974赞稳坐榜首",
+      "MiniMax-H3视频生成下载破400万",
+      "Lightricks/LTX-2.5视频生成强势登场",
+      "Qwen3.8-Flash-Next探索4代架构",
+      "Ternary-Bonsai挑战2-bit量化极限",
+      "Yandex首发80B MoE基础模型"
+    ],
+    "ai-community": [
+      "浏览器内MCP Agent零服务端架构兴起",
+      "工程师面试标准在AI时代被重审",
+      "企业级Agent评估需真实依赖环境",
+      "反直觉实践：Agent只执行不决策",
+      "RAG检索召回根因深度解构",
+      "Lambda MicroVM构建Coding Agent沙箱"
+    ],
+    "ai-embodied": [
+      "Boston Dynamics开放Metaplant训练Atlas",
+      "Digit 5提出真正工人级安全标准",
+      "Bridge3D让VLA原生理解3D空间",
+      "InsertAnything瞄准接触式装配",
+      "Isaac Lab/RLinf/Newton仿真基建走热",
+      "人形机后勤运维成商业化隐性壁垒"
+    ],
+    "ai-embedded": [
+      "RP2350首次实现1080p视频处理",
+      "AWE让FP4张量核心逼近整数精确",
+      "VSpector为RISC-V CPU扫清可靠性障碍",
+      "Maker Faire Bay Area 2026官宣启动",
+      "x86电子垃圾改OpenWrt/OPNsense软路由",
+      "径向叶轮新设计启发无人机推进"
+    ],
+    "ai-cad": [
+      "FreeCAD推出Lens测试服务器迈向云端",
+      "text-to-cad/CADAM等AI驱动CAD涌现",
+      "Prusament PLA Lightweight密度仅35%",
+      "Witness Set弱可见性多项式求解",
+      "MR-SPITE加速多机器人路径冲突",
+      "Bambu Lab跨界食品与无障碍辅具"
+    ]
+  },
+  "en": {}
+}
