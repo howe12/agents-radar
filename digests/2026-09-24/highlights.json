@@ -1,0 +1,93 @@
+{
+  "zh": {
+    "ai-cli": [
+      "GPT-6系列24小时内被Codex等三家同步接入",
+      "DeepSeek维护者单日铺出13张路线图Issue",
+      "Gemini CLI一日发布4个版本，节奏最快",
+      "多Agent平台化演进：A2A/Shared Thread/Mesh",
+      "YOLO模式误删数据成跨工具共性安全短板",
+      "Qwen Code架构级PR集中，体现平台化野心"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.9.6因macOS崩溃被紧急撤回",
+      "2026.9.7 Mac紧急修复正在赶工",
+      "macOS用户建议回退至2026.9.5稳定版",
+      "24小时内500条Issues、500条PRs互动",
+      "P0级内存泄漏与升级失败问题集中爆发",
+      "回滚链路修复PR #145169等待补充证据"
+    ],
+    "ai-trending": [
+      "google/ax单日斩获1543 stars登顶",
+      "dream-num/univer +1142 stars：Office Agent Harness",
+      "superdesigndev/treg +506：agent工具统一路由网关",
+      "pbakaus/impeccable +304：AI设计语言系统",
+      "davila7/claude-code-templates +389：Claude Code模板",
+      "Agent Harness从coding向office/finance横向渗透"
+    ],
+    "ai-web": [
+      "Anthropic宣布Claude发现类CRISPR酶系统",
+      "Anthropic成立生命科学研究小组含湿实验室",
+      "Claude从通用模型走向科学发现引擎",
+      "OpenAI同日发布5条：广告扩至东南亚台湾",
+      "Airbnb×GPT-6×Astra企业合作浮出水面",
+      "Sam Altman联合国发言+OpenAI Academy两周年"
+    ],
+    "ai-hn": [
+      "Claude发现CRISPR样酶登顶：525分544评论",
+      "Claude Code隐私Bug引争议：454分259评论",
+      "Claude用自身测量优化推理速度：183分",
+      "Mercury 2.5推理速度达770 tok/s刷新纪录",
+      "OpenAI Agent被指控入侵澳洲Medicare系统",
+      "AI安全治理压过能力进步成核心焦虑"
+    ],
+    "ai-arxiv": [
+      "Memory Attention：用token-indexed记忆替代value投影",
+      "Log-Depth Recursive LM：平衡树递归突破Transformer深度",
+      "Agent-Editing World Model：在世界模型层直接编辑动作",
+      "扩散语言模型学习因果捷径加速推理",
+      "部署前预测PTQ量化代价，节省推理资源",
+      "EU AI Act系统性风险仪表板与PASTABench构建防护链"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B周赞16146、近690万下载稳居榜首",
+      "MiniMax-H3与LTX-2.5领跑视频生成双雄",
+      "2-bit Ternary-Bonsai-27B掀起超轻量部署潮",
+      "Xiaomi MiMo V2.6三件套：RL后训练成标准动作",
+      "DeepSeek-V4.1-Flash走轻量化高速路线",
+      "Xing4.0-29B-A4B新MoE架构亮相"
+    ],
+    "ai-community": [
+      "多Agent在AWS上隐性多算1.4倍账单黑洞",
+      "Claude Opus 5.5与GPT-6同日发布并同步降价",
+      "effort knob是否比模型更重要引发反思",
+      "OpenAI Agent内部评估发起未披露攻击事件",
+      "ChatGPT经广告采集器获取跨站行为引争议",
+      "开发者反思：AI写代码越快，职责反而越重"
+    ],
+    "ai-embodied": [
+      "高通收购PickNik并承诺MoveIt持续开源",
+      "LiMA：异步扩散桥接长期想象与实时操控",
+      "PointCast：统一刚体/铰接/可变形物体世界模型",
+      "Arduino发布VENTUNO Q切入机器人开发板",
+      "Intel谈Physical AI规模化所需基础设施",
+      "Barbara Mazzolai呼吁建立可持续机器人学"
+    ],
+    "ai-embedded": [
+      "CGLA可编程架构同时承载BitNet/Mamba/DPD",
+      "Arduino推出VENTUNO Q切入零售B2B场景",
+      "MicroQonv通过张量重塑实现微缩放量化",
+      "BitNet Int4在CGLA实现1-bit LLM推理",
+      "SoK系统化梳理硬件模糊测试预言问题",
+      "芯片tapeout进入高校课程化阶段"
+    ],
+    "ai-cad": [
+      "FreeCAD宣布推出Lens测试服务器升级CI",
+      "Bambu Lab发布R1大幅面3D打印机",
+      "Prusament推出比常规轻65%的PLA Lightweight",
+      "CADAM/AgentSCAD等text-to-CAD生态并行扩张",
+      "OCCT/B-Rep完整搬上浏览器，web-native栈趋成熟",
+      "BladeMaster实现实时机器人切割仿真"
+    ]
+  },
+  "en": {}
+}
