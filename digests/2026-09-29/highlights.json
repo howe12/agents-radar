@@ -1,0 +1,93 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code v2.1.284 升级 Sonnet 5.5",
+      "OpenAI Codex 4 个版本发布，含 OAuth 修复",
+      "GitHub Copilot CLI 5 版本，0 PR 高效发版",
+      "OpenCode v1.18.33 合并 HITL Phase 7",
+      "Kimi Code CLI 过去 24 小时零活动",
+      "Pi 集成 Codemode 与 MCP 双协议"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.8.33 LTS 网关专属版发布",
+      "24 小时 500 Issues、500 PRs 全量活跃",
+      "2026.9.6 升级引发稳定性回归连环爆雷",
+      "13 个 Claw 系项目同步高强度迭代",
+      "catalog worker 内存泄漏成 Top 热点",
+      "建议生产停留 8.33 等待 9.7 修复"
+    ],
+    "ai-trending": [
+      "hindsight 今日 +4561 stars 登顶",
+      "paperclip +3197 stars 紧追其后",
+      "openrig 多 agent 协同 harness 走红",
+      "ollama 181k stars 本地推理 CLI 标杆",
+      "vllm 92k stars 工业部署首选",
+      "Univer 融合办公 Agent +1099 stars"
+    ],
+    "ai-web": [
+      "Anthropic Project Swap 揭示代理谈判能力上限",
+      "Anthropic × Infosys 切入受监管行业",
+      "印度是 Claude 全球第二大市场",
+      "5 分钟对话代理偏好匹配率达 61%",
+      "核心结论：模型能力大于提示工程",
+      "OpenAI 今日仅元数据级更新"
+    ],
+    "ai-hn": [
+      "Sonnet 5.5 发布 HN 638 分断层第一",
+      "OpenAI 因安全撤回 Astra 6.1 引恐慌",
+      "MicroLLM Lab 浏览器跑 7 个微型 LLM",
+      "ESP32S3 集群运行 1.58-bit BitNet",
+      "Anthropic 奖励黑客致涌现失对齐",
+      "Simon Willison 发布 2026 LLM 中期盘点"
+    ],
+    "ai-arxiv": [
+      "GroupMask 突破层自适应半结构化稀疏",
+      "量化误差谱平坦理论证明",
+      "蒸馏无需 KL 散度挑战 OPD 根基",
+      "双词表 LM 解决异构 tokenizer 蒸馏",
+      "Diffusion Reward Models 建模偏好分布",
+      "代理工程从 prompt 走向系统工程"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B 16,503 点赞登顶周榜",
+      "LTX-2.5 视频模型 5,433 点赞异军突起",
+      "Qwen-Image-2.1 衍生 6 个变体矩阵",
+      "DeepSeek-V4.1-Flash 多模态强势回归",
+      "2-bit Ternary Bonsai 极致量化上榜",
+      "小米 MiMo V2.6 Pro/Flash RL 双版本"
+    ],
+    "ai-community": [
+      "AI Agent 多为 if-statement 套 GPU 账单",
+      "ToolTrap 揭示工具结果隐性陷阱",
+      "AI 秒级修 Bug 反腐蚀学习曲线",
+      "上下文压缩压错位置工程缺陷",
+      "GitHub MCP 开局即烧 55k tokens",
+      "开发者 AI FOMO 焦虑情绪蔓延"
+    ],
+    "ai-embodied": [
+      "Gecko × NVIDIA 工业巡检 Agent 标准化",
+      "人形机器人配加密钱包迈向劳动力",
+      "阿西莫夫三定律被指不足 VLA 上车",
+      "EMPIRIC 残差世界模型缩小试错鸿沟",
+      "VLA 加可拒绝决策头关键安全补丁",
+      "Newton / mjlab / IsaacLab 三大仿真收敛"
+    ],
+    "ai-embedded": [
+      "ESP32-S3 跑出 Jet Megatextures 渲染",
+      "Tang Nano 20K 国产高性价比 FPGA 入门",
+      "SNES Super FX 芯片移植马里奥 64",
+      "无人机 SAR 实现干涉成像流水线",
+      "Arduino VENTUNO Q 板推向零售边缘",
+      "今日 cs.AR 论文与 GitHub 仓库均空"
+    ],
+    "ai-cad": [
+      "FreeCAD 1.1.4 正式发布",
+      "Bambu Lab R1 大幅面 3D 打印机亮相",
+      "AI Agent 与 CAD 零边界趋势加速",
+      "OCCT WebAssembly 浏览器端 B-Rep 突破",
+      "AgentSCAD 自然语言转 OpenSCAD",
+      "Multi-Agent CAD 拆解文本到 CAD 任务"
+    ]
+  },
+  "en": {}
+}
