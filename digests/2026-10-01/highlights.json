@@ -1,0 +1,85 @@
+{
+  "zh": {
+    "ai-cli": [
+      "Claude Code v2.1.286 安全误判致污染会话",
+      "OpenAI Codex 50 PR 全为 copyberry bot 自动化",
+      "安全边界精细化成各工具共同核心战场",
+      "MCP 健壮性成跨工具复用最大脆弱面",
+      "Copilot CLI 零 PR 且 MCP writer-lock 失效",
+      "Gemini CLI 子代理可靠性问题突出"
+    ],
+    "ai-agents": [
+      "OpenClaw v2026.9.7 发布 518 commit 2818 PR",
+      "P0 级问题突出 SQLite Gateway 仍有隐患",
+      "Windows 平台命名空间与升级回滚多项修复",
+      "Doctor/Update 流水线性能优化",
+      "13 个 Claw 生态项目活跃覆盖",
+      "问题合并比 1.9:1 处于高频修复阶段"
+    ],
+    "ai-trending": [
+      "NVIDIA OpenShell +1281 stars 强势入局 Agent",
+      "VoiceStudio +3483 stars AI 语音本地化爆发",
+      "context-mode 压缩 98% 工具输出",
+      "t8y2/dbx +1138 stars 25MB 跨平台 MCP 数据库",
+      "openrig 实现 Claude Code 与 Codex 多 Agent 协作",
+      "token 压缩与 vectorless RAG 成新热点"
+    ],
+    "ai-web": [
+      "Anthropic 新模型代号 Mythos 超越 Opus/Sonnet",
+      "Anthropic 公开点名 Zhipu GLM-5.3 网络安全风险",
+      "生命科学 LSVP 开放 Mythos/Opus/Sonnet",
+      "双重授权分级 Standard Use 与 High-risk Use",
+      "机器人暴露指数：可胜任 75% 物理任务",
+      "AI 与社会议题成 Anthropic 话语权争夺阵地"
+    ],
+    "ai-hn": [
+      "YC S25 Magnitude 131 分登顶 HN",
+      "Anthropic IPO 招股书披露 420 亿美元年亏损",
+      "Google Gemini 4 Argon 重回前三实验室",
+      "Kimi 披露协同模型蒸馏攻击事件",
+      "FTC 启动对 Anthropic/OpenAI 调查",
+      "Parrot 本地优先会议录制工具走热"
+    ],
+    "ai-arxiv": [
+      "循环架构复兴：共享块递归挑战堆参数路径",
+      "Agent Harness 演化成新研究热点",
+      "27.5% 网页 token 已是 AI 生成",
+      "Looped MoE 标度律验证循环×稀疏协同",
+      "174 语言遗忘基准揭示跨语言漏洞",
+      "扩散 LM 蒸馏压缩评估到极少步数"
+    ],
+    "ai-community": [
+      "slopsquatting AI 编造包名被注册为恶意包",
+      "OpenAPPA 为 Agent 提供确定性护栏方案",
+      "十年开发者反思 AI 揭示真正不可替代技能",
+      "Gemma 4 Int4 在 T4 上 2.86 GiB 跑 E2B",
+      "前端工程师生存焦虑：AI 替代与保留拆解",
+      "629 次攻击测试揭露护栏绿灯形同虚设"
+    ],
+    "ai-embodied": [
+      "Raspberry Pi 驱动家用人形机器人 Flourish One 走向 C 端",
+      "ASI × SoftBank 部署建筑自主机器人车队",
+      "newton 物理引擎与 IsaacLab MuJoCo-Warp 共筑栈",
+      "Innodata 开放动捕实验室补位 sim-to-real",
+      "VLA 工程化覆盖数据训练推理部署全链路",
+      "ForceN 在 RoboBusiness 开力矩传感速成课"
+    ],
+    "ai-embedded": [
+      "Arduino 聚焦边缘 AI Agent 极简化与低成本化",
+      "超导晶体管助力量子计算机可行性探讨",
+      "开源三录仪展示多传感器融合范例",
+      "Pogo-Bot 顺应性脚单足越野机器人",
+      "DIY 喷气涡轮展示极端控制回路设计",
+      "模型量化与 KV-cache 压缩加速落地"
+    ],
+    "ai-cad": [
+      "FreeCAD 1.1.4 发布主推稳定性修复",
+      "FreeCAD 社区推出 AI/MCP 集成工具",
+      "Code-CAD 与 AI 辅助建模融合加深",
+      "OrcaSlicer PrusaSlicer 切片器生态活跃",
+      "自托管打印农场 Bambuddy mainsail 受关注",
+      "Factorio 入驻 Printables 游戏资产走向现实"
+    ]
+  },
+  "en": {}
+}
