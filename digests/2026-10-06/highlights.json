@@ -1,0 +1,93 @@
+{
+  "zh": {
+    "ai-cli": [
+      "OpenAI Codex单日合入46个PR，一骑绝尘",
+      "GitHub Copilot CLI同日发布4个版本，小步快跑",
+      "Claude Code发布v2.1.290/v2.1.291双版本",
+      "Windows平台兼容性成四款工具共识痛点",
+      "MCP协议已演化为AI CLI生态枢纽层",
+      "多代理协作Subagent成为新一代编程范式"
+    ],
+    "ai-agents": [
+      "OpenClaw生态覆盖13个项目，500 Issues/PRs",
+      "NanoClaw发布v2026.10.0-rc.2，高健康度",
+      "PicoClaw安全披露缺失，社区Fork接管浮现",
+      "Hermes Agent进入Pain Cluster集中修复阶段",
+      "SKILL.md与MCP已成5项目以上事实标准",
+      "维护可持续性两极分化，头尾差距悬殊"
+    ],
+    "ai-trending": [
+      "Agent-Reach单日涨星1155，增速全场第一",
+      "claude-mem跨会话持久化上下文兼容全主流Agent",
+      "Open Montage开源12条流水线视频生产系统",
+      "Token压缩工具成为继RAG后新基础设施热点",
+      "agency-agents打造一站式多角色AI代理公司",
+      "Cloudflare入局Agent工作空间赛道"
+    ],
+    "ai-web": [
+      "Anthropic研究：机器人可执行75%体力任务",
+      "机器人仅在0.3%任务上具成本竞争力",
+      "成本而非能力是机器人部署真正瓶颈",
+      "OpenAI披露欧盟内容溯源合规策略",
+      "ChatGPT广告产品形态迭代信号隐现",
+      "机器人与LLM就业替代呈互补关系共覆盖80%"
+    ],
+    "ai-hn": [
+      "Anthropic因上报用户对话遭重罪指控争议606分",
+      "维基媒体曝光OpenAI流氓代理活动264分热议",
+      "Claude Code让工程师感觉工作失去灵魂",
+      "社区反思AI公司监控边界与商业策略",
+      "OpenAI欧盟文本溯源合规帖64分热议",
+      "Self-bench开源编码代理基准测试项目上线"
+    ],
+    "ai-arxiv": [
+      "基础模型固定起始token即可激活推理能力",
+      "Looped Models从不动点理论重构循环语言模型",
+      "幂分布蒸馏无需搜索提升采样正确率",
+      "记忆管理成新热点：MemPilot等多篇集中探索",
+      "AI科研可信度受关注：IdeaLens检测AI思路",
+      "BazaarBench等代理研究渗透各任务场景"
+    ],
+    "ai-hf": [
+      "Qwen3.8-27B以17046点赞稳居本周榜首",
+      "Lightricks/LTX-2.5一周拿下6500+点赞成视频黑马",
+      "DeepSeek-V4.1-Flash主打低延迟多模态推理",
+      "Qwen3.8社区微调变体数十个生态井喷",
+      " loudflare自研clef多模态模型主打边缘部署",
+      "Aleph-Alpha Kolibri-1强调MoE可解释性"
+    ],
+    "ai-community": [
+      "AI审计日志可信度危机引发社区深度反思",
+      "文档爬虫MCP Server 49秒抓60页Markdown提升RAG",
+      "Playwright MCP+Claude Code写E2E测试成熟落地",
+      "AI FinOps范本：用OpenTelemetry做LLM成本归因",
+      "Whisper口音偏见与时区知识滞后引评测反思",
+      "AI编码可靠性：Agent测试绿了却抓不到真问题"
+    ],
+    "ai-embodied": [
+      "   士顿动力Atlas新手采用工程化灵巧手设计",
+      "InterMimicGen自演化扩展人形机器人训练数据",
+      "RealtimeWAM将世界动作模型推理压缩至单步异步",
+      "FCC机器人无线电限制或推动本地AI加速部署",
+      "Physical AI专利战被指为下一个十年主战场",
+      "MuJoCo/Isaac Lab  Newton多物理后端竞争加剧"
+    ],
+    "ai-embedded": [
+      "Arduino UNO Q板跑Linux开启边缘AI Agent时代",
+      "开源FPGA专栏持续推动开源芯片生态进程",
+      "DIY低成本多自由度灵巧机器人手项目亮相",
+      "3D打印跨音速R/C喷气机展示桌面制造极限",
+      "无风扇PC失败案例反思被动散热边界条件",
+      "3D打印微塑料水过滤器展现Maker公益潜力"
+    ],
+    "ai-cad": [
+      "FreeCAD基金会公布2026 Q3资助项目名单",
+      "MCP协议成CAD新标配：三大MCP服务器密集冒头",
+      "Bambu Lab自托管生态bambuddy削弱云端依赖",
+      "MeshLab/three-mesh-bvh等几何处理库涌现工程信号",
+      "CAD生态从软件+插件向智能体+工作流演进",
+      "WIP Wednesday多Workbench进展协同效率显著"
+    ]
+  },
+  "en": {}
+}
